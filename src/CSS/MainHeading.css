@@ -1,0 +1,141 @@
+.page-wrapper {
+  position: relative;
+  z-index: 1000;
+
+}
+
+/* ── ANNOUNCEMENT BANNER ── */
+.announcement-banner {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  padding: 10px 10px;
+  overflow: hidden;
+}
+
+.banner-inner {
+  position: relative;
+  border: 1px solid rgba(80, 120, 255, 0.4);
+  border-radius: 10px;
+  padding: 5px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-origin: center center; /* needed for scaleX GSAP anim */
+}
+
+/* top glow dot */
+.banner-inner::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: radial-gradient(ellipse, #4fc3f7 0%, #1565c0 60%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* bottom glow dot */
+.banner-inner::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: radial-gradient(ellipse, #4fc3f7 0%, #1565c0 60%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* dot patterns */
+.banner-dots-left,
+.banner-dots-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 60px;
+  opacity: 0.25;
+  background-image: radial-gradient(circle, #5b8fff 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.banner-dots-left {
+  left: 10px;
+}
+
+.banner-dots-right {
+  right: 10px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.banner-arrow {
+  color: #4a90e2;
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.9;
+}
+
+.banner-arrow-left {
+  left: 30px;
+}
+
+.banner-arrow-right {
+  right: 30px;
+}
+
+/* ── BANNER TEXT ── */
+.banner-text {
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'Barlow', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Each word is individually animated */
+.word {
+  display: inline-block;
+  will-change: transform, opacity, clip-path;
+}
+
+.highlight-cyan {
+  color: #29b6f6;
+}
+
+.highlight-purple {
+  color: #ba68c8;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+══════════════════════════════════════════════ */
+@media (max-width: 639px) {
+  .banner-text {
+    font-size: 14px;
+    line-height: 24px;
+    gap: 5px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .banner-text {
+    font-size: 24px;
+  }
+}

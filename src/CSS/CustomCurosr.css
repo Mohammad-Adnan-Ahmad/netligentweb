@@ -1,0 +1,429 @@
+/* ═══════════════════════════════════════════
+   CSS VARIABLES — change colors here only
+   Format: R, G, B  (no rgba wrapper needed)
+═══════════════════════════════════════════ */
+:root {
+  /* ── Circle (outer trailing ring) ── */
+  --cursor-circle-rgb:        150, 120, 255;   /* default: gold        */
+  --cursor-circle-click-rgb: 255, 200, 80;   /* on click: bright gold */
+
+  /* ── Dot (inner precise point) ── */
+  --cursor-dot-rgb:          150, 120, 255;   /* default: gold        */
+  --cursor-dot-click-rgb:    255, 200, 80;   /* on click: bright gold */
+
+}
+
+
+/* ─────────────────────────────────────────
+   GLOBAL — hide native cursor everywhere
+───────────────────────────────────────── */
+* {
+  cursor: none !important;
+}
+
+
+/* ─────────────────────────────────────────
+   CURSOR — outer trailing circle (base)
+───────────────────────────────────────── */
+.cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transition:
+    width      0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    height     0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    border     0.3s  ease,
+    background 0.3s  ease,
+    box-shadow 0.3s  ease,
+    margin     0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity    0.4s  ease;
+}
+
+/* ── Default state ── */
+.cursor-circle.is-default {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border: 1.5px solid rgba(var(--cursor-circle-rgb), 0.75);
+  background: rgba(var(--cursor-circle-rgb), 0.03);
+  box-shadow:
+    /* tight bright ring glow */
+    0 0  6px  2px rgba(var(--cursor-circle-rgb), 0.35),
+    /* mid soft halo */
+    0 0 18px  4px rgba(var(--cursor-circle-rgb), 0.18),
+    /* wide diffused aura */
+    0 0 36px  8px rgba(var(--cursor-circle-rgb), 0.08),
+    /* inner subtle fill */
+    inset 0 0 10px 2px rgba(var(--cursor-circle-rgb), 0.06);
+  animation: glow-breathe 2.4s ease-in-out infinite;
+}
+
+/* ── Hover state ── */
+.cursor-circle.is-hovering {
+  width: 48px;
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+  border: 1.5px solid rgba(var(--cursor-circle-rgb), 0.95);
+  background: rgba(var(--cursor-circle-rgb), 0.07);
+  box-shadow:
+    /* sharp bright ring */
+    0 0   8px  3px rgba(var(--cursor-circle-rgb), 0.55),
+    /* mid halo */
+    0 0  22px  6px rgba(var(--cursor-circle-rgb), 0.30),
+    /* wide aura */
+    0 0  50px 12px rgba(var(--cursor-circle-rgb), 0.12),
+    /* extra wide fade */
+    0 0  80px 20px rgba(var(--cursor-circle-rgb), 0.05),
+    /* inner warm fill */
+    inset 0 0 14px 4px rgba(var(--cursor-circle-rgb), 0.10);
+  animation:
+    glow-breathe-hover 1.5s ease-out infinite,
+    pulse-ring         1.5s ease-out infinite;
+}
+
+/* ── Click state ── */
+.cursor-circle.is-clicking {
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  border: 1.5px solid rgba(var(--cursor-circle-click-rgb), 1);
+  background: rgba(var(--cursor-circle-click-rgb), 0.06);
+  box-shadow:
+    0 0 10px  3px rgba(var(--cursor-circle-click-rgb), 0.65),
+    0 0 28px  8px rgba(var(--cursor-circle-click-rgb), 0.25),
+    0 0 55px 14px rgba(var(--cursor-circle-click-rgb), 0.10),
+    inset 0 0 10px 2px rgba(var(--cursor-circle-click-rgb), 0.12);
+  animation: none;
+}
+
+/* ── Hidden state ── */
+.cursor-circle.is-hidden {
+  opacity: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   CURSOR — inner dot (exact mouse position)
+───────────────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  will-change: transform;
+  background: rgba(var(--cursor-dot-rgb), 1);
+  box-shadow: 0 0 6px rgba(var(--cursor-dot-rgb), 0.8);
+  transition:
+    width      0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    height     0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    margin     0.2s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity    0.4s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cursor-dot.is-default {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+
+.cursor-dot.is-hovering {
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+  box-shadow: 0 0 10px rgba(var(--cursor-dot-rgb), 0.8);
+}
+
+.cursor-dot.is-clicking {
+  width: 3px;
+  height: 3px;
+  margin-left: -1.5px;
+  margin-top: -1.5px;
+  background: rgba(var(--cursor-dot-click-rgb), 1);
+}
+
+.cursor-dot.is-hidden {
+  opacity: 0;
+}
+
+
+/* ─────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────── */
+
+/* Expanding ring ripple on hover */
+@keyframes pulse-ring {
+  0% {
+    box-shadow:
+      0 0 0    0 rgba(var(--cursor-circle-rgb), 0.35),
+      0 0 22px 6px rgba(var(--cursor-circle-rgb), 0.30),
+      0 0 50px 12px rgba(var(--cursor-circle-rgb), 0.12),
+      inset 0 0 14px 4px rgba(var(--cursor-circle-rgb), 0.10);
+  }
+  70% {
+    box-shadow:
+      0 0 0   14px rgba(var(--cursor-circle-rgb), 0),
+      0 0 22px 6px rgba(var(--cursor-circle-rgb), 0.30),
+      0 0 50px 12px rgba(var(--cursor-circle-rgb), 0.12),
+      inset 0 0 14px 4px rgba(var(--cursor-circle-rgb), 0.10);
+  }
+  100% {
+    box-shadow:
+      0 0 0    0 rgba(var(--cursor-circle-rgb), 0),
+      0 0 22px 6px rgba(var(--cursor-circle-rgb), 0.30),
+      0 0 50px 12px rgba(var(--cursor-circle-rgb), 0.12),
+      inset 0 0 14px 4px rgba(var(--cursor-circle-rgb), 0.10);
+  }
+}
+
+/* Gentle glow breath — default state */
+@keyframes glow-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0  6px  2px rgba(var(--cursor-circle-rgb), 0.35),
+      0 0 18px  4px rgba(var(--cursor-circle-rgb), 0.18),
+      0 0 36px  8px rgba(var(--cursor-circle-rgb), 0.08),
+      inset 0 0 10px 2px rgba(var(--cursor-circle-rgb), 0.06);
+  }
+  50% {
+    box-shadow:
+      0 0  8px  3px rgba(var(--cursor-circle-rgb), 0.50),
+      0 0 24px  6px rgba(var(--cursor-circle-rgb), 0.26),
+      0 0 48px 12px rgba(var(--cursor-circle-rgb), 0.12),
+      inset 0 0 14px 3px rgba(var(--cursor-circle-rgb), 0.10);
+  }
+}
+
+/* Intensified glow breath — hover state */
+@keyframes glow-breathe-hover {
+  0%, 100% {
+    box-shadow:
+      0 0   8px  3px rgba(var(--cursor-circle-rgb), 0.55),
+      0 0  22px  6px rgba(var(--cursor-circle-rgb), 0.30),
+      0 0  50px 12px rgba(var(--cursor-circle-rgb), 0.12),
+      0 0  80px 20px rgba(var(--cursor-circle-rgb), 0.05),
+      inset 0 0 14px 4px rgba(var(--cursor-circle-rgb), 0.10);
+  }
+  50% {
+    box-shadow:
+      0 0  12px  5px rgba(var(--cursor-circle-rgb), 0.75),
+      0 0  30px  9px rgba(var(--cursor-circle-rgb), 0.42),
+      0 0  65px 18px rgba(var(--cursor-circle-rgb), 0.18),
+      0 0 100px 28px rgba(var(--cursor-circle-rgb), 0.08),
+      inset 0 0 18px 6px rgba(var(--cursor-circle-rgb), 0.15);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0px)   translateX(0px);   opacity: 0.4; }
+  33%       { transform: translateY(-18px) translateX(8px);   opacity: 0.7; }
+  66%       { transform: translateY(-8px)  translateX(-12px); opacity: 0.5; }
+}
+
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — layout & base
+───────────────────────────────────────── */
+.demo-page {
+  min-height: 100vh;
+  background: #0a0a0f;
+  color: #e8e0d0;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(60, 40, 120, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 80% 70%, rgba(20, 60, 100, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(var(--cursor-circle-rgb), 0.04) 0%, transparent 70%);
+}
+
+.demo-bg-lines {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.07;
+}
+
+.demo-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — particles
+───────────────────────────────────────── */
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-float linear infinite;
+}
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — header section
+───────────────────────────────────────── */
+.demo-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.demo-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(var(--cursor-circle-rgb), 0.7);
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(var(--cursor-circle-rgb), 0.2);
+  padding-bottom: 8px;
+  font-family: system-ui, sans-serif;
+}
+
+.demo-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+  color: #f0e8d8;
+}
+
+.demo-title em {
+  color: rgba(var(--cursor-circle-rgb), 0.85);
+  font-style: italic;
+}
+
+.demo-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(232, 224, 208, 0.55);
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — cards grid
+───────────────────────────────────────── */
+.demo-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.demo-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(var(--cursor-circle-rgb), 0.15);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: left;
+  color: inherit;
+  transition:
+    background   0.3s ease,
+    border-color 0.3s ease,
+    transform    0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.demo-card:hover {
+  background: rgba(var(--cursor-circle-rgb), 0.06);
+  border-color: rgba(var(--cursor-circle-rgb), 0.4);
+  transform: translateY(-4px);
+}
+
+.demo-card-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: rgba(var(--cursor-circle-rgb), 0.7);
+}
+
+.demo-card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #f0e8d8;
+}
+
+.demo-card-sub {
+  font-size: 0.85rem;
+  color: rgba(232, 224, 208, 0.45);
+  font-family: system-ui, sans-serif;
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — CTA button
+───────────────────────────────────────── */
+.demo-cta {
+  text-align: center;
+}
+
+.demo-cta-link {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid rgba(var(--cursor-circle-rgb), 0.5);
+  border-radius: 100px;
+  color: rgba(var(--cursor-circle-rgb), 0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: system-ui, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.demo-cta-link:hover {
+  background: rgba(var(--cursor-circle-rgb), 0.12);
+  color: #f0e8d8;
+}
+
+/* ─────────────────────────────────────────
+   DEMO PAGE — code snippet block
+───────────────────────────────────────── */
+.demo-code {
+  margin-top: 80px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(var(--cursor-circle-rgb), 0.12);
+  border-radius: 12px;
+  padding: 28px 32px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: rgba(232, 224, 208, 0.5);
+}
+
+.demo-code-label {
+  color: rgba(var(--cursor-circle-rgb), 0.6);
+  margin-bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.demo-code .token-keyword { color: rgba(120, 160, 220, 0.8); }
+.demo-code .token-number  { color: rgba(var(--cursor-circle-rgb), 0.8); }
+.demo-code .token-comment { color: rgba(140, 200, 140, 0.6); margin-top: 8px; display: block; }

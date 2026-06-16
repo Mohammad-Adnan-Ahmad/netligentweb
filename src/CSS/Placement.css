@@ -1,0 +1,596 @@
+/* ============================================================
+   Placement.css — with infinite marquee slider
+   ============================================================ */
+
+/* ── Page ── */
+.sp-page {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0 64px;
+  font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════
+   Section Label
+══════════════════════════════ */
+.ps-label-wrap {
+  margin-bottom: 16px;
+}
+
+.ps-label {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  color: #c7d2fe;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  padding: 6px 20px;
+}
+
+/* ══════════════════════════════
+   Heading
+══════════════════════════════ */
+.ps-heading {
+  color: #ffffff;
+  font-size: clamp(26px, 3.8vw, 50px);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.22;
+  margin: 0 0 18px;
+}
+
+.ps-heading-grad {
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════════════════
+   Subtext
+══════════════════════════════ */
+.ps-sub {
+  color: #94a3b8;
+  font-size: 15.5px;
+  text-align: center;
+  line-height: 1.75;
+  margin: 0 0 20px;
+ 
+  width: 30%;
+}
+
+/* ══════════════════════════════
+   Divider
+══════════════════════════════ */
+.ps-divider {
+  width: 46px;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #4f46e5);
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+/* ══════════════════════════════
+   Expanded detail card (above slider)
+══════════════════════════════ */
+.sp-expanded-wrap {
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 16px;
+  animation: fade-down 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-16px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);     }
+}
+
+/* ══════════════════════════════
+   Marquee Viewport
+══════════════════════════════ */
+.marquee-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0 20px;
+}
+
+/* Soft edge fade */
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee-fade--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, transparent 100%);
+}
+
+.marquee-fade--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, transparent 100%);
+}
+
+/* Scrolling track */
+.marquee-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════
+   Dot indicators
+══════════════════════════════ */
+.sp-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 400px;
+}
+
+.sp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
+}
+
+.sp-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.25);
+}
+
+.sp-dot--active {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  transform: scale(1.35);
+}
+
+/* ============================================================
+   Company Logo
+   ============================================================ */
+.company-logo-img {
+  display: block;
+  object-fit: contain;
+}
+
+.company-logo-img--sm {
+  height: 22px;
+  width: auto;
+  max-width: 110px;
+}
+
+.company-logo-img--lg {
+  height: 38px;
+  width: auto;
+  max-width: 160px;
+}
+
+.logo-default {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* ============================================================
+   Small Card
+   ============================================================ */
+.sm-card {
+  width: 198px;
+  border: 1.5px solid rgba(99, 115, 255, 0.32);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 28px rgba(79, 70, 229, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sm-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(96, 165, 250, 0.45);
+  border-color: rgba(96, 165, 250, 0.6);
+}
+
+.sm-card--active {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 2px #818cf8, 0 8px 28px rgba(129, 140, 248, 0.45);
+  transform: translateY(-4px);
+}
+
+.sm-card__header {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6ee7b7;
+}
+
+.sm-card__header span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.sm-card__body {
+  padding: 12px 14px;
+  flex: 1;
+}
+
+.sm-card__congrats {
+  font-style: italic;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.sm-card__photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sm-card__photo {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  transition: transform 0.22s ease;
+}
+
+.sm-card:hover .sm-card__photo {
+  transform: scale(1.06);
+}
+
+.sm-card__name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 13.5px;
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.sm-card__logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  min-height: 26px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+  padding: 2px 6px;
+}
+
+.sm-card__role-badge {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.sm-card__role-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+
+.sm-card__role-text {
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.sm-card__hint {
+  background: white;
+  color: black;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  padding: 4px 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.sm-card:hover .sm-card__hint {
+  opacity: 1;
+}
+
+/* ============================================================
+   Expanded Card
+   ============================================================ */
+.exp-card {
+  display: flex;
+  width: 520px;
+  min-height: 340px;
+  overflow: hidden;
+  animation: exp-pop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  position: relative;
+  border: 1.5px solid rgba(99, 115, 255, 0.45);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 40px rgba(79, 70, 229, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  max-width: 100%;
+}
+
+@keyframes exp-pop {
+  from { opacity: 0; transform: scale(0.88) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+.exp-card__sidebar {
+  width: 48px;
+  flex-shrink: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-card__sidebar-text {
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.exp-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-card__body::before {
+  content: "PLACED";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 40px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  letter-spacing: 4px;
+  white-space: nowrap;
+}
+
+.exp-card__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-card__hero {
+  display: flex;
+  gap: 12px;
+  padding: 10px 16px 0;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.exp-card__hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exp-card__got-placed {
+  font-style: italic;
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.exp-card__name {
+  font-weight: 900;
+  font-size: 22px;
+  color: white;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.exp-card__placed-label {
+  font-size: 9px;
+  color: white;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.exp-card__company-logo {
+  margin-top: 2px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.exp-card__role-bar {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 6px;
+  padding: 7px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.exp-card__role-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 8px;
+}
+
+.exp-card__role-text {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.exp-card__hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.exp-card__photo {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.exp-card__desc {
+  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.exp-card__desc p {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.769);
+  line-height: 1.6;
+  margin: 0 0 4px;
+}
+
+.exp-card__hl {
+  color: white;
+  font-weight: 700;
+}
+
+.exp-card__wish {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.769) !important;
+}
+
+.exp-card__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border: none;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.15s;
+}
+
+.exp-card__close:hover {
+  background: rgba(0, 0, 0, 0.38);
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+══════════════════════════════════════════════ */
+@media (max-width: 380px) {
+  .ps-heading{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ps-label { font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; }
+}
+@media (max-width: 639px) {
+
+.ps-sub{
+    width: 90% !important;
+    line-height: 20px;
+    
+  }
+}
+
+
+@media (max-width: 768px) {
+  .ps-sub { font-size: 14px; }
+ 
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .ps-sub{
+    width: 50%;
+    line-height: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+   .ps-sub{
+    width: 50%;
+    line-height: 20px;
+  }
+}
+
+

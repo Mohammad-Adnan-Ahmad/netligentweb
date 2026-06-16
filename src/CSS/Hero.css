@@ -1,0 +1,529 @@
+/* ── HeroSection.css ─────────────────────────────────────────────────────────── */
+
+/* ── Root wrapper ── */
+.hero-root {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  width: 100%;
+  top: 0;
+  display: flex;
+  padding-bottom: 50px;
+}
+
+
+/* ══════════════════════════════════════════════
+   HERO SECTION WRAPPER
+══════════════════════════════════════════════ */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 36px 48px 0;
+  position: relative;
+  z-index: 10;
+  gap: 0;
+  /* min-height: calc(100vh - 140px); */
+  width: 100%;
+
+}
+
+.hero-section.stacked {
+  flex-direction: column;
+  padding: 28px 28px 24px;
+  gap: 28px;
+  min-height: auto;
+}
+
+.hero-section.stacked.mobile {
+  padding: 24px 16px 20px;
+}
+
+/* ── Floating IT icons canvas ── */
+.floating-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════
+   LEFT COPY PANEL
+══════════════════════════════════════════════ */
+.hero-left {
+  flex: 0 0 43%;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 2;  
+}
+
+.hero-left.centered {
+  text-align: left;
+  max-width: 540px;
+  margin: 0 auto;
+  flex: none;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATED LEFT SECTION — ARE YOU READY
+══════════════════════════════════════════════ */
+
+/* "Are You Ready?" words */
+.hl-ready-wrap {
+  margin-bottom: 10px;
+  line-height: 1.1;
+
+ 
+}
+
+.hl-ready-word {
+  display: inline-block;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin-right: 14px;
+  opacity: 0;
+  transform: scale(0.08) rotate(-8deg);
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 0px rgba(129, 140, 248, 0));
+
+}
+
+.hl-ready-word.pop {
+  animation: hlWordPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes hlWordPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.05) rotate(-8deg);
+    filter: drop-shadow(0 0 0px rgba(129, 140, 248, 0));
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.2) rotate(3deg);
+    filter: drop-shadow(0 0 24px rgba(129, 140, 248, 1));
+  }
+  75% {
+    transform: scale(0.92) rotate(-1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 8px rgba(129, 140, 248, 0.35));
+  }
+}
+
+/* Subtitle */
+.hl-subtitle {
+  font-size: clamp(13px, 1.6vw, 18px);
+  font-weight: 700;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(18px);
+  margin-bottom: 26px;
+  letter-spacing: -0.2px;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.hl-subtitle.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Divider */
+.hl-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.35), transparent);
+  margin: 0 0 18px 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hl-divider.show {
+  opacity: 1;
+}
+
+/* "Our Strengths" label */
+.hl-strength-label {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  color: white;
+  text-transform: uppercase;
+  opacity: 0;
+  margin-bottom: 16px;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+  transition: opacity 0.55s ease;
+}
+
+.hl-strength-label.show {
+  opacity: 1;
+}
+
+/* Strengths list */
+.hl-strengths {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual strength card */
+.hl-strength-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateX(-44px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.hl-strength-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Icon box */
+.hl-strength-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  border: 1.5px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.hl-strength-item:hover .hl-strength-icon {
+  transform: scale(1.14) rotate(-5deg);
+}
+
+/* Text block */
+.hl-strength-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hl-strength-name {
+  font-size: clamp(13px, 1.5vw, 15px);
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.25;
+  margin-bottom: 2px;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+}
+
+.hl-strength-desc {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+}
+
+/* Progress bar */
+.hl-strength-bar {
+  height: 2px;
+  border-radius: 2px;
+  width: 0;
+  margin-top: 7px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hl-strength-item.show .hl-strength-bar {
+  width: 100%;
+}
+
+
+/* ══════════════════════════════════════════════
+   RIGHT ORBITAL PANEL
+══════════════════════════════════════════════ */
+.hero-right {
+  flex: 0 0 54%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: right;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  margin-top: -40px;
+ 
+}
+
+/* Orbital stage */
+.orbit-stage {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Outer ring */
+.orbit-ring-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(99, 102, 241, 0.25);
+  z-index: 1;
+}
+
+/* Inner ring */
+.orbit-ring-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(139, 92, 246, 0.18);
+  z-index: 1;
+}
+
+
+/* Center AI bubble */
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #1e1b4b, #080d24);
+  border: 2px solid rgba(99, 102, 241, 0.55);
+  box-shadow:
+    0 0 70px #4f46e588,
+    0 0 130px #4f46e530,
+    inset 0 0 50px #1e1b4b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.orbit-center .AI_Logo {
+  width: 50%;
+}
+
+
+
+.orbit-center-label {
+  font-size: 15px;
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-top: 2px;
+  font-family: 'Barlow', sans-serif;
+}
+
+.orbit-center-label.mobile { font-size: 11px; }
+
+.orbit-center-sublabel {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Barlow', sans-serif;
+}
+
+.orbit-center-sublabel.mobile { font-size: 11px; }
+
+.orbit-center-sublabel-gradient {
+  background: linear-gradient(90deg, #818cf8, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Course node wrapper */
+.orbit-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 10;
+}
+
+/* Course node circle */
+.orbit-node-circle {
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 32% 32%, #1e1b4b, #090910);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+/* Course node label */
+.orbit-node-label {
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+  font-family: 'Barlow', sans-serif;
+}
+
+.orbit-node-label.mobile { font-size: 8px; }
+
+/* Accent dots on orbit ring */
+.orbit-accent-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+══════════════════════════════════════════════ */
+
+@media (max-width: 345px) {
+     .hero-right {
+    margin-top: -120px;
+  }
+ 
+}
+@media (max-width: 362px) {
+     .hero-right {
+    margin-top: 60px;
+  }
+ 
+}
+
+@media (max-width: 380px) {
+  .hero-left {
+    padding-bottom: 40px;
+  }
+   /* .hero-root {
+    padding-top: 80px;
+  } */
+   .hero-right{
+    margin-top: 140px;
+    justify-content: center;
+   }
+}
+
+@media (max-width: 391px) {
+  
+  .hero-right {
+    /* padding-top: 100px; */
+    justify-content: center;
+  }
+}
+@media (max-width: 639px) {
+
+  .hero-root {
+    padding-bottom: 10px;
+    /* padding-top: 90px; */
+  }
+
+  .hero-section {
+    flex-direction: column;
+    padding: 24px 16px 20px;
+    /* gap: 28px; */
+    min-height: auto;
+  
+    justify-content: center;
+    
+  }
+
+  .hero-left {
+    text-align: center;
+    max-width: 100%;
+    flex: none;
+    margin: 0 auto;
+  }
+
+  .hl-ready-wrap {
+    text-align: left;
+  }
+
+  .hl-strength-item {
+    text-align: left;
+  }
+
+  .orbit-center .AI_Logo {
+    width: 40%;
+  }
+
+  .hero-right {
+    order: 1;
+    flex: 0 0 44%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .hero-left {
+    order: 2;
+  }
+
+  .orbit-node-label { font-size: 8px; }
+  .orbit-accent-dot { width: 4px; height: 4px; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+.hero-root {
+  /* height: 100vh; */
+}
+
+  .hero-section {
+      margin-top: -100px;
+  }
+
+  .hero-left {
+    text-align: center;
+    max-width: 540px;
+    flex: none;
+    margin: 0 auto;
+     order: 2;
+    
+  }
+
+  .hl-ready-wrap {
+    text-align: center;
+  }
+
+  .hl-strength-item {
+    text-align: left;
+  }
+
+  .hero-right { flex: none;
+ order: 1;
+margin-top: 100px;
+justify-content: center;
+}
+
+}
+
+@media (min-width: 1024px) {
+  .hero-left  { 
+    flex: 0 0 43%; 
+    text-align: left; 
+    max-width: none; 
+    margin: 0; }
+  .hero-right { flex: 0 0 54%; }
+}

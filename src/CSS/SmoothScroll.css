@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════
+   SCROLLBAR CSS VARIABLES — edit here only
+═══════════════════════════════════════════ */
+:root {
+  /* ── Scrollbar track (background) ── */
+  --scrollbar-track-color:      #0a1628;      
+  /* ── Scrollbar thumb (the draggable bar) ── */
+  --scrollbar-thumb-rgb:        0, 220, 255;  
+  --scrollbar-thumb-hover-rgb:  0, 245, 255;   
+
+  /* ── Scrollbar size ── */
+  --scrollbar-width:            6px;           /* thin = elegant */
+
+  /* ── Progress bar (top of page) ── */
+  --scrollbar-progress-rgb:     0, 220, 255; 
+}
+
+
+/* ─────────────────────────────────────────
+   SMOOTH SCROLL — native CSS
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ─────────────────────────────────────────
+   SCROLLBAR — WebKit (Chrome, Edge, Safari)
+───────────────────────────────────────── */
+
+/* Overall scrollbar width */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width); /* for horizontal scrollbars */
+}
+
+/* Track — the background rail */
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+  border-radius: 999px;
+}
+
+/* Thumb — the draggable part */
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--scrollbar-thumb-rgb), 0.5);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track-color); /* creates padding illusion */
+  transition: background 0.3s ease;
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--scrollbar-thumb-hover-rgb), 0.85);
+  box-shadow: 0 0 8px rgba(var(--scrollbar-thumb-hover-rgb), 0.6);
+}
+
+/* Thumb active (while dragging) */
+::-webkit-scrollbar-thumb:active {
+  background: rgba(var(--scrollbar-thumb-hover-rgb), 1);
+  box-shadow: 0 0 14px rgba(var(--scrollbar-thumb-hover-rgb), 0.8);
+}
+
+/* Corner (where horizontal meets vertical) */
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track-color);
+}
+
+
+/* ─────────────────────────────────────────
+   SCROLLBAR — Firefox
+───────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--scrollbar-thumb-rgb), 0.5) var(--scrollbar-track-color);
+}
+
+
+/* ─────────────────────────────────────────
+   SCROLL PROGRESS BAR — thin line at top
+   (Requires SmoothScroll.jsx to work)
+───────────────────────────────────────── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;                                   /* updated via JS in SmoothScroll.jsx */
+  background: linear-gradient(
+    to right,
+    rgba(var(--scrollbar-progress-rgb), 0.6),
+    rgba(var(--scrollbar-progress-rgb), 1)
+  );
+  box-shadow:
+    0 0  6px 1px rgba(var(--scrollbar-progress-rgb), 0.6),
+    0 0 14px 2px rgba(var(--scrollbar-progress-rgb), 0.3);
+  z-index: 99998;
+  pointer-events: none;
+  border-radius: 0 999px 999px 0;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-progress-bar.is-complete {
+  opacity: 0;                                  /* fade out when fully scrolled */
+}
