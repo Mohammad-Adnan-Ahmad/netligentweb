@@ -25,19 +25,19 @@ const FEATURES = [
 const CELLS = [
   {
     label: 'Smart Classrooms',
-    src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&auto=format&fit=crop&q=80',
+    src: 'C2.jpg',
   },
   {
     label: 'Computer Labs',
-    src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop&q=80',
+    src: 'C3.jpg',
   },
   {
     label: 'Collaborative Spaces',
-    src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&auto=format&fit=crop&q=80',
+    src: 'C4.jpg',
   },
   {
     label: 'Library & Resources',
-    src: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&auto=format&fit=crop&q=80',
+    src: 'C5.jpg',
   },
   {
     label: 'Event & Seminar Hall',
@@ -92,7 +92,7 @@ export default function Infrastructure() {
           {/* Hero cell — lobby / reception */}
           <div className="cell cell-hero">
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80"
+              src="C1.jpg"
               alt="Netligent Campus Reception"
               loading="lazy"
             />

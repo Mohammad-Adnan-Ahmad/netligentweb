@@ -1,0 +1,310 @@
+/* ═══════════════════════════════════════
+   SECTION
+═══════════════════════════════════════ */
+.wwa-section {
+  padding: 20px 0;
+ font-family: 'Barlow', sans-serif;
+  position: relative;
+  overflow: hidden;
+  /* min-height: 100vh; */
+  width: 100%;
+  
+}
+
+
+/* ─── Container ── */
+.wwa-container {
+   background-color: #00000D;
+  margin: 0 auto;
+  padding: 20px 0px 20px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* align-items: center; */
+   /* border-color: rgba(96, 165, 250, 0.55); */
+  border-radius: 20px;
+  width: 96%;
+  border: 1.3px solid #3a5fb0;
+   /* box-shadow:
+    0 0 10px rgba(37, 99, 255, 0.5),
+    0 0 10px rgba(79, 70, 229, 0.45),
+    0 0 15px rgba(139, 92, 246, 0.4),
+    0 0 15px rgba(236, 72, 153, 0.35); */
+  
+}
+
+/* ═══════════════════════════════════════
+   LEFT COLUMN
+═══════════════════════════════════════ */
+.wwa-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Badge ── */
+.wwa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+   padding: 6px 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c7d2fe;
+  margin-bottom: 22px;
+  align-self: flex-start;
+}
+.wwa-badge svg {
+  width: 14px; height: 14px;
+  stroke: var(--blue-light); fill: none; stroke-width: 1.8;
+}
+
+/* ── Title ── */
+.wwa-title {
+  font-size: clamp(26px, 3.8vw, 40px);
+  font-weight: 900;
+  line-height: 1.22;
+  letter-spacing: 0px;
+  color: white;
+  margin-bottom: 18px;
+  
+}
+.wwa-title .t-gradient {
+   background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+
+/* ── Body text ── */
+.wwa-body {
+  font-size: 15.5px;
+    color: rgba(255, 255, 255, 0.837);
+   line-height: 1.75;
+  margin-bottom: 28px;
+
+}
+
+/* ── Founded card ── */
+.wwa-founded-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-purple);
+  border-radius: 16px;
+  padding: 22px 22px 22px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 38px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.wwa-founded-card:hover {
+  border-color: rgba(139,92,246,0.5);
+  box-shadow: 0 8px 32px rgba(139,92,246,0.1);
+}
+/* top shimmer */
+.wwa-founded-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.45), transparent);
+}
+
+.wwa-cal-icon {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: rgba(139,92,246,0.12);
+  border: 1.5px solid rgba(139,92,246,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.wwa-cal-icon svg {
+  width: 24px; height: 24px;
+  stroke: var(--purple-light); fill: none; stroke-width: 1.7;
+}
+
+.wwa-founded-text { flex: 1; }
+.wwa-founded-p {
+  font-size: 0.88rem;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.wwa-founded-p .date-highlight {
+   background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* mission bullet */
+.wwa-mission {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(59,130,246,0.07);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.wwa-mission-chevron {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(59,130,246,0.4);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.wwa-mission-chevron svg {
+  width: 11px; height: 11px;
+  stroke: var(--blue-light); fill: none; stroke-width: 2.5;
+}
+.wwa-mission-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.55;
+ color: white;
+}
+
+/* ── Our Story ── */
+
+.wwa-story-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.wwa-story-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(139,92,246,0.1);
+  border: 1.5px solid rgba(139,92,246,0.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wwa-story-icon svg {
+  width: 20px; height: 20px;
+  stroke: var(--purple-light); fill: none; stroke-width: 1.7;
+}
+.wwa-story-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0px;
+}
+.wwa-story-title .t-blue {
+  color: var(--blue-light);
+}
+
+.wwa-story-body {
+  font-size: 0.88rem;
+  color: white;
+  /* line-height: 1.75; */
+  letter-spacing: 0;
+  /* margin-bottom: 6px; */
+}
+/* .wwa-story-body + .wwa-story-body { margin-top: 8px; } */
+
+
+.wwa-story-highlight {
+  font-size: 1.4rem;
+  color: white;
+  line-height: 1.7;
+}
+.wwa-story-body2 {
+  font-size: 1.4rem;
+  color: white;
+  /* line-height: 1.75; */
+  letter-spacing: 0;
+  /* margin-bottom: 6px; */
+}
+.wwa-story-highlight .hl-blue    { color: var(--blue-light);   font-weight: 600; }
+.wwa-story-highlight .hl-purple  { color: var(--purple-light); font-weight: 600; }
+.wwa-story-highlight .hl-cyan    { color: var(--cyan);         font-weight: 600; }
+
+/* ═══════════════════════════════════════
+   RIGHT COLUMN — illustration
+═══════════════════════════════════════ */
+.wwa-right {
+  position: relative;
+  /* height: 600px; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* border: 2px solid white; */
+  
+  
+}
+
+
+.wwa-arch-ring-img{
+   /* position: absolute; */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-42%, -50%); */
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: -20px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+
+/* Particle wave bottom */
+
+/* ── Particle dots grid bottom-right ── */
+.wwa-dots-grid {
+  position: absolute;
+  bottom: -20px; right: 0px;
+  width: 280px; height: 200px;
+  background-image: radial-gradient(circle, rgba(139,92,246,0.35) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: radial-gradient(ellipse at bottom right, white 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at bottom right, white 0%, transparent 70%);
+}
+
+/* www footer */
+
+.wwa-footer{
+  border: 2px solid white;
+  width: 96%;
+   margin: 0 auto;
+   border: 1.3px solid #3a5fb0;
+  border-radius: 20px;
+   padding: 20px 0px 20px 48px;
+   margin: 18px auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* ─── Responsive ── */
+@media (max-width: 1060px) {
+  .wwa-container {
+    grid-template-columns: 1fr;
+    padding: 0 28px;
+    gap: 48px;
+    min-height: unset;
+  }
+  .wwa-right { height: 400px; }
+  .wwa-arch-ring { width: 380px; height: 380px; transform: translate(-50%,-50%); }
+}
+@media (max-width: 640px) {
+  .wwa-section { padding: 60px 0; }
+  .wwa-container { padding: 0 20px; }
+  .wwa-title { font-size: 1.8rem; }
+  .wwa-right { height: 300px; }
+  .wwa-arch-ring { width: 280px; height: 280px; }
+}

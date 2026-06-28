@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import "../../CSS/Hero.css"
+import '../../CSS/Hero.css'
 import {
   HackingIcon, AwsIcon, DevOpsIcon, WebDevIcon, CCNAIcon, AILogo,
   LockIcon, DataIcon, PowerBIIcon, DataScience, BrainIcon,

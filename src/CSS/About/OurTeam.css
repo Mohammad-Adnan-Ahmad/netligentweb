@@ -1,0 +1,536 @@
+/* ── Section wrapper ── */
+.ot-section {
+  position: relative;
+  width: 100%;
+  /* background: #060b18; */
+  padding: 80px 0 60px;
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+}
+
+
+.main_image {
+  position: absolute;
+  top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main_image img {
+  /* width: 100%; */
+  height: 800px;
+}
+
+.main_image div {
+  width: 100%;
+  height: 800px;
+  background-color: #060b18;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 1;
+}
+/* ── Ambient corner glows ── */
+.ot-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  opacity: 0.35;
+  z-index: 10;
+  border: 2px solid white;
+}
+
+.dot-bg-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  /* background: #000008; */
+}
+
+.dot-bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dot-bg-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ot-glow--tl {
+  width: 420px;
+  height: 420px;
+  top: -80px;
+  left: -80px;
+  background: radial-gradient(circle, #1e3a8a 0%, transparent 70%);
+}
+
+.ot-glow--br {
+  width: 360px;
+  height: 360px;
+  bottom: -60px;
+  right: -60px;
+  background: radial-gradient(circle, #4c1d95 0%, transparent 70%);
+}
+
+.color_line {
+  width: 200px;
+  height: 0.1px;
+  border: 1.5px solid rgba(96, 165, 250, 0.45);
+  background:
+    linear-gradient(#0b1020, #0b1020) padding-box,
+    linear-gradient(90deg, #2563ff, #4f46e5, #8b5cf6, #ec4899) border-box;
+  position: absolute;
+  top: 25vh;
+  left: 42%;
+  z-index: 100;
+}
+
+/* ── Container ── */
+.ot-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+  top: -7vh;
+}
+
+/* ── Badge ── */
+.ot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid rgba(96, 165, 250, 0.45);
+  border-radius: 10px;
+  padding: 7px 20px;
+  color: #e0e7ff;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  background: rgba(96, 165, 250, 0.06);
+  margin-bottom: 22px;
+  background:
+    linear-gradient(#0b1020, #0b1020) padding-box,
+    linear-gradient(90deg, #2563ff, #4f46e5, #8b5cf6, #ec4899) border-box;
+}
+
+.ot-badge__icon {
+  display: flex;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  color: #60a5fa;
+}
+
+/* ── Heading ── */
+.ot-heading {
+  font-family: "Nunito", sans-serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.ot-heading__brand {
+  background: linear-gradient(
+    90deg,
+    #2563ff 0%,
+    #4f46e5 10%,
+    #8b5cf6 30%,
+    #ec4899 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* text-shadow:
+  0 0 0px rgba(37, 99, 255, 0.6),
+  0 0 10px rgba(139, 92, 246, 0.5),
+  0 0 10px rgba(236, 72, 153, 0.4); */
+}
+t
+
+/* ── Sub-heading ── */
+.ot-subheading {
+  font-size: 15px;
+  font-weight: 500;
+  /* color: rgba(203, 213, 225, 0.75); */
+  color: white;
+  margin: 0 0 52px;
+  letter-spacing: 0.3px;
+  background-color: red;
+}
+
+.corner_blue_line_left {
+  width: 200px;
+  height: 250px;
+  position: absolute;
+  top: 50vh;
+  left: -10px;
+  box-shadow:
+    0 0 5px #00aaff,
+    0 0 10px #00aaff,
+    0 0 20px #00aaff,
+    0 0 40px rgba(0, 170, 255, 0.8);
+
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+.corner_blue_line_lef::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.pink-border {
+  width: 200px;
+  height: 250px;
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  z-index: -1;
+
+  box-shadow:
+    0 0 5px #ff4dff,
+    0 0 10px #ff4dff,
+    0 0 20px #d946ef,
+    0 0 40px rgba(217, 70, 239, 0.8);
+  overflow: visible;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+/* ── Grid ── */
+.ot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  /* margin-bottom: 6px; */
+  margin-top: 20vh;
+}
+
+@media (max-width: 1100px) {
+  .ot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .ot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ── */
+.ot-card {
+  position: relative;
+  background: linear-gradient(
+    160deg,
+    rgba(15, 28, 60, 0.92) 0%,
+    rgba(10, 18, 42, 0.97) 100%
+  );
+  border: 1.5px solid rgba(96, 165, 250, 0.22);
+  border-radius: 18px;
+  padding: 22px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    linear-gradient(#0b1020, #0b1020) padding-box,
+    linear-gradient(90deg, #2563ff, #4f46e5, #8b5cf6, #ec4899) border-box;
+}
+
+.ot-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(96, 165, 250, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.ot-card:hover {
+  border-color: rgba(96, 165, 250, 0.55);
+  box-shadow:
+    0 0 10px rgba(37, 99, 255, 0.5),
+    0 0 10px rgba(79, 70, 229, 0.45),
+    0 0 15px rgba(139, 92, 246, 0.4),
+    0 0 15px rgba(236, 72, 153, 0.35);
+}
+
+/* card top icon (top-left corner) */
+.ot-card__top-icon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 34px;
+  height: 34px;
+  /* border: 1.5px solid rgba(96, 165, 250, 0.38); */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(96, 165, 250, 0.08);
+  color: #60a5fa;
+  z-index: 1000;
+}
+
+.ot-card__top-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* photo */
+.ot-card__photo-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  margin-top: 6px;
+  background: rgba(15, 28, 60, 0.6);
+  position: relative;
+}
+
+.ot-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ot-card__photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: rgba(96, 165, 250, 0.3);
+}
+
+.ot-card__photo-fallback svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* name */
+.ot-card__name {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+/* title / role label under name */
+.ot-card__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #60a5fa;
+  margin: 0 0 16px;
+  letter-spacing: 0.3px;
+}
+
+/* ── Stats row ── */
+.ot-card__stats {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.ot-stat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(96, 165, 250, 0.07);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  border-radius: 8px;
+  padding: 7px 9px;
+}
+
+.ot-stat__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: #60a5fa;
+}
+
+.ot-stat__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ot-stat__text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.ot-stat__label {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ot-stat__value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+/* ── Role block ── */
+.ot-card__role-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  background: rgba(96, 165, 250, 0.06);
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  border-radius: 9px;
+  padding: 10px 11px;
+  text-align: left;
+}
+
+.ot-card__role-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 38px;
+  height: 38px;
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 7px;
+  justify-content: center;
+  color: #60a5fa;
+}
+
+.ot-card__role-icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.ot-card__role-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ot-card__role-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.ot-card__role-desc {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(203, 213, 225, 0.82);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Footer banner ── */
+.ot-footer-banner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 28, 60, 0.9) 0%,
+    rgba(12, 20, 50, 0.95) 100%
+  );
+  border: 1.5px solid rgba(96, 165, 250, 0.2);
+  border-radius: 16px;
+  padding: 22px 36px;
+  background:
+    linear-gradient(#0b1020, #0b1020) padding-box,
+    linear-gradient(90deg, #2563ff, #4f46e5, #8b5cf6, #ec4899) border-box;
+  text-align: left;
+  margin-top: 5vh;
+}
+
+.ot-footer-banner__icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(96, 165, 250, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.08);
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.2);
+  background:
+    linear-gradient(#0b1020, #0b1020) padding-box,
+    linear-gradient(90deg, #2563ff, #4f46e5, #8b5cf6, #ec4899) border-box;
+}
+
+.ot-footer-banner__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.straing-line {
+  width: 1px;
+  height: 50px;
+  background-color: gray;
+}
+
+.ot-footer-banner__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.55;
+}
+
+.ot-footer-banner__highlight {
+  background: linear-gradient(
+    90deg,
+    #2563ff 0%,
+    #4f46e5 10%,
+    #8b5cf6 30%,
+    #ec4899 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
