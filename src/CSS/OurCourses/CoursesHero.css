@@ -3,7 +3,6 @@
 ════════════════════════════════════════ */
 
 .ch-section {
-  width: 100%;
   background: #000015;
    font-family: 'Barlow', sans-serif;
   overflow: hidden;
@@ -11,7 +10,7 @@
   display: flex;
   align-items: center;
   width: 96%;
-  margin: 12px auto;
+  margin: 12px auto 45px;
     border: 1.3px solid #3a5fb0;
       border-radius: 20px;
 }
@@ -145,10 +144,11 @@
   font-size: 17px;
   flex-shrink: 0;
   background: rgba(255,255,255,0.02);
+  transition: transform 0.25s ease;
 }
+.ch-feature-icon:hover { transform: scale(1.1); }
 .ch-feature:nth-child(1) .ch-feature-icon { border-color: rgba(56,189,248,0.5); color: #38bdf8; }
 .ch-feature:nth-child(2) .ch-feature-icon { border-color: rgba(168,85,247,0.5); color: #a855f7; }
-.ch-feature:nth-child(3) .ch-feature-icon { border-color: rgba(236,72,153,0.5); color: #ec4899; }
 
 .ch-feature-title {
   font-size: 14px;
@@ -184,7 +184,6 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
-
   text-transform: uppercase;
   box-shadow: 0 6px 24px rgba(168,85,247,0.4);
   transition: all 0.25s ease;
@@ -208,7 +207,6 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
-
   text-transform: uppercase;
   transition: all 0.25s ease;
 }

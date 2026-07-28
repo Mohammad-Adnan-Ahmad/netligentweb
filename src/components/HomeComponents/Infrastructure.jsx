@@ -17,35 +17,28 @@ const FEATURES = [
   { icon: <IconUsers />,   color: 'blue',   title: 'Modern Classrooms', sub: 'Smart & Spacious'    },
   { icon: <IconMonitor />, color: 'pink',   title: 'High-End Labs',     sub: 'Industry Standard'  },
   { icon: <IconSofa />,    color: 'orange', title: 'Student Lounge',    sub: 'Relax & Recharge'   },
-  { icon: <IconWifi />,    color: 'green',  title: 'High-Speed Wi-Fi',  sub: 'Always Connected'   },
-  { icon: <IconShield />,  color: 'purple', title: 'Safe & Secure',     sub: '24/7 Security'      },
+  { icon: <IconWifi />,    color: 'green',  title: 'Speed Wi-Fi',  sub: 'Always Connected'   },
 ];
 
 /* ── Gallery cells — swap src with your own images anytime ── */
 const CELLS = [
   {
-    label: 'Smart Classrooms',
-    src: 'C2.jpg',
+    src: 'C2.jpeg',
   },
   {
-    label: 'Computer Labs',
     src: 'C3.jpg',
   },
   {
-    label: 'Collaborative Spaces',
     src: 'C4.jpg',
   },
   {
-    label: 'Library & Resources',
     src: 'C5.jpg',
   },
   {
-    label: 'Event & Seminar Hall',
-    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80',
+    src: 'C8.jpg',
   },
   {
-    label: 'Pantry & Cafeteria',
-    src: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&auto=format&fit=crop&q=80',
+    src: 'C6.jpg',
   },
 ];
 
@@ -112,27 +105,11 @@ export default function Infrastructure() {
           {CELLS.map((c) => (
             <div key={c.label} className="cell cell-small">
               <img src={c.src} alt={c.label} loading="lazy" />
-              <div className="cell-label">{c.label}</div>
             </div>
           ))}
 
         </div>
       </div>
-
-      {/* ── CTA bar ── */}
-      <div className="cta-bar">
-        <div className="cta-left">
-          <div className="cta-icon-wrap"><IconCamera /></div>
-          <div>
-            <div className="cta-heading">Take a virtual tour</div>
-            <div className="cta-sub">See more of our campus and facilities.</div>
-          </div>
-        </div>
-        <button className="cta-btn">
-          View Full Gallery <IconChevron />
-        </button>
-      </div>
-
     </section>
   );
 }

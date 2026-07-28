@@ -7,8 +7,8 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 68px 52px 78px;
-font-family: 'Barlow', sans-serif;
+  padding: 96px 52px 78px;
+  font-family: 'Barlow', sans-serif;
 /* border: 2px solid white; */
 }
 
@@ -16,20 +16,20 @@ font-family: 'Barlow', sans-serif;
    HEADER
 ══════════ */
 .fv-header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 52px;
+   text-align: center;
   position: relative;
   z-index: 2;
-  /* border: 2px solid white; */
+  margin-bottom: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* border: 1px solid white; */
 }
 
 /* Tag pill */
 .fv-tag {
-  display: inline-flex;
+ display: inline-flex;
   align-items: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.07);
@@ -68,8 +68,10 @@ font-family: 'Barlow', sans-serif;
   position: relative;
   display: flex;
   align-items: center;
-  gap: 14px;
-
+  /* gap: 14px; */
+  /* border: 1px solid white; */
+  width: 50%;
+  text-align: left;
 }
 
 
@@ -107,7 +109,7 @@ font-family: 'Barlow', sans-serif;
 .fv-subtitle {
   color: #94a3b8;
   font-size: 15.5px;
-  text-align: center;
+  text-align: left;
   line-height: 1.75;
 }
 
@@ -127,7 +129,7 @@ font-family: 'Barlow', sans-serif;
 /* ── Single video card ── */
 .fv-card {
   position: relative;
-  border-radius: 18px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 16/8;
@@ -191,6 +193,7 @@ font-family: 'Barlow', sans-serif;
   display: block;
   transition: transform 0.5s ease, filter 0.3s ease;
   filter: brightness(0.82) saturate(1.05);
+
 }
 .fv-card:hover .fv-thumb {
   transform: scale(1.06);
@@ -329,7 +332,7 @@ font-family: 'Barlow', sans-serif;
 }
 .fv-cta-sub {
   font-size: 13px;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.694);
 }
 
 /* "Visit Our YouTube Channel" button */
@@ -362,23 +365,76 @@ font-family: 'Barlow', sans-serif;
 /* ══════════
    RESPONSIVE
 ══════════ */
-@media (max-width: 1100px) {
-  .fv-section { padding: 60px 36px 0; }
-  .fv-title   { font-size: 58px; }
+@media (max-width: 1200px) {
+  .fv-section { padding: 92px 36px 70px; }
+  .fv-title   { letter-spacing: 0; }
   .fv-grid    { gap: 16px; }
+    .fv-subtitle {
+  line-height: 20px;
+}
 }
 
-@media (max-width: 860px) {
-  .fv-section { padding: 48px 20px 0; }
-  .fv-title   { font-size: 42px; letter-spacing: -1.5px; }
-  .fv-grid    { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 1023px) {
+  .fv-section { padding: 120px 40px 78px; }
+  .fv-grid    { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .fv-sparks-left, .fv-sparks-right { display: none; }
   .fv-cta-bar { flex-wrap: wrap; gap: 16px; }
+  .fv-subtitle {
+  font-size: 14px;
+}
+ .fv-card {
+  border-radius: 10px;
+  aspect-ratio: 6/8;
 }
 
-@media (max-width: 580px) {
-  .fv-title   { font-size: 30px; white-space: normal; letter-spacing: -1px; }
-  .fv-grid    { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .fv-section{
+    padding: 96px 30px 70px;
+  }
+  .fv-title-wrap {
+
+  width: 80%;
+
+}
+   .fv-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+  }
+  .fv-play-triangle {
+  border-left: 12px solid #ffffff;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-left: 3px;
+}
+  .fv-grid    { grid-template-columns: 1fr 1fr; }
   .fv-cta-bar { padding: 16px 18px; }
-  .fv-play-btn { width: 52px; height: 52px; }
+  .fv-card {
+  border-radius: 10px;
+  aspect-ratio: 6/8;
+}
+.fv-cta-icon {
+  width: 44px;
+  height: 44px;
+}
+.fv-cta-play {
+  border-left: 12px solid #818cf8;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  margin-left: 3px;
+}
+
+.fv-yt-btn {
+  padding: 10px 18px;
+}
+}
+
+@media (max-width: 380px) {
+  .fv-title {
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+
 }

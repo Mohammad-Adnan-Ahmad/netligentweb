@@ -111,8 +111,7 @@ export default function FeedbackVideos() {
             <span className="fv-spark" />
           </div>
 
-          <h2 className="fv-title">
-            Explore Our Journey
+          <h2 className="fv-title">Explore Our Journey
             <span className="fv-title-grad"> Through Videos</span>
             <span className="fv-sparkle">✦</span>
           </h2>
@@ -162,7 +161,6 @@ export default function FeedbackVideos() {
             }
           >
             Visit Our YouTube Channel
-            <span className="fv-yt-btn-arr">›</span>
           </button>
         </div>
       </div>

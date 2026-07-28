@@ -30,25 +30,43 @@ function useCountUp(target, decimals, active) {
    Hiring Partners
 ══════════════════════════════════ */
 const logos = [
-  {name : 'TCS', url : 'tcs.png'},
-  {name : 'Infocys', url : 'Infosys.png'},
-  {name : 'Wipro', url : 'Wipro.png'},
-  {name : 'Accenture', url : 'Accenture.png'},
-  {name : 'Amazon', url : 'amazon.png'},
-  {name : 'IBM', url : 'ibm.png'},
-  {name : 'HCL', url : 'hcl.png'},
-  {name : 'Tata', url : 'tata.png'},
-  {name : 'Delote', url : 'delote.png'},
-  {name : 'Flipkart', url : 'flipkart.png'},
-  {name : 'Tech Mahindra', url : 'tata-mahindra.png'},
-  {name : 'Acer', url : 'acer.png'},
-  {name : 'Make-My-Trip', url : 'make-my-trip.png'},
-  {name : 'Make-My-Trip', url : 'make-my-trip.png'},
-  {name : 'Make-My-Trip', url : 'make-my-trip.png'},
-  
- 
-]
+  { name: 'TCS', url: 'tcs.png' },
+  { name: 'Infosys', url: 'Infosys.png' },
+  { name: 'Wipro', url: 'Wipro.png' },
+  { name: 'Accenture', url: 'Accenture.png' },
+  { name: 'Amazon', url: 'amazon.png' },
+  { name: 'IBM', url: 'ibm.png' },
+  { name: 'HCL', url: 'hcl.png' },
+  { name: 'Tata', url: 'tata.png' },
+  { name: 'Deloitte', url: 'delote.png' },
+  { name: 'Flipkart', url: 'flipkart.png' },
+  { name: 'Tech Mahindra', url: 'tata-mahindra.png' },
+  { name: 'Acer', url: 'acer.png' },
+  { name: 'Make My Trip', url: 'make-my-trip.png' },
+];
 
+// Split into two rows so they can drift in opposite directions
+const ROW_1 = logos.filter((_, i) => i % 2 === 0);
+const ROW_2 = logos.filter((_, i) => i % 2 !== 0);
+
+function MarqueeRow({ items, direction = "left", speed = 34 }) {
+  // Duplicate the row so the loop is seamless (translate exactly -50%)
+  const track = [...items, ...items];
+  return (
+    <div className="rt-marquee-row">
+      <div
+        className={`rt-marquee-track rt-marquee-${direction}`}
+        style={{ animationDuration: `${speed}s` }}
+      >
+        {track.map((l, i) => (
+          <div className="rt-logo-card" key={`${l.name}-${i}`}>
+            <img src={l.url} alt={l.name} className="rt-logo-img" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /* ══════════════════════════════════
    STAT CARD
@@ -57,8 +75,7 @@ const STATS = [
   { Icon: IconPersonCheck, big: 20,  dec: 0, suffix: "+",  unit: "",    label: "Students Placed",},
   { Icon: IconRupee,       big: 3.5, dec: 1, suffix: "",   unit: "LPA", label: "Average Package",},
   { Icon: IconTrophy,      big: 10,  dec: 0, suffix: "",   unit: "LPA", label: "Highest Package",},
-  { Icon: IconHandshake,   big: 15,  dec: 0, suffix: "+",  unit: "",    label: "Hiring Partners",},
-  { Icon: IconStar,        big: 100, dec: 0, suffix: "%",  unit: "",    label: "Placement Support"},
+  { Icon: IconHandshake,   big: 15,  dec: 0, suffix: "+",  unit: "",    label: "Hiring Partners",}
 ];
 
 function StatCard({ s, active }) {
@@ -138,21 +155,11 @@ export default function RealTraining() {
         <div className="rt-partners">
           <div className="rt-partners-pill">Our Hiring Partners</div>
 
-          {/* Row 1 */}
-          <div className="rt-logo-grid">
-          {logos.map((l, i) => 
-          <div className="rt-logo-card" key={i}>
-             <img  src={l.url} alt={l.name} className="rt-logo-img"/>
+          {/* Infinite dual-row marquee */}
+          <div className="rt-marquee-wrap">
+            <MarqueeRow items={ROW_1} direction="left" speed={32} />
+            <MarqueeRow items={ROW_2} direction="right" speed={38} />
           </div>
-         
-          )}
-           
-           
-            {/* Accenture */}
-            
-          </div>
-
-          
         </div>
       </div>
 

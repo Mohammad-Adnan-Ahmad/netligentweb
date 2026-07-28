@@ -12,6 +12,7 @@
   padding: 48px 0 64px;
   font-family: 'Barlow', sans-serif;
   overflow: hidden;
+
 }
 
 /* ══════════════════════════════
@@ -60,7 +61,6 @@
   text-align: center;
   line-height: 1.75;
   margin: 0 0 20px;
- 
   width: 30%;
 }
 

@@ -122,14 +122,10 @@ export default function OurCourses() {
 
         {/* Title with sparks */}
         <div className="cs-title-wrap">
-         
-
           <h2>
-          
-            <span className="cs-title">AI Powered</span>
+            <span className="cs-title">AI Powered</span><br/>
             <span className="cs-title cs-title-gradient"> Industry Ready Courses</span>
           </h2>
-          <div className="cs-title-underline"/>
         </div>
 
         {/* Subtitle */}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "../../CSS/Review.css";
 
 /* ── Data ── */
@@ -83,14 +83,14 @@ const REVIEWS = [
     text: "If you want to become a Cyber Security Expert so you should join Netligent Technologies institute in MP Nagar Bhopal,It is the best institute in Bhopal",
     initials: "SC",
   },
-   {
+  {
     id: 5,
     name: "Ashwinkumar Prajapati",
     rating: 5,
     text: "I recently joined netligent and Honestly, the cybersecurity class was quite helpful and worth attending. At first, some topics felt a bit technical and difficult to understand, but the instructor made a good effort to explain things in a simple and practical way.",
     initials: "AP",
   },
-   {
+  {
     id: 6,
     name: "Mohit Sable",
     rating: 5,
@@ -104,7 +104,7 @@ const REVIEWS = [
     text: "It was a great experience with this institute.the faculty members are highly trained and have strong knowledge of the cyber security. They explained concepts clearly with practical implementation, which helped me build a strong foundation in Linux, CCNA, Networking etc",
     initials: "MM",
   },
-   {
+  {
     id: 8,
     name: "Huzefa Khan",
     rating: 5,
@@ -121,10 +121,82 @@ const Stars = ({ count = 5, filled = 5 }) =>
     </span>
   ));
 
+/* ── Responsive cards-per-view ── */
+function useCardsPerView() {
+  const [n, setN] = useState(4);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w <= 680) setN(1);
+      else if (w <= 1100) setN(2);
+      else setN(4);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return n;
+}
+
+/* ── Truncate review text to a fixed character length, without cutting mid-word ── */
+const TRUNCATE_LEN = 100;
+function truncate(text) {
+  if (text.length <= TRUNCATE_LEN) return text;
+  return text.slice(0, TRUNCATE_LEN).replace(/\s+\S*$/, "") + "…";
+}
 
 /* ── Main Component ── */
 export default function Reviews() {
+  const cardsPerView = useCardsPerView();
+  const pageCount = Math.max(1, Math.ceil(REVIEWS.length / cardsPerView));
   const [activeDot, setActiveDot] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef(null);
+  const touchDeltaX = useRef(0);
+
+  // Full review currently expanded above the carousel (or null)
+  const [expanded, setExpanded] = useState(null);
+
+  // Keep activeDot in range whenever the number of pages changes (e.g. resize)
+  useEffect(() => {
+    setActiveDot((p) => (p > pageCount - 1 ? 0 : p));
+  }, [pageCount]);
+
+  const goTo = useCallback(
+    (idx) => setActiveDot(((idx % pageCount) + pageCount) % pageCount),
+    [pageCount]
+  );
+  const next = useCallback(() => goTo(activeDot + 1), [activeDot, goTo]);
+  const prev = useCallback(() => goTo(activeDot - 1), [activeDot, goTo]);
+
+  // Autoplay — pauses on hover/touch/manual interaction/expanded review
+  useEffect(() => {
+    if (paused || pageCount <= 1 || expanded) return;
+    const id = setInterval(() => setActiveDot((p) => (p + 1) % pageCount), 5500);
+    return () => clearInterval(id);
+  }, [paused, pageCount, expanded]);
+
+  const pages = [];
+  for (let i = 0; i < REVIEWS.length; i += cardsPerView) {
+    pages.push(REVIEWS.slice(i, i + cardsPerView));
+  }
+
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+    setPaused(true);
+  };
+  const onTouchMove = (e) => {
+    if (touchStartX.current === null) return;
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+  const onTouchEnd = () => {
+    if (Math.abs(touchDeltaX.current) > 50) {
+      touchDeltaX.current < 0 ? next() : prev();
+    }
+    touchStartX.current = null;
+    setPaused(false);
+  };
 
   return (
     <section className="sr-section">
@@ -179,67 +251,103 @@ export default function Reviews() {
           </div>
         </div>
 
-        {/* Review Cards */}
-        <div className="sr-cards-wrapper">
-          <div className="sr-cards">
-            {REVIEWS.map((r) => (
-              <div className="sr-card" key={r.id}>
-                {/* Big quote mark */}
-                <span className="sr-card-quote">"</span>
-
-                {/* Card Header */}
-                <div className="sr-card-header">
-                  <div className="sr-avatar-wrap">
-                    <div className="sr-avatar-placeholder">{r.initials}</div>
-                  </div>
-                  <div className="sr-card-meta">
-                    <span className="sr-card-name">{r.name}</span>
-                    <div className="sr-card-stars">
-                      <Stars filled={r.rating} />
-                    </div>
-                  </div>
+        {/* Expanded full review — opens above the review rows */}
+        {expanded && (
+          <div className="sr-expanded-panel" key={expanded.id}>
+            <button
+              className="sr-expanded-close"
+              onClick={() => setExpanded(null)}
+              aria-label="Close review"
+            >
+              &#10005;
+            </button>
+            <div className="sr-card-header">
+              <div className="sr-avatar-wrap">
+                <div className="sr-avatar-placeholder">{expanded.initials}</div>
+              </div>
+              <div className="sr-card-meta">
+                <span className="sr-card-name">{expanded.name}</span>
+                <div className="sr-card-stars">
+                  <Stars filled={expanded.rating} />
                 </div>
+              </div>
+            </div>
+            <p className="sr-expanded-body">{expanded.text}</p>
+          </div>
+        )}
 
-                {/* Review Text */}
-                <p className="sr-card-body">{r.text}</p>
+        {/* Review Carousel */}
+        <div
+          className="sr-cards-wrapper"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div
+            className="sr-cards-track"
+            style={{ transform: `translateX(-${activeDot * 100}%)` }}
+          >
+            {pages.map((page, pIdx) => (
+              <div
+                className="sr-cards-page"
+                key={pIdx}
+                style={{ gridTemplateColumns: `repeat(${cardsPerView}, 1fr)` }}
+              >
+                {page.map((r) => (
+                  <div className="sr-card" key={r.id}>
+                    {/* Big quote mark */}
+                    <span className="sr-card-quote">"</span>
 
-                
-                <div className="sr-company"/>
-        
-                
+                    {/* Card Header */}
+                    <div className="sr-card-header">
+                      <div className="sr-avatar-wrap">
+                        <div className="sr-avatar-placeholder">{r.initials}</div>
+                      </div>
+                      <div className="sr-card-meta">
+                        <span className="sr-card-name">{r.name}</span>
+                        <div className="sr-card-stars">
+                          <Stars filled={r.rating} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Review Text — truncated to 150 characters */}
+                    <p className="sr-card-body">{truncate(r.text)}</p>
+
+                    <button
+                      className="sr-readmore"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpanded(r);
+                      }}
+                    >
+                      Read more
+                    </button>
+
+                    <div className="sr-company" />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
         </div>
 
         {/* Pagination */}
-        <div className="sr-pagination">
-          <button
-            className="sr-nav-btn"
-            onClick={() => setActiveDot((p) => (p - 1 + 4) % 4)}
-            aria-label="Previous"
-          >
-            &#8249;
-          </button>
-
-          <div className="sr-dots">
-            {[0, 1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className={`sr-dot ${activeDot === i ? "active" : ""}`}
-                onClick={() => setActiveDot(i)}
-              />
-            ))}
+        {pageCount > 1 && (
+          <div className="sr-pagination">
+            <div className="sr-dots">
+              {Array.from({ length: pageCount }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`sr-dot ${activeDot === i ? "active" : ""}`}
+                  onClick={() => goTo(i)}
+                />
+              ))}
+            </div>
           </div>
-
-          <button
-            className="sr-nav-btn"
-            onClick={() => setActiveDot((p) => (p + 1) % 4)}
-            aria-label="Next"
-          >
-            &#8250;
-          </button>
-        </div>
+        )}
 
       </div>
     </section>

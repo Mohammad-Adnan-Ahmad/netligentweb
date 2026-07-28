@@ -6,9 +6,7 @@
  font-family: 'Barlow', sans-serif;
   position: relative;
   overflow: hidden;
-  /* min-height: 100vh; */
   width: 100%;
-  
 }
 
 
@@ -19,17 +17,9 @@
   padding: 20px 0px 20px 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* align-items: center; */
-   /* border-color: rgba(96, 165, 250, 0.55); */
   border-radius: 20px;
   width: 96%;
   border: 1.3px solid #3a5fb0;
-   /* box-shadow:
-    0 0 10px rgba(37, 99, 255, 0.5),
-    0 0 10px rgba(79, 70, 229, 0.45),
-    0 0 15px rgba(139, 92, 246, 0.4),
-    0 0 15px rgba(236, 72, 153, 0.35); */
-  
 }
 
 /* ═══════════════════════════════════════
@@ -39,6 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  order: 1;
 }
 
 /* ── Badge ── */
@@ -87,7 +78,6 @@
     color: rgba(255, 255, 255, 0.837);
    line-height: 1.75;
   margin-bottom: 28px;
-
 }
 
 /* ── Founded card ── */
@@ -235,21 +225,13 @@
 ═══════════════════════════════════════ */
 .wwa-right {
   position: relative;
-  /* height: 600px; */
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* border: 2px solid white; */
-  
-  
+  order: 2;
 }
 
 
 .wwa-arch-ring-img{
-   /* position: absolute; */
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-42%, -50%); */
   width: 580px;
   height: 580px;
   border-radius: 50%;
@@ -278,7 +260,6 @@
 /* www footer */
 
 .wwa-footer{
-  border: 2px solid white;
   width: 96%;
    margin: 0 auto;
    border: 1.3px solid #3a5fb0;
@@ -298,13 +279,47 @@
     gap: 48px;
     min-height: unset;
   }
-  .wwa-right { height: 400px; }
+  .wwa-body { font-size: 14px; }
+  .www-left{order: 2;}
+  .wwa-right { height: 400px; order: 1;}
   .wwa-arch-ring { width: 380px; height: 380px; transform: translate(-50%,-50%); }
+  .wwa-cal-icon {
+  width: 44px; height: 44px;}
+  .wwa-cal-icon svg {
+  width: 20px; height: 20px;}
 }
 @media (max-width: 640px) {
-  .wwa-section { padding: 60px 0; }
-  .wwa-container { padding: 0 20px; }
-  .wwa-title { font-size: 1.8rem; }
+  .wwa-container { padding: 20px 20px; }
+  /* .wwa-title { font-size: 1.8rem; } */
   .wwa-right { height: 300px; }
   .wwa-arch-ring { width: 280px; height: 280px; }
+  .wwa-founded-p,.wwa-mission-text, .wwa-story-body  {
+  font-size: 14px;
+}
+.wwa-story-title{
+  font-size: 22px;
+}
+.wwa-arch-ring-img{
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  margin-left: 0;
+}
+
+.wwa-footer{
+   padding: 20px 35px;
+   justify-content: left;
+   align-items: start;
+   flex-direction: column;
+   font-size: 14px;
+}
+}
+@media (max-width: 500px) {
+  .wwa-badge { font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; }
+}
+
+@media (max-width: 380px) {
+  .wwa-title{
+    font-size: 22px;
+  }
 }

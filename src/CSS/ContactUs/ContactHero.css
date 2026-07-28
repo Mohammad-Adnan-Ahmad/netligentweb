@@ -1,0 +1,317 @@
+/* ════════════════════════════════════════
+   ContactHero.css
+════════════════════════════════════════ */
+
+.ch2-section {
+  background: #010013;
+   font-family: 'Barlow', sans-serif;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 96%;
+  margin: 12px auto 45px;
+  border: 1.3px solid #3a5fb0;
+  border-radius: 20px;
+  /* margin-bottom: 50px; */
+}
+
+/* ── Dot-grid texture ── */
+.ch2-section::before {
+   content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(99,102,241,0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Ambient glow blobs ── */
+.ch2-glow-purple {
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(109,40,217,0.22) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* Decorative dots cluster bottom-left */
+.ch2-dots-bl {
+  position: absolute;
+  bottom: 0; left: 0px;
+  width: 80px; height: 80px;
+  background-image: radial-gradient(circle, rgba(99,102,241,0.45) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+/* Decorative dots cluster bottom-right */
+.ch2-dots-br {
+  position: absolute;
+  bottom: 72px; right: 52px;
+  width: 72px; height: 72px;
+  background-image: radial-gradient(circle, rgba(99,102,241,0.45) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+/* Paper-plane SVG top-right */
+.ch2-plane {
+  position: absolute;
+  top: 42px; right: 52px;
+  z-index: 3;
+  animation: ch2Float 4s ease-in-out infinite;
+}
+@keyframes ch2Float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+/* ══════════
+   MAIN GRID
+══════════ */
+.ch2-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  /* align-items: center; */
+  background: url('/Contact_Us_Girl.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+}
+
+/* ═══════
+   LEFT COLUMN
+═══════ */
+.ch2-left {
+  padding-right: 36px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+    padding: 20px 20px 0 48px;
+}
+
+/* Pill tag */
+.ch2-tag {
+ display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+   padding: 6px 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c7d2fe;
+  margin-bottom: 22px;
+  align-self: flex-start;
+}
+
+/* Title */
+.ch2-title {
+  font-size: clamp(26px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.22;
+  letter-spacing: 0px;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.ch2-title-grad  {
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+
+
+
+
+/* Subtitle */
+.ch2-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.837);
+  line-height: 1.72;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+/* ── 4-column feature icons ── */
+.ch2-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.ch2-feature { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+
+/* Icon circle — different border colour per feature */
+.ch2-feat-icon {
+ width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 17px;
+  background: rgba(255,255,255,0.02);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.ch2-feat-icon:hover { transform: scale(1.1); }
+
+.ch2-feature:nth-child(2) .ch2-feat-icon { border: 2px solid rgba(168,85,247,0.65); box-shadow: 0 0 14px rgba(168,85,247,0.2); }
+.ch2-feature:nth-child(1) .ch2-feat-icon { border: 2px solid rgba(16,185,129,0.65);  box-shadow: 0 0 14px rgba(16,185,129,0.2); }
+.ch2-feature:nth-child(4) .ch2-feat-icon { border: 2px solid rgba(249,115,22,0.65);  box-shadow: 0 0 14px rgba(249,115,22,0.2); }
+.ch2-feature:nth-child(3) .ch2-feat-icon { border: 2px solid rgba(56,189,248,0.65);  box-shadow: 0 0 14px rgba(56,189,248,0.2); }
+
+.ch2-feat-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+.ch2-feat-body {
+  font-size: 12.5px;
+color: rgba(255, 255, 255, 0.681);
+  line-height: 1.5;
+}
+
+/* ── CTA buttons ── */
+.ch2-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+/* Call Us Now — solid purple */
+.ch2-btn-call {
+    display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 6px 24px rgba(168,85,247,0.4);
+  transition: all 0.25s ease;
+}
+.ch2-btn-call:hover {
+  box-shadow: 0 8px 32px rgba(168,85,247,0.55);
+  transform: translateY(-2px);
+}
+
+/* Chat on WhatsApp — dark outlined */
+.ch2-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #60a5fa;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+.ch2-btn-wa:hover {
+  /* background: rgba(236,72,153,0.1); */
+  border-color: #22c55e;
+}
+
+/* WhatsApp green circle icon */
+.ch2-wa-icon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* Call phone icon */
+.ch2-call-icon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ── Social proof ── */
+.ch2-social {
+  display: flex;
+  align-items: center;
+
+}
+
+.ch2-social-text {
+  font-size: 14px;
+  color:white;
+  line-height: 1.4;
+  margin-bottom: 21px;
+}
+
+.ch2-social-num, .ch2-social-brand {
+ background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+
+
+
+
+
+/* ══════════
+   RESPONSIVE
+══════════ */
+@media (max-width: 1200px) {
+  .ch2-grid { grid-template-columns: 1fr; padding: 48px 36px; }
+  .ch2-left { padding-right: 0; }
+  .ch2-right { display: none; }
+  .ch2-title-line1, .ch2-title-line2 { font-size: 44px; }
+  .ch2-title-underline { width: 280px; }
+}
+
+@media (max-width: 768px) {
+  .ch2-title-line1, .ch2-title-line2 { font-size: 32px; letter-spacing: -1px; }
+  .ch2-features { grid-template-columns: repeat(2, 1fr); }
+  .ch2-btn-row  { flex-direction: column; align-items: stretch; }
+  .ch2-btn-call, .ch2-btn-wa { justify-content: center; }
+  .ch2-title-underline { width: 220px; }
+}
+
+@media (max-width: 480px) {
+  .ch2-grid { padding: 36px 20px; }
+  .ch2-title-line1, .ch2-title-line2 { font-size: 26px; }
+  .ch2-features { grid-template-columns: 1fr; }
+  .ch2-subtitle { font-size: 14px; }
+}

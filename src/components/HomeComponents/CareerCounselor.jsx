@@ -85,7 +85,6 @@ export default function CareerCounsellors() {
 
           {/* ════ FORM CARD ════ */}
           <div className="cc-form-col">
-              
       
             {/* floating headset icon above card */}
             <div className="cc-form-hd-icon">
