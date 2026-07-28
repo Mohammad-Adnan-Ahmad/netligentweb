@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "../../CSS/Nav.css";
 
-// ── Dropdown data for every nav link ─────────────────────────────────────────
-const NAV_DATA = [
+// ── All courses, grouped by category. "Courses" shows these six category
+//    names first; hovering one flies out that category's course list ──
+const COURSE_CATEGORIES = [
   {
-    label: "Data Programs",
+    category: "Data Programs",
     items: [
       { icon: "📊", title: "Data Science",       sub: "Python · ML · Stats",           href: "#" },
       { icon: "🤖", title: "Machine Learning",   sub: "Supervised · Deep Learning",    href: "#" },
@@ -13,11 +14,9 @@ const NAV_DATA = [
       { icon: "🧮", title: "Statistics & Maths", sub: "Probability · Linear Algebra",  href: "#" },
       { icon: "💡", title: "Business Analytics", sub: "Strategy · Insights · KPIs",    href: "#" },
     ],
-    footer: { label: "Explore all Data Programs", count: "12 courses" },
-    twoCol: true,
   },
   {
-    label: "AI-ML",
+    category: "AI-ML",
     items: [
       { icon: "🧠", title: "Generative AI",        sub: "GPT · Diffusion · LLMs",        href: "#" },
       { icon: "👁️", title: "Computer Vision",       sub: "OpenCV · YOLO · CNNs",          href: "#" },
@@ -25,11 +24,9 @@ const NAV_DATA = [
       { icon: "🚀", title: "MLOps & Deployment",   sub: "Docker · MLflow · FastAPI",     href: "#" },
       { icon: "🔬", title: "Deep Learning",         sub: "PyTorch · TensorFlow · Keras",  href: "#" },
     ],
-    footer: { label: "View all AI-ML tracks", count: "8 courses" },
-    twoCol: false,
   },
   {
-    label: "Cyber Security",
+    category: "Cyber Security",
     items: [
       { icon: "🔐", title: "Ethical Hacking",    sub: "Kali Linux · Metasploit",       href: "#" },
       { icon: "🛡️", title: "Network Security",   sub: "Firewall · IDS · VPN",          href: "#" },
@@ -37,11 +34,9 @@ const NAV_DATA = [
       { icon: "🔒", title: "Application Security",sub: "OWASP · Pen Testing · VAPT",   href: "#" },
       { icon: "📜", title: "CompTIA Security+",  sub: "Certification prep",            href: "#" },
     ],
-    footer: { label: "Explore Cybersecurity paths", count: "7 courses" },
-    twoCol: false,
   },
   {
-    label: "Web Development",
+    category: "Web Development",
     items: [
       { icon: "⚛️", title: "React & Next.js",    sub: "Hooks · SSR · App Router",      href: "#" },
       { icon: "🟩", title: "Node.js & Express",  sub: "REST · GraphQL · Sockets",      href: "#" },
@@ -50,11 +45,9 @@ const NAV_DATA = [
       { icon: "📱", title: "React Native",       sub: "Cross-platform Mobile Apps",    href: "#" },
       { icon: "🛒", title: "Full Stack MERN",    sub: "MongoDB · Express · React · Node", href: "#" },
     ],
-    footer: { label: "Browse all Web courses", count: "14 courses" },
-    twoCol: true,
   },
   {
-    label: "Cloud Computing",
+    category: "Cloud Computing",
     items: [
       { icon: "☁️", title: "AWS Solutions Arch.", sub: "EC2 · S3 · Lambda · RDS",      href: "#" },
       { icon: "🔵", title: "Microsoft Azure",    sub: "AZ-900 · AZ-104 · AZ-305",     href: "#" },
@@ -63,11 +56,9 @@ const NAV_DATA = [
       { icon: "🏗️", title: "Kubernetes",         sub: "Pods · Helm · Monitoring",      href: "#" },
       { icon: "🔧", title: "Terraform & IaC",   sub: "Infrastructure as Code",        href: "#" },
     ],
-    footer: { label: "View all Cloud programs", count: "10 courses" },
-    twoCol: true,
   },
   {
-    label: "Others",
+    category: "Others",
     items: [
       { icon: "☕", title: "Java Full Stack",    sub: "Spring Boot · Hibernate · Microservices",  href: "#" },
       { icon: "📊", title: "Power BI & Tableau", sub: "DAX · Dashboards · Reports",  href: "#" },
@@ -75,58 +66,78 @@ const NAV_DATA = [
       { icon: "🔁", title: "Git & GitHub",       sub: "Version Control · Workflows",  href: "#" },
       { icon: "📋", title: "Agile & Scrum",      sub: "JIRA · Project Management",    href: "#" },
     ],
-    footer: { label: "See all other programs", count: "9 courses" },
-    twoCol: false,
   },
 ];
 
-// ── Dropdown panel component ──────────────────────────────────────────────────
-function Dropdown({ data }) {
+const COURSES_FOOTER = { label: "Explore all Courses", count: "56 courses" };
+
+// ── Top-level nav links. Only "Courses" carries a dropdown; the rest are plain links ──
+const NAV_LINKS = [
+  { label: "Home",     href: "#" },
+  { label: "About",    href: "#" },
+  { label: "Courses",  megaMenu: true },
+  { label: "Career",   href: "#" },
+  { label: "Services", href: "#" },
+  { label: "Gallery",  href: "#" },
+];
+
+// ── Courses mega-menu: left column = category names, right column = flyout
+//    of whichever category is currently hovered ──
+function CoursesMegaMenu({ categories, footer }) {
+  const [hoveredCat, setHoveredCat] = useState(categories[0].category);
+  const activeCategory = categories.find((c) => c.category === hoveredCat) || categories[0];
+
   return (
-    <div className="dropdown">
-      {/* Header label */}
-      <div className="dropdown-header">
-        <span className="dropdown-header-label">{data.label}</span>
-      </div>
-
-      {/* Items */}
-      <div className={`dropdown-items${data.twoCol ? " two-col" : ""}`}>
-        {data.items.map((item) => (
-          <a
-            key={item.title}
-            href={item.href}
-            className="dropdown-item"
-            onClick={(e) => e.preventDefault()}
-          >
-            {/* Icon */}
-            <div
-              className="dropdown-item-icon"
-              style={{
-                background: "rgba(99,102,241,0.12)",
-                border: "1px solid rgba(129,140,248,0.18)",
-              }}
+    <div className="courses-mega">
+      <div className="courses-mega-flyout">
+        {/* Left: category names */}
+        <div className="courses-mega-categories">
+          {categories.map((cat) => (
+            <button
+              key={cat.category}
+              className={`courses-mega-cat${hoveredCat === cat.category ? " active" : ""}`}
+              onMouseEnter={() => setHoveredCat(cat.category)}
+              onFocus={() => setHoveredCat(cat.category)}
             >
-              {item.icon}
-            </div>
+              {cat.category}
+              <span className="courses-mega-cat-arrow">▶</span>
+            </button>
+          ))}
+        </div>
 
-            {/* Text */}
-            <div className="dropdown-item-text">
-              <div className="dropdown-item-title">{item.title}</div>
-              <div className="dropdown-item-sub">{item.sub}</div>
-            </div>
-
-            {/* Arrow */}
-            <span className="dropdown-item-arrow">▶</span>
-          </a>
-        ))}
+        {/* Right: courses for the hovered category */}
+        <div className="courses-mega-panel">
+          <div className="dropdown-items two-col">
+            {activeCategory.items.map((item) => (
+              <a
+                key={item.title}
+                href={item.href}
+                className="dropdown-item"
+                onClick={(e) => e.preventDefault()}
+              >
+                <div
+                  className="dropdown-item-icon"
+                  style={{
+                    background: "rgba(99,102,241,0.12)",
+                    border: "1px solid rgba(129,140,248,0.18)",
+                  }}
+                >
+                  {item.icon}
+                </div>
+                <div className="dropdown-item-text">
+                  <div className="dropdown-item-title">{item.title}</div>
+                  <div className="dropdown-item-sub">{item.sub}</div>
+                </div>
+                <span className="dropdown-item-arrow">▶</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Footer */}
-      <div className="dropdown-footer">
-        <button className="dropdown-footer-link">
-          {data.footer.label} →
-        </button>
-        <span className="dropdown-footer-badge">{data.footer.count}</span>
+      <div className="dropdown-footer courses-mega-footer">
+        <button className="dropdown-footer-link">{footer.label} →</button>
+        <span className="dropdown-footer-badge">{footer.count}</span>
       </div>
     </div>
   );
@@ -134,12 +145,18 @@ function Dropdown({ data }) {
 
 // ── Main Navbar ───────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const [active,       setActive]       = useState(null);
-  const [menuOpen,     setMenuOpen]     = useState(false);
-  const [mobileOpen,   setMobileOpen]   = useState(null); // which mobile accordion is open
+  const [active,         setActive]         = useState(null);
+  const [menuOpen,       setMenuOpen]       = useState(false);
+  const [mobileOpen,     setMobileOpen]     = useState(null); // which top-level mobile accordion is open
+  const [mobileCourseCat, setMobileCourseCat] = useState(null); // which category is open inside the mobile Courses accordion
 
   function toggleMobileItem(label) {
     setMobileOpen((prev) => (prev === label ? null : label));
+    setMobileCourseCat(null); // collapse any open category when switching top-level sections
+  }
+
+  function toggleMobileCourseCat(category) {
+    setMobileCourseCat((prev) => (prev === category ? null : category));
   }
 
   return (
@@ -149,32 +166,53 @@ export default function Navbar() {
 
           {/* ── Box 1: Navbar ── */}
           <nav className="navbar">
-            <a className="brand" href="#">Netligent Technologies</a>
+            {/* <a className="brand" href="#">Netligent Technologies</a> */}
+            <div className="brand">
+               <img 
+            src="/brand_logo.png" 
+            alt="Netligent Technologies"
+            className="brand-logo"
+            />
+            </div>
+           
             <div className="divider" />
 
             <ul className="nav-links">
-              {NAV_DATA.map((nav) => (
-                <li key={nav.label}>
-                  {/* Trigger button */}
-                  <button
-                    className={`nav-link${active === nav.label ? " active" : ""}`}
-                    onClick={() => setActive(nav.label)}
-                    onMouseEnter={() => setActive(nav.label)}
-                    onMouseLeave={() => setActive(null)}
+              {NAV_LINKS.map((nav) =>
+                nav.megaMenu ? (
+                  <li
+                    key={nav.label}
+                    className="has-mega"
                   >
-                    {nav.label}
-                    <span className="chevron">▾</span>
-                  </button>
+                    <button
+                      className={`nav-link${active === nav.label ? " active" : ""}`}
+                      onClick={() => setActive(nav.label)}
+                      onMouseEnter={() => setActive(nav.label)}
+                      onMouseLeave={() => setActive(null)}
+                    >
+                      {nav.label}
+                      <span className="chevron">▾</span>
+                    </button>
 
-                  {/* Dropdown */}
-                  <Dropdown data={nav} />
-                </li>
-              ))}
+                    <CoursesMegaMenu categories={COURSE_CATEGORIES} footer={COURSES_FOOTER} />
+                  </li>
+                ) : (
+                  <li key={nav.label}>
+                    <a
+                      href={nav.href}
+                      className="nav-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      {nav.label}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
 
             {/* Hamburger */}
             <button
-              className="hamburger"
+              className={`hamburger${menuOpen ? " open" : ""}`}
               onClick={() => setMenuOpen((o) => !o)}
               aria-label="Toggle menu"
             >
@@ -189,41 +227,70 @@ export default function Navbar() {
         </div>
 
         {/* ── Mobile dropdown menu ── */}
-        {menuOpen && (
-          <div className="mobile-menu" style={{ display: "flex" }}>
-            {NAV_DATA.map((nav) => (
-              <div key={nav.label} className="mobile-nav-item">
-                {/* Accordion toggle */}
-                <button
-                  className={`mobile-link-toggle${mobileOpen === nav.label ? " open" : ""}`}
-                  onClick={() => toggleMobileItem(nav.label)}
+        <div className={`mobile-menu-wrapper${menuOpen ? " open" : ""}`}>
+          <div className="mobile-menu">
+            {NAV_LINKS.map((nav) =>
+              nav.megaMenu ? (
+                <div key={nav.label} className="mobile-nav-item">
+                  {/* Top-level accordion toggle: Courses */}
+                  <button
+                    className={`mobile-link-toggle${mobileOpen === nav.label ? " open" : ""}`}
+                    onClick={() => toggleMobileItem(nav.label)}
+                  >
+                    {nav.label}
+                    <span className="chevron">▾</span>
+                  </button>
+
+                  {/* Category list */}
+                  <div
+                    className={`mobile-sub-items${mobileOpen === nav.label ? " open" : ""}`}
+                  >
+                    {COURSE_CATEGORIES.map((cat) => (
+                      <div key={cat.category} className="mobile-course-cat">
+                        {/* Second-level accordion toggle: each category */}
+                        <button
+                          className={`mobile-course-cat-toggle${mobileCourseCat === cat.category ? " open" : ""}`}
+                          onClick={() => toggleMobileCourseCat(cat.category)}
+                        >
+                          {cat.category}
+                          <span className="chevron">▾</span>
+                        </button>
+
+                        {/* Courses within this category */}
+                        <div
+                          className={`mobile-sub-items nested${mobileCourseCat === cat.category ? " open" : ""}`}
+                        >
+                          {cat.items.map((item) => (
+                            <a
+                              key={item.title}
+                              href={item.href}
+                              className="mobile-sub-item"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              <span className="mobile-sub-item-icon">{item.icon}</span>
+                              {item.title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={nav.label}
+                  href={nav.href}
+                  className="mobile-link-toggle mobile-link-plain"
+                  onClick={(e) => e.preventDefault()}
                 >
                   {nav.label}
-                  <span className="chevron">▾</span>
-                </button>
-
-                {/* Sub-items */}
-                <div
-                  className={`mobile-sub-items${mobileOpen === nav.label ? " open" : ""}`}
-                >
-                  {nav.items.map((item) => (
-                    <a
-                      key={item.title}
-                      href={item.href}
-                      className="mobile-sub-item"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      <span className="mobile-sub-item-icon">{item.icon}</span>
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
+                </a>
+              )
+            )}
 
             <button className="mobile-cta">Contact Us</button>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

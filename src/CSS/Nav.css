@@ -7,7 +7,7 @@
   position: sticky;
   z-index: 1000;
   top: 0;
-  
+
 }
 
 /* ── Topbar ── */
@@ -17,6 +17,7 @@
   gap: 6px;
   width: 100%;
   height: 48px;
+
   /* border: 2px solid white; */
 }
 
@@ -24,30 +25,46 @@
 .navbar {
   display: flex;
   align-items: center;
+   background-color: white;
+  /* justify-content: center; */
+  gap: 20px;
   flex: 1;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0 24px;
+  background: rgba(8, 13, 31, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  padding: 0 4px;
   height: 100%;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(129, 140, 248, 0.12);
   position: relative;
  
 }
 
 /* Brand */
 .brand {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 19px;
-  color: white;
-  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
-  padding-right: 22px;
+  /* padding-right: 22px; */
+  padding: 3px 5px;
   cursor: pointer;
   text-decoration: none;
-  transition: color 0.2s;
-  flex-shrink: 0;
+  background-color: white;
+border-radius: 10px;
+
+}
+.brand-logo {
+  height: 32px;
+  width: 100%;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+ 
+.brand:hover .brand-logo {
+  opacity: 0.85;
 }
 
 .divider {
@@ -76,7 +93,7 @@
   position: relative;
 }
 
-/* Nav link button */
+/* Nav link (button for the Courses trigger, anchor for plain links) */
 .nav-link {
   font-family: 'Barlow', sans-serif;
   font-size: 11.5px;
@@ -94,6 +111,7 @@
   background: none;
   border: none;
   white-space: nowrap;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
@@ -121,7 +139,7 @@
   transform: scaleX(1);
 }
 
-/* Chevron arrow */
+/* Chevron arrow (Courses trigger only) */
 .nav-link .chevron {
   display: inline-block;
   font-size: 15px;
@@ -131,27 +149,30 @@
   margin-top: 1px;
 }
 
-.nav-links li:hover .chevron,
-.nav-links li.open .chevron {
+.nav-links li.has-mega:hover .chevron,
+.nav-links li.has-mega.open .chevron {
   transform: rotate(180deg);
   opacity: 1;
 }
 
 /* ══════════════════════════════════════════
-   DROPDOWN PANEL
+   COURSES MEGA-MENU
+   (the only dropdown left — merges every former
+   category into one panel, grouped by column)
 ══════════════════════════════════════════ */
-.dropdown {
+.courses-mega {
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
-  min-width: 400px;
+  width: 720px;
+  max-width: 92vw;
   background: rgba(8, 8, 28, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(129, 140, 248, 0.2);
   border-radius: 14px;
-  padding: 10px 8px;
+  padding: 10px 10px 8px;
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(129, 140, 248, 0.06),
@@ -160,11 +181,75 @@
   pointer-events: none;
   transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 999;
-  /* border: 2px solid white; */
+}
+
+/* Two-level layout: category list on the left, course flyout on the right */
+.courses-mega-flyout {
+  display: flex;
+  align-items: stretch;
+  min-height: 300px;
+}
+
+.courses-mega-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 210px;
+  flex-shrink: 0;
+  padding-right: 8px;
+  border-right: 1px solid rgba(129, 140, 248, 0.12);
+}
+
+.courses-mega-cat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.75);
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.courses-mega-cat-arrow {
+  font-size: 8px;
+  opacity: 0;
+  color: #818cf8;
+  transform: translateX(-3px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.courses-mega-cat:hover,
+.courses-mega-cat.active {
+  background: rgba(99, 102, 241, 0.14);
+  color: #c4b5fd;
+}
+
+.courses-mega-cat:hover .courses-mega-cat-arrow,
+.courses-mega-cat.active .courses-mega-cat-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.courses-mega-panel {
+  flex: 1;
+  padding: 4px 4px 4px 16px;
+}
+
+.courses-mega-panel .dropdown-items.two-col {
+  grid-template-columns: 1fr 1fr;
 }
 
 /* Arrow tip */
-.dropdown::before {
+.courses-mega::before {
   content: '';
   position: absolute;
   top: -6px;
@@ -179,43 +264,22 @@
   rotate: 45deg;
 }
 
-/* Show dropdown on hover */
-.nav-links li:hover .dropdown,
-.nav-links li.open .dropdown {
+/* Show mega-menu on hover */
+.nav-links li.has-mega:hover .courses-mega,
+.nav-links li.has-mega.open .courses-mega {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
 }
 
-/* Dropdown header */
-.dropdown-header {
-  padding: 6px 12px 10px;
-  border-bottom: 1px solid rgba(129, 140, 248, 0.12);
-  margin-bottom: 6px;
+.courses-mega-footer {
+  margin-top: 4px;
 }
 
-.dropdown-header-label {
-  font-family: 'Barlow', sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: white;
-  opacity: 0.8;
-}
-
-/* Dropdown items grid — 2 column if many items */
-.dropdown-items {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2px;
-}
-
-.dropdown-items.two-col {
-  grid-template-columns: 1fr 1fr;
-}
-
-/* Each item */
+/* ══════════════════════════════════════════
+   Legacy dropdown-item styling
+   (still used, now shared by the mega-menu)
+══════════════════════════════════════════ */
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -299,23 +363,7 @@
   text-overflow: ellipsis;
 }
 
-/* Arrow on item */
-.dropdown-item-arrow {
-  font-size: 10px;
-  color: #475569;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 0.18s, transform 0.18s;
-  flex-shrink: 0;
-}
-
-.dropdown-item:hover .dropdown-item-arrow {
-  opacity: 1;
-  transform: translateX(0);
-  color: #818cf8;
-}
-
-/* Dropdown footer */
+/* Dropdown footer (shared by the mega-menu) */
 .dropdown-footer {
   padding: 8px 12px 4px;
   border-top: 1px solid rgba(129, 140, 248, 0.1);
@@ -363,9 +411,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(8, 13, 31, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   padding: 0 28px;
   height: 100%;
   flex-shrink: 0;
@@ -419,16 +467,53 @@
   height: 2px;
   background: white;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Morph into an X when the mobile menu is open */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile menu open/close animation ──
+   Grid-based accordion trick: the wrapper's row animates between 0fr and
+   1fr, so it smoothly grows/shrinks to fit content of any height, instead
+   of just popping in/out with no transition. */
+.mobile-menu-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding-top: 0;
+  transition:
+    grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease,
+    padding-top 0.32s ease;
+}
+
+.mobile-menu-wrapper.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-top: 6px;
 }
 
 /* ── Mobile menu ── */
 .mobile-menu {
+  display: flex;
   flex-direction: column;
+  min-height: 0;
   background: rgba(8, 8, 28, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  margin-top: 6px;
   border-radius: 10px;
   border: 1px solid rgba(129, 140, 248, 0.15);
   padding: 8px 0 14px;
@@ -456,6 +541,7 @@
   background: none;
   border: none;
   text-align: left;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -478,16 +564,76 @@
   transform: rotate(180deg);
 }
 
-/* Mobile sub-items */
+/* Plain mobile links (Home, About, Career, Services, Gallery) — no chevron, left-aligned */
+.mobile-link-plain {
+  justify-content: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-link-plain:last-of-type {
+  border-bottom: none;
+}
+
+/* Mobile sub-items (first level: category list inside the Courses accordion) */
 .mobile-sub-items {
   display: none;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.2);
   border-top: 1px solid rgba(129, 140, 248, 0.08);
+  padding: 4px 0;
 }
 
 .mobile-sub-items.open {
   display: flex;
+}
+
+/* Second level: courses nested inside a category */
+.mobile-sub-items.nested {
+  background: rgba(0, 0, 0, 0.15);
+  border-top: none;
+  padding: 2px 0 4px;
+}
+
+.mobile-course-cat {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mobile-course-cat:last-of-type {
+  border-bottom: none;
+}
+
+.mobile-course-cat-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 28px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #818cf8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.18s, background 0.18s;
+}
+
+.mobile-course-cat-toggle:hover,
+.mobile-course-cat-toggle.open {
+  color: #c4b5fd;
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.mobile-course-cat-toggle .chevron {
+  font-size: 8px;
+  transition: transform 0.25s ease;
+}
+
+.mobile-course-cat-toggle.open .chevron {
+  transform: rotate(180deg);
 }
 
 .mobile-sub-item {
@@ -553,5 +699,15 @@
   }
   .topbar {
     height: 50px;
+  }
+}
+
+/* Narrower screens: mega-menu shrinks and the course flyout drops to 1 column */
+@media (max-width: 980px) {
+  .courses-mega {
+    width: 560px;
+  }
+  .courses-mega-panel .dropdown-items.two-col {
+    grid-template-columns: 1fr;
   }
 }
