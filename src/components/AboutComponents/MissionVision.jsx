@@ -52,8 +52,8 @@ function MissionVision() {
       </feMerge>
     </filter>
   </defs>
-  <circle  fill="none" stroke="#60a5fa" stroke-width="2.5" filter="url(#glowBlue)"/>
-  <g filter="url(#glowBlue)" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" fill="none">
+  <circle  fill="none" stroke="#60a5fa" strokeWidth="2.5" filter="url(#glowBlue)"/>
+  <g filter="url(#glowBlue)" stroke="#60a5fa" strokeWidth="3" strokeLinecap="round" fill="none">
     <line x1="100" y1="50" x2="100" y2="60"/>
     <line x1="72" y1="58" x2="78" y2="66"/>
     <line x1="128" y1="58" x2="122" y2="66"/>
@@ -63,9 +63,9 @@ function MissionVision() {
     <line x1="128" y1="142" x2="122" y2="134"/>
   </g>
   <path d="M65 100 C65 100, 80 75, 100 75 C120 75, 135 100, 135 100 C135 100, 120 125, 100 125 C80 125, 65 100, 65 100 Z"
-        fill="none" stroke="#60a5fa" stroke-width="3.5" stroke-linejoin="round" filter="url(#glowBlue)"/>
+        fill="none" stroke="#60a5fa" strokeWidth="3.5" strokeLinejoin="round" filter="url(#glowBlue)"/>
   <circle cx="100" cy="100" r="13" fill="#60a5fa" filter="url(#glowBlue)"/>
-  <circle cx="100" cy="100" r="13" fill="none" stroke="#0a0e27" stroke-width="1.5"/>
+  <circle cx="100" cy="100" r="13" fill="none" stroke="#0a0e27" strokeWidth="1.5"/>
   <circle cx="96" cy="96" r="3.5" fill="#0a0e27"/>
 </svg>
           </div>
@@ -195,8 +195,8 @@ function MissionVision() {
         <svg width="220" height="220" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="sparkle-svg">
   <defs>
     <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ff8dfd"/>
-      <stop offset="100%" stop-color="#b100ff"/>
+      <stop offset="0%" stopColor="#ff8dfd"/>
+      <stop offset="100%" stopColor="#b100ff"/>
     </radialGradient>
 
     <filter id="blurGlow" x="-100%" y="-100%" width="300%" height="300%">
@@ -228,7 +228,7 @@ function MissionVision() {
          C29 52 34 47 36 38Z"
       fill="none"
       stroke="#ff8dfd"
-      stroke-width="3"
+      strokeWidth="3"
     />
   </g>
 
@@ -276,8 +276,8 @@ function MissionVision() {
     </filter>
 
     <linearGradient id="pinkGlow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff9cff"/>
-      <stop offset="100%" stop-color="#ff00d4"/>
+      <stop offset="0%" stopColor="#ff9cff"/>
+      <stop offset="100%" stopColor="#ff00d4"/>
     </linearGradient>
   </defs>
 
@@ -290,8 +290,8 @@ function MissionVision() {
        C125 95, 155 95, 180 80
        C210 60, 230 65, 250 45"
     stroke="url(#pinkGlow)"
-    stroke-width="2"
-    stroke-dasharray="8 10"
+    strokeWidth="2"
+    strokeDasharray="8 10"
     opacity="0.7"
     fill="none"
   />
@@ -301,8 +301,8 @@ function MissionVision() {
     cy="72"
     r="12"
     stroke="url(#pinkGlow)"
-    stroke-width="2"
-    stroke-dasharray="5 5"
+    strokeWidth="2"
+    strokeDasharray="5 5"
     opacity="0.7"
     fill="none"
   />
@@ -312,23 +312,23 @@ function MissionVision() {
       d="M235 25L305 5L270 75L258 50L235 25Z"
       fill="none"
       stroke="url(#pinkGlow)"
-      stroke-width="3"
-      stroke-linejoin="round"
+      strokeWidth="3"
+      strokeLinejoin="round"
     />
 
     <path
       d="M235 25L258 50L305 5"
       stroke="url(#pinkGlow)"
-      stroke-width="3"
+      strokeWidth="3"
       fill="none"
     />
 
     <path
       d="M258 50L250 70L270 55"
       stroke="url(#pinkGlow)"
-      stroke-width="3"
+      strokeWidth="3"
       fill="none"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     />
   </g>
 </svg>

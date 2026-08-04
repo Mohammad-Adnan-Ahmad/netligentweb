@@ -295,11 +295,11 @@ export const IconRupee = () => (
 );
 
 export const IconTrophy = () => (
- <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="url(#grad3)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f8cff"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
+      <stop offset="0%" stopColor="#4f8cff"/>
+      <stop offset="100%" stopColor="#3b82f6"/>
     </linearGradient>
   </defs>
   <polyline points="3 17 9 11 13 15 21 7"/>
@@ -331,11 +331,11 @@ export const IconStar = () => (
 );
 
 export const BriefcaseIcon = () => (
-  <svg width="30" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#gradA)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg width="30" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#gradA)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="gradA" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00c6ff"/>
-      <stop offset="100%" stop-color="#7b61ff"/>
+      <stop offset="0%" stopColor="#00c6ff"/>
+      <stop offset="100%" stopColor="#7b61ff"/>
     </linearGradient>
   </defs>
   <rect x="3" y="7" width="18" height="13" rx="2"/>
@@ -344,11 +344,11 @@ export const BriefcaseIcon = () => (
 );
 
 export const CodeIcon = () => (
-  <svg width="40" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradB)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg width="40" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradB)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="gradB">
-      <stop offset="0%" stop-color="#4f8cff"/>
-      <stop offset="100%" stop-color="#9333ea"/>
+      <stop offset="0%" stopColor="#4f8cff"/>
+      <stop offset="100%" stopColor="#9333ea"/>
     </linearGradient>
   </defs>
   <polyline points="16 18 22 12 16 6"/>
@@ -357,11 +357,11 @@ export const CodeIcon = () => (
 );
 
 export const PeopleIcon = () => (
- <svg width="50" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradC)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+ <svg width="50" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradC)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="gradC">
-      <stop offset="0%" stop-color="#7b61ff"/>
-      <stop offset="100%" stop-color="#00c6ff"/>
+      <stop offset="0%" stopColor="#7b61ff"/>
+      <stop offset="100%" stopColor="#00c6ff"/>
     </linearGradient>
   </defs>
   <circle cx="9" cy="7" r="4"/>
@@ -371,11 +371,11 @@ export const PeopleIcon = () => (
 );
 
 export const CertIcon = () => (
-  <svg width="55" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradD)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg width="55" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradD)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="gradD">
-      <stop offset="0%" stop-color="#00f5a0"/>
-      <stop offset="100%" stop-color="#00c6ff"/>
+      <stop offset="0%" stopColor="#00f5a0"/>
+      <stop offset="100%" stopColor="#00c6ff"/>
     </linearGradient>
   </defs>
   <path d="M4 4h16v12H4z"/>
@@ -384,11 +384,11 @@ export const CertIcon = () => (
 );
 
 export const ChartIcon = () => (
-  <svg width="64" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradE)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg width="64" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradE)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
   <defs>
     <linearGradient id="gradE">
-      <stop offset="0%" stop-color="#ff7a18"/>
-      <stop offset="100%" stop-color="#ff3d81"/>
+      <stop offset="0%" stopColor="#ff7a18"/>
+      <stop offset="100%" stopColor="#ff3d81"/>
     </linearGradient>
   </defs>
   <polyline points="3 17 9 11 13 15 21 7"/>
@@ -597,21 +597,21 @@ export const MentorIcon = () => (
 
 export const CurriculumIcon = () => (
  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-  <path d="M3 7l9-4 9 4-9 4-9-4z" stroke="#5B8CFF" stroke-width="1.5"/>
-  <path d="M5 10v5c0 2 3 3 7 3s7-1 7-3v-5" stroke="#7C4DFF" stroke-width="1.5"/>
+  <path d="M3 7l9-4 9 4-9 4-9-4z" stroke="#5B8CFF" strokeWidth="1.5"/>
+  <path d="M5 10v5c0 2 3 3 7 3s7-1 7-3v-5" stroke="#7C4DFF" strokeWidth="1.5"/>
 </svg>
 );
 
 export const RocketIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-  <path d="M5 15l7-10 7 10h-4v4h-6v-4H5z" stroke="#5B8CFF" stroke-width="1.5"/>
+  <path d="M5 15l7-10 7 10h-4v4h-6v-4H5z" stroke="#5B8CFF" strokeWidth="1.5"/>
 </svg>
 );
 
 export const ShieldCheckIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-  <path d="M12 3l7 3v6c0 5-3.5 7-7 9-3.5-2-7-4-7-9V6l7-3z" stroke="#7C4DFF" stroke-width="1.5"/>
-  <path d="M9 12l2 2 4-4" stroke="#5B8CFF" stroke-width="1.5"/>
+  <path d="M12 3l7 3v6c0 5-3.5 7-7 9-3.5-2-7-4-7-9V6l7-3z" stroke="#7C4DFF" strokeWidth="1.5"/>
+  <path d="M9 12l2 2 4-4" stroke="#5B8CFF" strokeWidth="1.5"/>
 </svg>
 );
 
@@ -630,9 +630,9 @@ export const GroupIcon = () => (
 
 export const CertBadgeIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-  <rect x="5" y="3" width="14" height="18" rx="2" stroke="#5B8CFF" stroke-width="1.5"/>
-  <path d="M8 8h8M8 12h6" stroke="#7C4DFF" stroke-width="1.5"/>
-  <circle cx="12" cy="17" r="2" stroke="#5B8CFF" stroke-width="1.5"/>
+  <rect x="5" y="3" width="14" height="18" rx="2" stroke="#5B8CFF" strokeWidth="1.5"/>
+  <path d="M8 8h8M8 12h6" stroke="#7C4DFF" strokeWidth="1.5"/>
+  <circle cx="12" cy="17" r="2" stroke="#5B8CFF" strokeWidth="1.5"/>
 </svg>
 );
 

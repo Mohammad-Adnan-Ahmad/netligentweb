@@ -1,12 +1,11 @@
 .vmp-wrap {
-  padding: 36px 60px 32px;
+  padding: 38px 60px 32px;
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
    font-family: 'Barlow', sans-serif;
-    border: 1px solid white;
     margin-top: 20px;
 }
 
@@ -15,25 +14,25 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.16);
-   border-radius: 20px;
+  color: #c7d2fe;
+  border-radius: 20px;
   padding: 6px 20px;
-    font-size: 11.5px;
+  font-size: 11.5px;
   font-weight: 600;
-   letter-spacing: 2.5px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   margin-bottom: 22px;
-    color: #c7d2fe;
 }
-.vmp-badge-icon { width: 15px; height: 15px; color: #a78bfa; }
+.vmp-badge-icon { width: 14px; height: 14px; }
 
 /* ── HEADING ── */
 .vmp-h2 {
  font-size: clamp(26px, 3.8vw, 50px);;
   font-weight: 900;
   line-height: 1.22;
-  color: #ffffff;
+  color: white;
   text-align: center;
    margin: 0 0 18px;
    letter-spacing: 0;
@@ -224,7 +223,7 @@ background: rgba(255, 255, 255, 0.07);
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 24px;
-  /* background: rgba(255,255,255,0.012); */
+  background: rgba(255,255,255,0.012);
   border: 1.3px solid #2a2c45;
   border-radius: 16px;
   padding: 22px 32px;
@@ -247,16 +246,58 @@ background: rgba(255, 255, 255, 0.07);
 .vmp-cta-right svg { width: 256px; height:60px; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1000px) {
-  .vmp-cards { grid-template-columns: 1fr; }
-  .vmp-h2 { font-size: 28px; }
+@media (max-width: 1024px) {
+  .vmp-wrap {
+  padding: 38px 20px 32px;
+}
+  .vmp-cards {
+  gap: 12px;
+}
+  .vmp-card {
+  padding: 18px 26px 20px;
+}
   .vmp-subrow { flex-direction: column; gap: 8px; }
   .vmp-subline { display: none; }
   .vmp-cta-bar { grid-template-columns: 1fr; text-align: center; }
   .vmp-cta-left, .vmp-cta-right { display: flex; justify-content: center; }
+  .vmp-sub  {
+    font-size: 14px;
+    line-height: 20px;
+    width: 80%;
+  }
+    .vmp-icon-circle {
+  width: 60px;
+  height: 60px;
+}
+.vmp-icon-circle svg { width: 44px; height:44px; }
+}
+@media (max-width:768px){
+   .vmp-wrap { padding: 48px 18px; }
+  .vmp-cards { grid-template-columns: 1fr; }
+   .vmp-card {
+  padding: 18px 26px 200px;
+}
+
+
+.vmp-cta-bar {
+  gap: 14px;
+  padding: 12px 22px;
+}
 }
 @media (max-width: 560px) {
-  .vmp-wrap { padding: 28px 18px; }
+ 
   .vmp-steps { gap: 4px; }
   .vmp-step-icon { width: 38px; height: 38px; }
+  .vmp-badge {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+  }
+ 
+}
+
+@media (max-width: 380px) {
+  .vmp-h2 {
+    font-size: 22px;
+  }
 }

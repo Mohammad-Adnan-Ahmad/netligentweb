@@ -205,12 +205,12 @@
 
 
 .wwa-story-highlight {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: white;
   line-height: 1.7;
 }
 .wwa-story-body2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: white;
   /* line-height: 1.75; */
   letter-spacing: 0;
@@ -289,6 +289,10 @@
   width: 20px; height: 20px;}
 }
 @media (max-width: 640px) {
+  .wwa-section {
+  padding: 0px 0;
+
+}
   .wwa-container { padding: 20px 20px; }
   /* .wwa-title { font-size: 1.8rem; } */
   .wwa-right { height: 300px; }
@@ -312,6 +316,12 @@
    align-items: start;
    flex-direction: column;
    font-size: 14px;
+}
+.wwa-story-highlight {
+  font-size: 1rem;
+}
+.wwa-story-body2 {
+  font-size: 1rem;
 }
 }
 @media (max-width: 500px) {

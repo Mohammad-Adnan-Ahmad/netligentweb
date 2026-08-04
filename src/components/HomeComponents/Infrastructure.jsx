@@ -22,24 +22,12 @@ const FEATURES = [
 
 /* ── Gallery cells — swap src with your own images anytime ── */
 const CELLS = [
-  {
-    src: 'C2.jpeg',
-  },
-  {
-    src: 'C3.jpg',
-  },
-  {
-    src: 'C4.jpg',
-  },
-  {
-    src: 'C5.jpg',
-  },
-  {
-    src: 'C8.jpg',
-  },
-  {
-    src: 'C6.jpg',
-  },
+  { src: 'C2.jpeg', label: 'Classroom 1' },
+  { src: 'C3.jpg', label: 'Classroom 2' },
+  { src: 'C4.jpg', label: 'Lab 1' },
+  { src: 'C5.jpg', label: 'Lab 2' },
+  { src: 'C8.jpg', label: 'Lounge' },
+  { src: 'C6.jpg', label: 'Discussion Area' },
 ];
 
 export default function Infrastructure() {

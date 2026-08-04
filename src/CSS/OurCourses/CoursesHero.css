@@ -39,7 +39,7 @@
   z-index: 2;
   padding: 20px 20px 0 48px;
   align-items: center;
-  background: url('../../../public/CourseHero.png');
+  background: url('/CourseHero.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right bottom;

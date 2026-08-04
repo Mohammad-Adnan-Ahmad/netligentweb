@@ -1,4 +1,6 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
+
 import HeroSection from '../../components/HomeComponents/HeroSection'
 import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 import MainHeading from '../../components/HomeComponents/MainHeading'
@@ -17,19 +19,24 @@ import Infrastructure from '../../components/HomeComponents/Infrastructure'
 function HomePage() {
   return (
     <>
-        <Hero/>
-        <RecentPlacement/>
-        <PersonalizedAttention/>
-        <WhyIdeal/>
-        <Certificate/>
-        <Infrastructure/>
-         <OurCourses/>
-        <RealTraining/>
-        <Reviews/>
-        <FeedbackVideos/>
-        <CareerCounsellors/>
-        <PlacementProcess/>
-      
+      <Helmet>
+        <title>Netligent Technologies | Best IT Training Institute in Bhopal</title>
+        <meta name="description" content="Top IT courses with placement support." />
+        <meta name="keywords" content="IT training, Best IT training institute in Bhopal, Best Data Science Course in Bhopal, python, java, Data Analytics, Machine Learning" />
+      </Helmet>
+
+      <Hero/>
+      <RecentPlacement/>
+      <PersonalizedAttention/>
+      <WhyIdeal/>
+      <Certificate/>
+      <Infrastructure/>
+      <OurCourses/>
+      <RealTraining/>
+      <Reviews/>
+      <FeedbackVideos/>
+      <CareerCounsellors/>
+      <PlacementProcess/>
     </>
   )
 }
