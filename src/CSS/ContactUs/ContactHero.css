@@ -140,17 +140,17 @@
 
 /* Subtitle */
 .ch2-subtitle {
-  font-size: 16px;
+  font-size: 15.5px;
   color: rgba(255, 255, 255, 0.837);
   line-height: 1.72;
-  max-width: 520px;
+  width: 85%;
   margin-bottom: 32px;
 }
 
-/* ── 4-column feature icons ── */
+/* ── 2-column feature icons ── */
 .ch2-features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
   margin-bottom: 30px;
 }
@@ -286,7 +286,7 @@ color: rgba(255, 255, 255, 0.681);
 }
 
 
-
+  .ch2-right { display: none; }
 
 
 
@@ -294,24 +294,69 @@ color: rgba(255, 255, 255, 0.681);
    RESPONSIVE
 ══════════ */
 @media (max-width: 1200px) {
-  .ch2-grid { grid-template-columns: 1fr; padding: 48px 36px; }
+  .ch2-grid { grid-template-columns: 1fr; 
+    padding: 0 0px 5px;
+  background-size: 600px;
+ }
   .ch2-left { padding-right: 0; }
-  .ch2-right { display: none; }
+   .ch2-features { width: 40%;}
+
+.ch2-subtitle { font-size: 14px; width: 40%; }
+
   .ch2-title-line1, .ch2-title-line2 { font-size: 44px; }
   .ch2-title-underline { width: 280px; }
 }
 
+@media (max-width: 1023px) {
+ .ch2-grid{
+  background-image: none;
+   padding: 38px 36px 5px; 
+ }
+   .ch2-left {
+  margin: 0;
+  padding: 0px 10px 0px 0px;
+}
+ .ch2-features { width: 70%;}
+ .ch2-right { display: flex;}
+.ch2-subtitle { font-size: 14px; width: 60%; }
+}
+
 @media (max-width: 768px) {
+  
+
+  .ch2-left {
+  margin: 0;
+  padding: 0px 10px 0px 0px;
+}
   .ch2-title-line1, .ch2-title-line2 { font-size: 32px; letter-spacing: -1px; }
-  .ch2-features { grid-template-columns: repeat(2, 1fr); }
+  .ch2-features { grid-template-columns: repeat(2, 1fr); width: 100%; 
+
+  }
   .ch2-btn-row  { flex-direction: column; align-items: stretch; }
   .ch2-btn-call, .ch2-btn-wa { justify-content: center; }
   .ch2-title-underline { width: 220px; }
+  .ch2-subtitle { width: 100%; }
+}
+@media (max-width: 640px){
+  .ch2-grid{
+    padding: 0px 20px;
+  }
+  .ch2-left {
+  margin: 0;
+  padding: 20px 10px 0px 0px;
+}
+}
+@media (max-width: 500px) {
+  .ch2-tag{ font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; }
+}
+@media (max-width: 480px) {
+  .ch2-title-line1, .ch2-title-line2 { font-size: 26px; }
+
+  
 }
 
-@media (max-width: 480px) {
-  .ch2-grid { padding: 36px 20px; }
-  .ch2-title-line1, .ch2-title-line2 { font-size: 26px; }
-  .ch2-features { grid-template-columns: 1fr; }
-  .ch2-subtitle { font-size: 14px; }
+@media (max-width: 380px) {
+  .ch2-title{
+    font-size: 22px;
+  }
 }

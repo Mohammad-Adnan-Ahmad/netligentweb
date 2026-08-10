@@ -1,0 +1,626 @@
+/* ── Section wrapper ── */
+.cs-section {
+  padding: 54px 56px 56px;
+  font-family: 'Barlow', sans-serif;
+  color: #e2e8f0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* ── Header ── */
+.cs-header {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #c7d2fe;
+  border-radius: 20px;
+  padding: 6px 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.cs-badge .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c084fc;
+}
+
+.cs-heading {
+  font-size: clamp(26px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.22;
+  margin: 0 0 18px;
+  color: white;
+  letter-spacing: 0
+}
+
+.cs-heading .line2 {
+  display: block;
+  position: relative;
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.cs-subtext {
+  color: #94a3b8;
+  font-size: 15.5px;
+  text-align: center;
+  line-height: 1.75;
+  width: 50%;
+}
+
+
+/* ── Cards Grid ── */
+.cs-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 28px;
+}
+
+.cs-card {
+  border-radius: 18px;
+  padding: 28px 24px 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(10, 10, 30, 0.55);
+  border: 1px solid;
+  overflow: hidden;
+}
+
+/* color variants */
+.cs-card.purple {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 32px rgba(168, 85, 247, 0.08) inset;
+}
+
+.cs-card.teal {
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 0 32px rgba(45, 212, 191, 0.08) inset;
+}
+
+.cs-card.orange {
+  border-color: rgba(251, 146, 60, 0.4);
+  box-shadow: 0 0 32px rgba(251, 146, 60, 0.08) inset;
+}
+
+.cs-card.blue {
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 32px rgba(96, 165, 250, 0.08) inset;
+}
+
+/* faint radial background tint */
+.cs-card.purple {
+  background: radial-gradient(ellipse at top, rgba(168, 85, 247, 0.08) 0%, rgba(10, 10, 30, 0.7) 60%);
+}
+
+.cs-card.teal {
+  background: radial-gradient(ellipse at top, rgba(45, 212, 191, 0.08) 0%, rgba(10, 10, 30, 0.7) 60%);
+}
+
+.cs-card.orange {
+  background: radial-gradient(ellipse at top, rgba(251, 146, 60, 0.08) 0%, rgba(10, 10, 30, 0.7) 60%);
+}
+
+.cs-card.blue {
+  background: radial-gradient(ellipse at top, rgba(96, 165, 250, 0.08) 0%, rgba(10, 10, 30, 0.7) 60%);
+}
+
+/* dot grid decoration top-right of card */
+.cs-card-dots {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  grid-template-rows: repeat(3, 4px);
+  gap: 4px;
+}
+
+.cs-card-dots span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.35);
+}
+
+.cs-card.purple .cs-card-dots span {
+  background-color: #c084fc;
+}
+
+.cs-card.teal .cs-card-dots span {
+  background-color: #2dd4bf;
+}
+
+.cs-card.orange .cs-card-dots span {
+  background-color: #fb923c;
+}
+
+.cs-card.blue .cs-card-dots span {
+  background-color: #60a5fa;
+}
+
+.cs-card-main-icon-title-tag {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icon circle */
+.cs-card-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-card.purple .cs-card-icon {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+}
+
+.cs-card.teal .cs-card-icon {
+  background: rgba(45, 212, 191, 0.12);
+  border: 1.5px solid rgba(45, 212, 191, 0.5);
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.35);
+}
+
+.cs-card.orange .cs-card-icon {
+  background: rgba(251, 146, 60, 0.12);
+  border: 1.5px solid rgba(251, 146, 60, 0.5);
+  box-shadow: 0 0 24px rgba(251, 146, 60, 0.35);
+}
+
+.cs-card.blue .cs-card-icon {
+  background: rgba(96, 165, 250, 0.12);
+  border: 1.5px solid rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 24px rgba(96, 165, 250, 0.35);
+}
+
+.cs-card-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cs-card.purple .cs-card-icon svg {
+  stroke: #c084fc;
+}
+
+.cs-card.teal .cs-card-icon svg {
+  stroke: #2dd4bf;
+}
+
+.cs-card.orange .cs-card-icon svg {
+  stroke: #fb923c;
+}
+
+.cs-card.blue .cs-card-icon svg {
+  stroke: #60a5fa;
+  fill: #60a5fa;
+}
+
+/* Card title */
+.cs-card-title-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs-card-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+/* Handwritten tagline */
+.cs-card-tag {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+
+
+
+
+.cs-card.purple .cs-card-tag {
+  color: #c084fc;
+}
+
+.cs-card.teal .cs-card-tag {
+  color: #2dd4bf;
+}
+
+.cs-card.orange .cs-card-tag {
+  color: #fb923c;
+}
+
+.cs-card.blue .cs-card-tag {
+  color: #60a5fa;
+}
+
+.cs-card-tag::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1.5px;
+  opacity: 0.7;
+}
+
+.cs-card.purple .cs-card-tag::after {
+  background: #c084fc;
+}
+
+.cs-card.teal .cs-card-tag::after {
+  background: #2dd4bf;
+}
+
+.cs-card.orange .cs-card-tag::after {
+  background: #fb923c;
+}
+
+.cs-card.blue .cs-card-tag::after {
+  background: #60a5fa;
+}
+
+/* dashed divider */
+.cs-card-divider {
+  width: 100%;
+  border-top: 1.5px dashed rgba(148, 163, 184, 0.25);
+  margin-bottom: 16px;
+}
+
+.cs-card-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 22px;
+  min-height: 42px;
+
+}
+
+/* Pill button at bottom of card */
+.cs-card-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1.5px solid;
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+.cs-card-pill svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.cs-card.purple .cs-card-pill {
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #e9d5ff;
+}
+
+.cs-card.purple .cs-card-pill svg {
+  stroke: #c084fc;
+  fill: #c084fc;
+}
+
+.cs-card.teal .cs-card-pill {
+  border-color: rgba(45, 212, 191, 0.5);
+  color: #ccfbf1;
+}
+
+.cs-card.teal .cs-card-pill svg {
+  stroke: #2dd4bf;
+  fill: #2dd4bf;
+}
+
+.cs-card.orange .cs-card-pill {
+  border-color: rgba(251, 146, 60, 0.5);
+  color: #fed7aa;
+}
+
+.cs-card.orange .cs-card-pill svg {
+  stroke: #fb923c;
+  fill: none;
+}
+
+.cs-card.blue .cs-card-pill {
+  border: none;
+  color: #dbeafe;
+  white-space: inherit;
+  background: none;
+  margin-top: -20px;
+  border-radius: 0;
+  align-items: start;
+  text-align: center;
+  padding: 0;
+}
+
+.cs-card.blue .cs-card-pill svg {
+  display: none;
+}
+
+/* ── Bottom trust strip ── */
+.cs-trust {
+  background: rgba(20, 16, 50, 0.55);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 18px;
+  padding: 26px 44px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cs-trust-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cs-trust-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cs-trust-icon.purple {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1.5px solid rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.3);
+}
+
+.cs-trust-icon.purple svg {
+  stroke: #c084fc;
+}
+
+.cs-trust-icon.teal {
+  background: rgba(45, 212, 191, 0.12);
+  border: 1.5px solid rgba(45, 212, 191, 0.45);
+  box-shadow: 0 0 18px rgba(45, 212, 191, 0.3);
+}
+
+.cs-trust-icon.teal svg {
+  stroke: #2dd4bf;
+  fill: #2dd4bf;
+}
+
+.cs-trust-icon.orange {
+  background: rgba(251, 146, 60, 0.12);
+  border: 1.5px solid rgba(251, 146, 60, 0.45);
+  box-shadow: 0 0 18px rgba(251, 146, 60, 0.3);
+}
+
+.cs-trust-icon.orange svg {
+  stroke: #fb923c;
+  fill: #fb923c;
+}
+
+.cs-trust-icon.blue {
+  background: rgba(96, 165, 250, 0.12);
+  border: 1.5px solid rgba(96, 165, 250, 0.45);
+  box-shadow: 0 0 18px rgba(96, 165, 250, 0.3);
+}
+
+.cs-trust-icon.blue svg {
+  stroke: #60a5fa;
+  fill: none;
+}
+
+.cs-trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-trust-label {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.cs-trust-value {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.cs-trust-sub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .cs-subtext {
+    width: 60%;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .cs-subtext {
+    font-size: 14px;
+    width: 70%;
+    line-height: 20px;
+  }
+
+  .cs-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cs-trust {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cs-bubble {
+    display: none;
+    width: 140px;
+    top: 2vh;
+    right: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-subtext {
+    width: 90% !important;
+    line-height: 20px;
+  }
+
+  .cs-section {
+    padding: 26px 20px 0px;
+  }
+
+  .cs-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-card-main-icon-title-tag {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    /* border: 1px solid white; */
+
+  }
+
+  .cs-card-icon {
+    margin-bottom: 10px;
+    height: 60px;
+    width: 60px;
+
+  }
+
+  .cs-card-icon svg {
+    height: 24px;
+    width: 24px;
+  }
+
+  .cs-card-title-tag {
+    justify-content: center;
+    align-items: start;
+  }
+
+  .cs-card-title {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+
+  .cs-card-tag {
+    font-size: 16px;
+  }
+
+  .cs-card-desc {
+    font-size: 14px;
+    min-height: 0;
+  }
+
+  .cs-card-pill {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cs-card.blue .cs-card-pill {
+    margin-top: -10px;
+  }
+
+  .cs-trust {
+    grid-template-columns: 1fr 1fr;
+    padding: 16px 14px;
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+}
+
+.cs-trust-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.cs-trust-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cs-trust-value {
+  font-size: 16px;
+
+}
+
+@media (max-width: 380px) {
+  .cs-heading {
+    font-size: 22px;
+  }
+}

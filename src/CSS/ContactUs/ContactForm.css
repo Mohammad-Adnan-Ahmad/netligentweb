@@ -1,0 +1,774 @@
+/* ── Section ── */
+.cf-section {
+    padding: 64px 56px;
+    font-family: 'Barlow', sans-serif;
+    color: #e2e8f0;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+}
+
+
+/* ══════════════════════════════════
+   LEFT COLUMN
+══════════════════════════════════ */
+.cf-left {
+    flex: 0 0 44%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 4px;
+    position: relative;
+    /* border: 1px solid white; */
+    margin-left: -64px;
+}
+
+/* Badge */
+.cf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: #c7d2fe;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.07);
+    margin-bottom: 22px;
+    width: fit-content;
+}
+
+.cf-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: #c7d2fe;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Heading */
+.cf-heading {
+    font-size: clamp(26px, 3.8vw, 50px);
+    font-weight: 900;
+    line-height: 1.22;
+    margin: 0 0 18px;
+    color: #ffffff;
+    letter-spacing: 0;
+}
+
+.cf-heading .line2 {
+    display: block;
+    background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+
+/* Description */
+.cf-desc {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #94a3b8;
+    margin: 0px 0 36px;
+    max-width: 480px;
+}
+
+/* Feature mini-cards row */
+.cf-features {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.cf-feat {
+    flex: 1 1 0;
+    background: rgba(15, 16, 45, 0.7);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    padding: 14px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cf-feat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.cf-feat-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* bolt – purple */
+.cf-feat-icon.purple {
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.cf-feat-icon.purple svg {
+    stroke: #a78bfa;
+    fill: #a78bfa;
+}
+
+/* shield – teal */
+.cf-feat-icon.teal {
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+.cf-feat-icon.teal svg {
+    stroke: #2dd4bf;
+}
+
+/* people – orange */
+.cf-feat-icon.orange {
+    background: rgba(251, 146, 60, 0.12);
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.cf-feat-icon.orange svg {
+    stroke: #fb923c;
+    fill: #fb923c;
+}
+
+.cf-feat-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cf-feat-sub {
+    font-size: 11.5px;
+    color: #94a3b8;
+    line-height: 1.45;
+}
+
+/* ── Prefer to talk box ── */
+.cf-talk-box {
+    background: rgba(15, 16, 50, 0.7);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+    padding: 24px 24px 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cf-talk-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1.5px solid rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cf-talk-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #c084fc;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cf-talk-content {
+    flex: 1;
+}
+
+.cf-talk-title {
+    font-size: 16px;
+    font-weight: 800;
+    position: relative;
+    background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.cf-talk-sub {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.cf-talk-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.cf-talk-phone svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Let's Connect handwritten text + arrow */
+.cf-talk-handwritten {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #60a5fa 0%, #8b5cf6 50%, #d946ef 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    line-height: 1.3;
+}
+
+
+
+/* ── Handwritten bottom text ── */
+.cf-handwritten-wrap {
+    display: flex;
+    margin-top: 10px;
+}
+
+.cf-handwritten {
+    font-size: clamp(26px, 3.8vw, 20px);
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.cf-handwritten .hw-accent {
+    background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+
+/* faint star top-right area of left column */
+.cf-star {
+    position: absolute;
+    top: 130px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    background: #60a5fa;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0.7;
+}
+
+/* ══════════════════════════════════
+   RIGHT COLUMN – FORM CARD
+══════════════════════════════════ */
+.cf-right {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.cf-form-card {
+    background: rgba(10, 12, 40, 0.7);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 20px;
+    padding: 36px 36px 32px;
+    position: relative;
+}
+
+/* dot grid decoration top-right */
+.cf-form-dots {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, 5px);
+    grid-template-rows: repeat(3, 5px);
+    gap: 5px;
+}
+
+.cf-form-dots span {
+    width: 3.5px;
+    height: 3.5px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.45);
+}
+
+/* form header */
+.cf-form-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding-right: 60px;
+}
+
+.cf-form-header-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1.5px solid rgba(168, 85, 247, 0.45);
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cf-form-header-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #c084fc;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cf-form-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.cf-form-header-title {
+    font-size: clamp(26px, 3.8vw, 22px);
+    /* font-size: 22px; */
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.cf-form-header-sub {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+/* field grid */
+.cf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.cf-full {
+    grid-column: 1 / -1;
+}
+
+/* field group */
+.cf-field {
+    background: rgba(15, 16, 50, 0.65);
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    border-radius: 12px;
+    padding: 12px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s;
+}
+
+.cf-field:focus-within {
+    border-color: rgba(139, 92, 246, 0.55);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.cf-field-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #cbd5e1;
+}
+
+.cf-field-label svg {
+    width: 15px;
+    height: 15px;
+    stroke: #94a3b8;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* required-field asterisk */
+.cf-required {
+    color: #f87171;
+    font-weight: 800;
+}
+
+.cf-field-inner {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.cf-field-inner svg {
+    width: 16px;
+    height: 16px;
+    stroke: #64748b;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.cf-field input,
+.cf-field textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #94a3b8;
+    resize: none;
+}
+
+.cf-field input::placeholder,
+.cf-field textarea::placeholder {
+    color: #475569;
+}
+
+.cf-field textarea {
+    min-height: 110px;
+    line-height: 1.65;
+}
+
+/* ── Select / Dropdown ── */
+.cf-field-select .cf-field-inner {
+    position: relative;
+    align-items: center;
+}
+
+.cf-select-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.cf-select {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: #94a3b8;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 24px;
+}
+
+.cf-select option {
+    background: #0f1040;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+.cf-select option:disabled {
+    color: #475569;
+}
+
+.cf-chevron {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* ── resize handle look (bottom-right corner line) ── */
+.cf-field.message {
+    position: relative;
+}
+
+.cf-field.message::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    width: 14px;
+    height: 14px;
+    border-right: 2px solid rgba(99, 102, 241, 0.35);
+    border-bottom: 2px solid rgba(99, 102, 241, 0.35);
+    border-radius: 0 0 3px 0;
+}
+
+/* ── Validation error states ── */
+.cf-field-has-error {
+    border-color: rgba(248, 113, 113, 0.55) !important;
+    background: rgba(60, 20, 30, 0.35);
+}
+
+.cf-field-has-error:focus-within {
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
+}
+
+.cf-field-error svg {
+    stroke: #f87171 !important;
+}
+
+.cf-error-msg {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #f87171;
+    margin-top: -2px;
+}
+
+.cf-error-msg svg {
+    width: 13px;
+    height: 13px;
+    stroke: #f87171;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* ── Submit button ── */
+.cf-submit {
+    width: 100%;
+    height: 58px;
+    background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 40%, #9333ea 75%, #c026d3 100%);
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 800;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.cf-submit:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.cf-submit svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ── Security note ── */
+.cf-secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: #94a3b8;
+}
+
+.cf-secure svg {
+    width: 14px;
+    height: 14px;
+    stroke: #94a3b8;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ── react-toastify theme overrides ── */
+.Toastify__toast {
+    border-radius: 12px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.Toastify__toast-theme--dark {
+    background: #14163f;
+    border: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+.Toastify__toast--success .Toastify__toast-icon svg {
+    fill: #2dd4bf;
+}
+
+.Toastify__toast--error .Toastify__toast-icon svg {
+    fill: #f87171;
+}
+
+.Toastify__progress-bar--success {
+    background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+}
+
+.Toastify__progress-bar--error {
+    background: linear-gradient(90deg, #f87171 0%, #dc2626 100%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+    .cf-section {
+        flex-direction: column;
+        padding: 48px 32px;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cf-left {
+        flex: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .cf-desc {
+        font-size: 14px;
+        line-height: 20px;
+    }
+     .cf-handwritten-wrap {
+        justify-content: center;
+}
+
+    .cf-handwritten {
+    margin-top: 25px;
+}
+  .cf-right {
+    width: 100%;
+}
+}
+
+@media (max-width: 768px) {
+     .cf-section {
+        padding: 26px 28px;
+        gap: 10px;
+    }
+  
+    .cf-form-card {
+        padding: 26px 16px 22px;
+    }
+
+    .cf-form-header-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .cf-form-header-icon svg {
+        width: 20px;
+        height: 20px;
+
+    }
+    .cf-talk-icon {
+    width: 48px;
+    height: 48px;
+   
+}
+
+.cf-talk-icon svg {
+    width: 22px;
+    height: 22px;
+}
+    .cf-talk-handwritten {
+    font-size: 16px;
+    right: 10px;
+    top: 80%;
+    line-height: 1;
+}
+.cf-talk-box {
+    padding: 14px 14px 14px 10px;
+}
+
+}
+
+@media (max-width: 640px) {
+
+     .cf-section {
+        padding: 26px 18px;
+        gap: 10px;
+    }
+    .cf-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cf-features {
+        flex-direction: column;
+    }
+      .cf-handwritten {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+}
+
+@media (max-width: 500px) {
+    .cf-badge {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        padding: 6px 14px;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .cf-heading {
+        font-size: 22px;
+    }
+
+    .cf-form-header-title {
+        font-size: 18px;
+    }
+   
+    .cf-handwritten {
+    font-size: 22px;
+}
+}

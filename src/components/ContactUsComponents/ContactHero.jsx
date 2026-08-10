@@ -1,6 +1,13 @@
 import "../../CSS/ContactUs/ContactHero.css"
 
 /* ══════════════════════════════════════
+   CONTACT CONFIG — update these
+══════════════════════════════════════ */
+const PHONE_NUMBER = "+918349530962";     
+const WHATSAPP_NUMBER = "918349530962";
+const WHATSAPP_MESSAGE = "Hi, I'd like to know more about Netligent courses.";
+
+/* ══════════════════════════════════════
    FEATURES DATA
 ══════════════════════════════════════ */
 const FEATURES = [
@@ -14,17 +21,25 @@ const FEATURES = [
     title: "Always Here",
     body: "Our support team is ready to assist you.",
   },
-  {
-    icon: "🛡️",
-    title: "Your Success",
-    body: "We are committed to your career journey.",
-  },
 ];
 
 /* ══════════════════════════════════════
    MAIN COMPONENT
 ══════════════════════════════════════ */
 export default function ContactHero() {
+
+  const handleCallClick = () => {
+    window.location.href = `tel:${PHONE_NUMBER}`;
+  };
+
+  const handleWhatsAppClick = () => {
+    const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`,
+      "_blank"
+    );
+  };
+
   return (
     <section className="ch2-section">
 
@@ -55,7 +70,7 @@ export default function ContactHero() {
           {/* Subtitle */}
           <p className="ch2-subtitle">
             Have questions about our courses, admissions, or career support?
-            <br />
+           
             Our team is here to help you take the next step with confidence.
           </p>
 
@@ -72,13 +87,13 @@ export default function ContactHero() {
 
           {/* CTA buttons */}
           <div className="ch2-btn-row">
-            <button className="ch2-btn-call">
+            <button className="ch2-btn-call" onClick={handleCallClick}>
               <span className="ch2-call-icon">📞</span>
               Call Us Now
               <span>→</span>
             </button>
 
-            <button className="ch2-btn-wa">
+            <button className="ch2-btn-wa" onClick={handleWhatsAppClick}>
               <span className="ch2-wa-icon">💬</span>
               Chat on WhatsApp
               <span>→</span>
@@ -97,17 +112,12 @@ export default function ContactHero() {
 
         {/* ── RIGHT COLUMN ── */}
         <div className="ch2-right">
-
-          {/* Dashed orbit ring */}
-          <div className="ch2-orbit" />
-
           {/* Person photo */}
-          
-            {/* <img
+            <img
               src="Contact_Us_Girl.png"
               alt="Friendly career counselor"
               className="ch2-photo"
-            /> */}
+            />
         
         </div>
       </div>

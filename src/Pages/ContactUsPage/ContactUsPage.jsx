@@ -2,6 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import ContactHero from '../../components/ContactUsComponents/ContactHero'
 import FAQs from '../../components/ContactUsComponents/FAQs'
+import ContactDetails from '../../components/ContactUsComponents/ContactDetail'
+import ContactForm from '../../components/ContactUsComponents/ContactForm'
 
 function ContactUsPage() {
   return (
@@ -13,7 +15,9 @@ function ContactUsPage() {
               </Helmet>
 
             <ContactHero/>
-            <FAQs/>
+            <ContactDetails/>
+            <ContactForm/>
+            {/* <FAQs/> */}
         </>
   )
 }

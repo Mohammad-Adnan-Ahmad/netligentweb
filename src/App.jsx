@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer'
 import AboutPage from './Pages/AboutPage/AboutPage'
 import OurCoursesPage from './Pages/OurCoursesPage/OurCoursesPage'
 import ContactUsPage from './Pages/ContactUsPage/ContactUsPage'
+import PageNotFound from './components/Others/PageNotFound'
 
 
 function Routers(){
@@ -20,6 +21,7 @@ function Routers(){
           <Route path='/about' element={<AboutPage/>}/>
           <Route path='/our-courses' element={<OurCoursesPage/>}/>
           <Route path='/contact-us' element={<ContactUsPage/>}/>
+          <Route path='*' element={<PageNotFound/>}/>
         </Routes>
       
     </>
