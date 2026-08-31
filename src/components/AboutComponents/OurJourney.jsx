@@ -103,9 +103,9 @@ const TIMELINE = [
   {
     icon: Icon.Rocket,
     color: "blue",
-    year: "2024",
+    year: "2023",
     title: "The Beginning",
-    text: "Founded on 8th September 2024 with a clear mission to bridge the gap between learning and real-world industry demands.",
+    text: "Founded on 8th September 2023 with a clear mission to bridge the gap between learning and real-world industry demands.",
   },
   {
     icon: Icon.BadgeUsers,
@@ -119,7 +119,7 @@ const TIMELINE = [
     color: "purple",
     year: "2024 – 2025",
     title: "Growing Together",
-    text: "Empowered 100+ students with in-demand skills and hands-on experience, building a strong community of future tech leaders.",
+    text: "Empowered 300+ students with in-demand skills and hands-on experience, building a strong community of future tech leaders.",
   },
   {
     icon: Icon.TrendUp,
@@ -141,7 +141,7 @@ const STATS = [
   {
     icon: Icon.GradCap,
     color: "blue",
-    value: "1000+",
+    value: "200+",
     label: "Students Trained",
     text: "Empowering learners with industry-ready skills.",
   },

@@ -23,6 +23,8 @@ function HomePage() {
         <title>Netligent Technologies | Best IT Training Institute in Bhopal</title>
         <meta name="description" content="Top IT courses with placement support." />
         <meta name="keywords" content="IT training, Best IT training institute in Bhopal, Best Data Science Course in Bhopal, python, java, Data Analytics, Machine Learning" />
+      {/* ✅ Canonical URL */}
+        <link rel="canonical" href="https://www.netligent.com/" />
       </Helmet>
 
       <Hero/>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../../CSS/Footer.css";
+import { Link } from "react-router-dom";
 
 /* ══════════════════════════════════════
    SVG ICONS
@@ -130,11 +131,16 @@ const Ic = {
    DATA
 ══════════════════════════════════════ */
 const QUICK_LINKS = [
-  "Home","About Us","Courses","Placement","Gallery","Blogs","Contact Us",
-];
+  {name : "Home", url : "/"},
+  {name : "About", url : "/about"},
+  {name : "Courses", url : "/our-courses"},
+  {name : "Career", url : "/career"},
+  {name : "Gallery", url : "/gallery"},
+  {name : "Contact", url : "/contact-us"},
+]
 
 const POPULAR_COURSES = [
-  "Data Science", "Data Analytics", "AI & ML", "Web Development", "DevOps", "Cloud Computing", "Cyber Security",
+  "Data Science", "Data Analytics", `AI ${"\u0026"} ML`, "Web Development", "DevOps", "Cloud Computing", "Cyber Security",
 ];
 
 const STUDENT_SUPPORT = [
@@ -145,11 +151,11 @@ const STUDENT_SUPPORT = [
 const CONTACT = [
   {
     Icon: Ic.MapPin,
-    text: "152, 3rd Floor, Saif Complex, Zone-1, MP Magar, Bhopal, Madhya Pradesh, India",
+    text: "152, 3rd Floor, Saif Complex, Zone\u20131, MP Magar, Bhopal, Madhya Pradesh, India",
   },
   { Icon: Ic.Phone,  text: "+91 83495 30962"                  },
-  { Icon: Ic.Mail,   text: "info@netligent.com"               },
-  { Icon: Ic.Clock,  text: "Mon-Sat: 10:00 AM- 9:00 PM" },
+  { Icon: Ic.Mail,   text: "info\u0040netligent.com"               },
+  { Icon: Ic.Clock,  text: "Mon\u2013Sat: 10:00 AM\u20139:00 PM" },
 ];
 
 /* ══════════════════════════════════════
@@ -260,9 +266,12 @@ export default function Footer() {
       <div className="ft-cta-wrap">
         <div className="ft-cta-bar">
           <p className="ft-cta-text">Ready to build your future with Netligent?</p>
-          <button className="ft-cta-btn">
+          <Link to="/contact-us">
+            <button className="ft-cta-btn">
             Get in Touch <Ic.ArrowRight />
           </button>
+          </Link>
+        
         </div>
       </div>
 
@@ -284,46 +293,23 @@ export default function Footer() {
 
           <div className="ft-socials">
             {[
-              { Icon: Ic.Facebook,  label: "Facebook"  },
-              { Icon: Ic.Instagram, label: "Instagram" },
-              { Icon: Ic.LinkedIn,  label: "LinkedIn"  },
-              { Icon: Ic.YouTube,   label: "YouTube", cls: "yt" },
-              { Icon: Ic.Twitter,   label: "Twitter"   },
-            ].map(({ Icon, label, cls }) => (
-              <a
+              { Icon: Ic.Facebook,  label: "Facebook", link : "https://www.facebook.com/profile.php?id=61551170937539"},
+              { Icon: Ic.Instagram, label: "Instagram", link : "https://www.instagram.com/netligenttechnologies/"},
+              { Icon: Ic.LinkedIn,  label: "LinkedIn", link : "https://www.linkedin.com/company/99984299/admin/dashboard/"  },
+              { Icon: Ic.YouTube,   label: "YouTube", cls: "yt", link : "https://www.youtube.com/@Netligent"},
+             
+            ].map(({ Icon, label, cls, link }) => (
+              <Link
                 key={label}
-                href="#"
+                to={link}
                 className={`ft-social-btn ${cls || ""}`}
                 aria-label={label}
-                onClick={(e) => e.preventDefault()}
+                target="_blank"
               >
                 <Icon />
-              </a>
+              </Link>
             ))}
           </div>
-
-          {/* Promo card */}
-          {/* <div className="ft-promo-card">
-            <div className="ft-promo-icon">
-              <Ic.GradCap />
-            </div>
-            <div className="ft-promo-body">
-              <div className="ft-promo-title">
-                Transforming Learning<br />Into Careers
-              </div>
-              <p className="ft-promo-desc">
-                Join thousands of successful students who started their journey with Netligent.
-              </p>
-              <div className="ft-promo-arrows">
-                <div className="ft-promo-arrow">
-                  <Ic.ChevronRight /> Explore Courses
-                </div>
-                <div className="ft-promo-arrow">
-                  <Ic.ChevronRight /> View Placements
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         {/* Col 2 — Quick Links */}
@@ -333,11 +319,11 @@ export default function Footer() {
             <span>Quick Links</span>
           </div>
           <ul className="ft-links">
-            {QUICK_LINKS.map((item) => (
-              <li key={item}>
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  <Ic.ChevronRight /> {item}
-                </a>
+            {QUICK_LINKS.map((links) => (
+              <li key={links.name}>
+                <Link to={links.url}>
+                  <Ic.ChevronRight /> {links.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -360,29 +346,12 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Col 4 — Student Support */}
-        <div>
-          <div className="ft-col-header">
-            <Ic.Headset />
-            <span>Student Support</span>
-          </div>
-          <ul className="ft-links">
-            {STUDENT_SUPPORT.map((item) => (
-              <li key={item}>
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  <Ic.ChevronRight /> {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Col 5 — Contact Us */}
+         {/* Col 5 — Contact Us */}
         <div>
           <div className="ft-col-header">
             <Ic.Send />
             <span>Contact Us</span>
-          </div>
+        </div>
           <ul className="ft-contact-list">
             {CONTACT.map(({ Icon, text }, i) => (
               <li className="ft-contact-item" key={i}>
@@ -395,7 +364,40 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
         </div>
+
+      {/* Col 4 — Google Business Profile */}
+        <div>
+          <div className="ft-col-header">
+            <Ic.MapPin />
+            <span>Find Us on Google</span>
+          </div>
+
+          <div className="ft-gmb-embed">
+            <iframe
+              title="Netligent Technologies - Google Business Profile"
+              src="https://www.google.com/maps?q=Netligent+Technologies+Saif+Complex+Zone-1+MP+Nagar+Bhopal&output=embed"
+              width="100%"
+              height="180"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            
+             <Link to="https://www.google.com/maps/place/?q=place_id:YOUR_PLACE_ID"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ft-gmb-link"
+            >
+             View on Google &amp; Leave a Review
+            </Link>
+          </div>
+        </div>
+
+        
+       
 
       </div>{/* /ft-body */}
 
@@ -406,19 +408,19 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div className="ft-bottom">
         <p className="ft-bottom-copy">
-          © 2023 Netligent Technologies LLP. All Rights Reserved.
+          {"\u00A9"} 2023 Netligent Technologies LLP. All Rights Reserved.
         </p>
         <div className="ft-bottom-links">
-          {["Privacy Policy", "Terms & Conditions"].map((lnk, i) => (
-            <a
+          {["Privacy Policy", `Terms ${"\u0026"}  Conditions`].map((lnk, i) => (
+            <Link
               key={lnk}
-              href="#"
+              to="#"
               className="ft-bottom-link"
               onClick={(e) => e.preventDefault()}
               style={i === 0 ? { borderRight: "1px solid rgba(99,119,200,0.18)" } : {}}
             >
               {lnk}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

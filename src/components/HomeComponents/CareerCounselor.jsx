@@ -42,7 +42,7 @@ export default function CareerCounsellors() {
     <section className="cc-section">
       <div className="cc-inner">
         <div className="cc-grid">
-          <img src="CC.png" alt="Counsellor Image" className="cc-img"/>
+          <img src="Counselor.png" alt="Counsellor Image" className="cc-img"/>
           {/* ════ LEFT ════ */}
           <div className="cc-left">
 
@@ -52,11 +52,11 @@ export default function CareerCounsellors() {
               We're Here to Help
             </div>
             {/* Title */}
-            <h1 className="cc-title">
+            <h3 className="cc-title">
               Speak to Our<br/>
               <span className="cc-title-line2">Career Counsellors</span>
               <span className="cc-title-star">✦</span>
-            </h1>
+            </h3>
 
             {/* Tagline */}
             <p className="cc-tagline">

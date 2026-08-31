@@ -436,7 +436,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <div className={`hl-subtitle${showSubtitle ? " show" : ""}`}>
-            'Where Learning Meets Real-World Skills'
+            {"\u0027"}Where Learning Meets Real-World Skills{"\u0027"}
           </div>
 
           {/* Divider */}
@@ -504,7 +504,7 @@ export default function Hero() {
               className="orbit-center"
               style={{ width: CENTER_CIRC, height: CENTER_CIRC }}
             >
-              <img src="AI_logo2.png" alt="AI_Logo" className="AI_Logo" />
+              <img src="AI_logo2.png" alt="AI Powered Courses" className="AI_Logo" />
              
               <div className={`orbit-center-label${isMobile ? " mobile" : ""}`}>
                 All courses

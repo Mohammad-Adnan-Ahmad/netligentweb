@@ -10,9 +10,11 @@ function AboutPage() {
   return (
     <>
     <Helmet>
-            <title>About - Netligent Technologies</title>
+            <title>About Netligent Technologies | Best IT Training Institute in Bhopal</title>
              <meta name="description" content="Learn about Netligent, a leading IT training institute offering job-oriented courses with placement support and real-time projects." />
         <meta name="keywords" content="about Netligent, Best IT Training Institute in Bhopal, Data Science training institue, AI training institute, Data Analytics training institue, software training company, placement institute" />
+    {/* ✅ Canonical URL */}
+        <link rel="canonical" href="https://www.netligent.com/about" />
     </Helmet>
     
         <WhoWeAre/>

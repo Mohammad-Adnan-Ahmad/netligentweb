@@ -9,9 +9,11 @@ function ContactUsPage() {
   return (
         <>
               <Helmet>
-                <title>Contact - Netligent Technologies</title>
+                <title>Contact Netligent Technologies | IT Training Institute in Bhopal</title>
                 <meta name="description" content="Top IT courses with placement support." />
                 <meta name="keywords" content="Best IT Training Institute in Bhopal, contact Netligent, IT training insttute, institute phone number, training institute address, Best IT training institute" />
+              {/* ✅ Canonical URL */}
+                <link rel="canonical" href="https://www.netligent.com/contact-us" />
               </Helmet>
 
             <ContactHero/>

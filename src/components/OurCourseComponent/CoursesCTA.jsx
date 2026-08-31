@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "../../CSS/OurCourses/CoursesCTA.css";
 
+const PHONE_NUMBER = "+918349530962";   
 /* ══════════════════════════════════════
    FEATURE LIST DATA
 ══════════════════════════════════════ */
@@ -113,7 +114,9 @@ function ArrowDecor() {
 ══════════════════════════════════════ */
 export default function CoursesCTA() {
   const time = useCountdown();
-
+const handleCallClick = () => {
+    window.location.href = `tel:${PHONE_NUMBER}`;
+  };
   return (
     <section className="cta-section">
       <div className="cta-grid">
@@ -148,7 +151,7 @@ export default function CoursesCTA() {
 
           {/* CTA buttons */}
           <div className="cta-btn-row">
-            <button className="cta-btn-primary">
+            <button className="cta-btn-primary" onClick={handleCallClick}>
 
               📞Call to Our Career Counselor
             </button>

@@ -22,12 +22,12 @@ const FEATURES = [
 
 /* ── Gallery cells — swap src with your own images anytime ── */
 const CELLS = [
-  { src: 'C2.jpeg', label: 'Classroom 1' },
-  { src: 'C3.jpg', label: 'Classroom 2' },
-  { src: 'C4.jpg', label: 'Lab 1' },
-  { src: 'C5.jpg', label: 'Lab 2' },
-  { src: 'C8.jpg', label: 'Lounge' },
-  { src: 'C6.jpg', label: 'Discussion Area' },
+  { src: 'Lab1.jpeg', label: 'Netligent Infrastructure' },
+  { src: 'Lab2.jpg', label: 'Netligent Infrastructure' },
+  { src: 'Lab1_Front.jpg', label: 'Netligent Infrastructure' },
+  { src: 'Gallery.jpg', label: 'Netligent Infrastructure' },
+  { src: 'Lab2_Front.jpg', label: 'Netligent Infrastructure' },
+  { src: 'Gallery_Front.jpg', label: 'Netligent Infrastructure' },
 ];
 
 export default function Infrastructure() {
@@ -73,8 +73,8 @@ export default function Infrastructure() {
           {/* Hero cell — lobby / reception */}
           <div className="cell cell-hero">
             <img
-              src="C1.jpg"
-              alt="Netligent Campus Reception"
+              src="Recption.jpg"
+              alt="Netligent Infrastructure"
               loading="lazy"
             />
             <div className="hero-overlay">

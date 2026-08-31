@@ -3,6 +3,7 @@ import "../../CSS/OurCourses/AllCourses.css";
 import { BriefcaseIcon, CodeIcon, PeopleIcon, CertIcon, ChartIcon, DataSciIllus, BrainIconIllus, CyberIllus, FullStackIllus, DevOpsIllus, AwsIllus, CCNAIllus} from "../Icons/Icons";
 import { LuChartNoAxesCombined } from "react-icons/lu";
 import { FaDatabase } from "react-icons/fa";
+import { Link } from "react-router-dom";
 /* ══════════════════════════════════════
    CATEGORY TABS DATA
 ══════════════════════════════════════ */
@@ -23,6 +24,7 @@ const CATEGORIES = [
 const CATEGORY_DATA = {
   data: {
     title: "📊 Data Program Courses",
+    
     desc: "Master data-driven skills and tools to analyze, visualize and make smarter business decisions.",
     count: "20+ Courses",
     countLabel: "Curated for your growth",
@@ -30,6 +32,7 @@ const CATEGORY_DATA = {
     courses: [
       {
         color: "green",
+        slug: "Data-Analytics",
         illus: <LuChartNoAxesCombined/>,
         circleIcon: "AI",
         title: "Data Analytics",
@@ -342,7 +345,7 @@ export default function AllCourses() {
   const data = CATEGORY_DATA[activeTab];
 
   return (
-    <section className="cp-section">
+    <section className="cp-section" id="course-section">
 
       {/* ══ HEADER ══ */}
       <div className="cp-header">
@@ -357,7 +360,7 @@ export default function AllCourses() {
           AI Powered{" "}
           <span className="cp-title-grad">Industry Ready Courses</span>
         </h1>
-        <div className="cp-title-underline" />
+       
 
         <p className="cp-subtitle">
           Choose from our wide range of{" "}
@@ -403,8 +406,9 @@ export default function AllCourses() {
       {/* ══ COURSE CARDS — styled exactly like OurCourses .cs-card ══ */}
       <div className="cp-cards">
         {data.courses.map((c, i) => (
-          <div
-            key={i}
+          <Link to={`/our-courses/${c.slug}`}  key={i}>
+              <div
+           
             className={`cp-card ${c.color}`}
             onClick={() => setActiveCard(i)}
           >
@@ -446,6 +450,8 @@ export default function AllCourses() {
               </div>
             </div>
           </div>
+          </Link>
+        
         ))}
       </div>
 

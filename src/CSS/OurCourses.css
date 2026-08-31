@@ -9,8 +9,6 @@
   font-family: 'Barlow', sans-serif;
   overflow: hidden;
   padding: 96px 52px 0;
-
-
 }
 
 /* ══════════
@@ -154,10 +152,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   flex: 1;
+
 }
 
 /* ── Single card ── */
-.cs-card {
+.css-card {
   border-radius: 18px;
   background: #0c1230;
   border: 1.5px solid transparent;
@@ -167,15 +166,14 @@
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-
 }
 
-.cs-card:hover {
+.css-card:hover {
   transform: translateY(-6px);
 }
 
 /* Coloured top glow border — per card colour */
-.cs-card::before {
+.css-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -186,12 +184,12 @@
   z-index: 1;
 }
 
-.cs-card.blue::before {
+.css-card.blue::before {
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
   box-shadow: 0 0 16px #3b82f655;
 }
 
-.cs-card.green::before {
+.css-card.green::before {
   background: linear-gradient(90deg, #10b981, #34d399);
   box-shadow: 0 0 16px #10b98155;
 }
@@ -199,23 +197,23 @@
 
 
 /* Coloured border sides */
-.cs-card.blue {
+.css-card.blue {
   border-color: rgba(59, 130, 246, 0.35);
   box-shadow: 0 0 24px rgba(59, 130, 246, 0.12);
 }
 
-.cs-card.green {
+.css-card.green {
   border-color: rgba(16, 185, 129, 0.35);
   box-shadow: 0 0 24px rgba(16, 185, 129, 0.12);
 }
 
 
-.cs-card.blue:hover {
+.css-card.blue:hover {
   box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
   border-color: rgba(59, 130, 246, 0.6);
 }
 
-.cs-card.green:hover {
+.css-card.green:hover {
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.25);
   border-color: rgba(16, 185, 129, 0.6);
 }
@@ -236,20 +234,20 @@
   text-transform: uppercase;
 }
 
-.cs-card.blue .cs-popular {
+.css-card.blue .cs-popular {
   background: rgba(59, 130, 246, 0.22);
   color: #93c5fd;
   border: 1px solid rgba(59, 130, 246, 0.4);
 }
 
-.cs-card.green .cs-popular {
+.css-card.green .cs-popular {
   background: rgba(16, 185, 129, 0.22);
   color: #6ee7b7;
   border: 1px solid rgba(16, 185, 129, 0.4);
 }
 
 /* Icon area */
-.cs-card-icon-area {
+.css-card-icon-area {
   color: #34d399;
   font-size: 90px;
   height: 130px;
@@ -262,15 +260,16 @@
   flex-shrink: 0;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+ 
 
 }
 
-.cs-card-icon-area.green {
+.css-card-icon-area.green {
   background: rgba(16, 185, 129, 0.126);
 
 }
 
-.cs-card-icon-area.blue {
+.css-card-icon-area.blue {
   background: rgba(59, 131, 246, 0.126);
 
 }
@@ -295,7 +294,7 @@
 }
 
 /* Small circle icon bottom-left of icon area */
-.cs-card-circle-icon {
+.css-card-circle-icon {
   position: absolute;
   bottom: 16px;
   left: 20px;
@@ -311,13 +310,13 @@
   /* border: 3px solid ; */
 }
 
-.cs-card.blue .cs-card-circle-icon {
+.css-card.blue .css-card-circle-icon {
   background: rgba(59, 130, 246, 0.2);
   border: 2px solid rgba(59, 130, 246, 0.6);
   color: #60a5fa;
 }
 
-.cs-card.green .cs-card-circle-icon {
+.css-card.green .css-card-circle-icon {
   background: rgba(16, 185, 129, 0.2);
   border: 2px solid rgba(16, 185, 129, 0.6);
   color: #34d399;
@@ -325,7 +324,7 @@
 
 
 /* Card body */
-.cs-card-body {
+.css-card-body {
   padding: 30px 20px 16px;
   display: flex;
   flex-direction: column;
@@ -334,7 +333,7 @@
   /* z-index: 2; */
 }
 
-.cs-card-title {
+.css-card-title {
   font-size: 20px;
   font-weight: 900;
   color: white;
@@ -343,7 +342,7 @@
   margin-bottom: 8px;
 }
 
-.cs-card-desc {
+.css-card-desc {
   font-size: 13px;
   color: #64748b;
   line-height: 1.6;
@@ -351,7 +350,7 @@
 }
 
 /* Bullet list */
-.cs-card-list {
+.css-card-list {
   list-style: none;
   margin: 0 0 16px;
   padding: 0;
@@ -361,7 +360,7 @@
   flex: 1;
 }
 
-.cs-card-list li {
+.css-card-list li {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -377,17 +376,17 @@
   flex-shrink: 0;
 }
 
-.cs-card.blue .cs-bullet-dot {
+.css-card.blue .cs-bullet-dot {
   background: #60a5fa;
 }
 
-.cs-card.green .cs-bullet-dot {
+.css-card.green .cs-bullet-dot {
   background: #34d399;
 }
 
 
 /* Card footer */
-.cs-card-footer {
+.css-card-footer {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -412,11 +411,11 @@
   font-weight: 700;
 }
 
-.cs-card.blue .cs-footer-duration {
+.css-card.blue .cs-footer-duration {
   color: #60a5fa;
 }
 
-.cs-card.green .cs-footer-duration {
+.css-card.green .cs-footer-duration {
   color: #34d399;
 }
 

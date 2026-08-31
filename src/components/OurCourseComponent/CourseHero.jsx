@@ -1,4 +1,5 @@
 import "../../CSS/OurCourses/CoursesHero.css";
+import { HashLink } from "react-router-hash-link";
 
 /* ══════════════════════════════════════
    FEATURE MINI-ITEMS DATA
@@ -8,7 +9,10 @@ const FEATURES = [
   { icon: "💼", title: "Practical Learning",  body: "Hands-on projects & real case studies" },
  
 ];
-
+/* ══════════════════════════════════════
+   CONTACT CONFIG — update these
+══════════════════════════════════════ */
+const PHONE_NUMBER = "+918349530962";     
 
 /* ══════════════════════════════════════
    FLOATING COURSE CARDS DATA
@@ -50,6 +54,9 @@ const FLOAT_CARDS = [
    MAIN COMPONENT
 ══════════════════════════════════════ */
 export default function CoursesHero() {
+   const handleCallClick = () => {
+    window.location.href = `tel:${PHONE_NUMBER}`;
+  };
   return (
     <section className="ch-section">
       <div className="ch-glow-blue" />
@@ -102,11 +109,14 @@ export default function CoursesHero() {
 
           {/* CTA buttons */}
           <div className="ch-cta-row">
-            <button className="ch-btn-primary">
+          <HashLink smooth to="#course_section">
+              <button className="ch-btn-primary">
               Explore Courses
               <span className="ch-btn-arrow">→</span>
             </button>
-            <button className="ch-btn-secondary">
+          </HashLink>
+            
+            <button className="ch-btn-secondary" onClick={handleCallClick}>
               Talk to Counsellor
               <span>🎧</span>
             </button>

@@ -4,7 +4,7 @@ import "../../CSS/Certificate.css";
 function CertificateMockup() {
   return (
     <div className="cert-mockup">
-      <img src="Certificate.png" alt="certificate"/>
+      <img src="Certificate.png" alt="Netligent Certificate"/>
     </div>
   );
 }
@@ -75,7 +75,7 @@ export default function Certificate() {
           {/* Students photo */}
           <img
             src="cert_hand.png"
-            alt="Students holding certificate"
+            alt="Netligent Certificate"
             className="cert-students-photo"
           />
         </div>

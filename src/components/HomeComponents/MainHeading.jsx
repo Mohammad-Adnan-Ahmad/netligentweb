@@ -151,14 +151,12 @@ export default function MainHeading() {
 
           <span className="banner-arrow banner-arrow-left" ref={arrowLeftRef}>»</span>
 
-          <p className="banner-text">
-            <span className="word" ref={word1Ref}>Bhopal's</span>{" "}
+          <h1 className="banner-text">
+            <span className="word" ref={word1Ref}>Bhopal{"\u0027"}s</span>{" "}
             <span className="word" ref={word2Ref}>Best</span>{" "}
-            <span className="word highlight-cyan" ref={word3Ref}>Training & Placement</span>{" "}
+            <span className="word highlight-cyan" ref={word3Ref}>IT Training & Placement</span>{" "}
             <span className="word" ref={word4Ref}>Institute</span>{" "}
-            {/* <span className="word" ref={word5Ref}>Bhopal's</span>{" "}
-            <span className="word highlight-purple" ref={word6Ref}>Best Institute</span> */}
-          </p>
+          </h1>
 
           <span className="banner-arrow banner-arrow-right" ref={arrowRightRef}>«</span>
         </div>

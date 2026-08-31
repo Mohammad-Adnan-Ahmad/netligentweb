@@ -138,7 +138,7 @@ export default function PersonalizedAttention() {
         <div className="pa-photo-card">
           <img
             src="PersonalizedAttention.png"
-            alt="Students learning with mentor"
+            alt="Personalized Attention"
             className="pa-photo-img"
           />
         </div>

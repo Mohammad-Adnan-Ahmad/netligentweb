@@ -16,10 +16,9 @@ export default function CustomCursor() {
   const dotRef    = useRef(null);
   const rafRef    = useRef(null);
 
-  const mouse     = useRef({ x: window.innerWidth / 2,  y: window.innerHeight / 2 });
-  const circlePos = useRef({ x: window.innerWidth / 2,  y: window.innerHeight / 2 });
-  const dotPos    = useRef({ x: window.innerWidth / 2,  y: window.innerHeight / 2 });
-
+  const mouse     = useRef({ x: 0, y: 0 });
+const circlePos = useRef({ x: 0, y: 0 });
+const dotPos    = useRef({ x: 0, y: 0 });
   const [state, setState] = useState("hidden"); // "hidden" | "default" | "hovering" | "clicking"
 
   useEffect(() => {

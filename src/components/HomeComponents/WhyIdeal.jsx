@@ -121,13 +121,7 @@ export default function WhyIdeal() {
         {/* ── LEFT PANEL ── */}
         <div className="wi-left">
           {/* Background photo */}
-          <div className="wi-left-photo">
-            {/* <img
-              src="WhyIdealBG.png"
-              alt="Student coding at desk with neon lights"
-            />  */}
-          </div>
-
+          
           {/* Content */}
           <div className="wi-left-content">
 

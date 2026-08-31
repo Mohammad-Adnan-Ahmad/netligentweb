@@ -23,7 +23,7 @@
   z-index: 2;
   border: 1.5px solid rgba(99,102,241,0.32);
   border-radius: 20px;
-  background-image: url('/Bg3.png'),url('/WhyIdealBG2.png');
+  background-image: url('/WhyIdealTopDots.png'),url('/WhyIdealBG.png');
   background-size: 10%,cover;
   background-repeat: no-repeat, no-repeat;
   background-position: top right, top left;
@@ -40,19 +40,7 @@
   padding: 52px 44px 0 52px;
 }
 
-/* Background photo (student at desk) */
-.wi-left-photo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
 
-/* Dark gradient overlay so text is readable */
-.wi-left-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
 
 /* Left content sits above photo */
 .wi-left-content {

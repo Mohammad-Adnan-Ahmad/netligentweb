@@ -310,7 +310,7 @@ export default function WhoWeAre() {
 
           {/* Glowing arch ring */}
          
-            <img src="Reception_Area (2).png" 
+            <img src="Reception_Netligent.png" 
             alt="Netligent Technologies"
             className="wwa-arch-ring-img"
             />

@@ -82,7 +82,7 @@ function MissionVision() {
             the tech world.
           </p>
 
-        <img src="./mountain_neon_image.png"  className="mountain_neon_image" alt="" />
+        <img src="mountain_neon_image.png"  className="mountain_neon_image" alt="Netligent Vision" />
           
         </div>
 
@@ -183,7 +183,7 @@ function MissionVision() {
             achieve their goals.
           </p>
 
-        <img src="./rocket_neon_image.png" className="rocket_neon_image" alt="" />
+        <img src="rocket_neon_image.png" className="rocket_neon_image" alt="Netligent Mission" />
         </div>
 
        

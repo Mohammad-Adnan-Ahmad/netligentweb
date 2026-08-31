@@ -157,7 +157,7 @@ export default function FeedbackVideos() {
           <button
             className="fv-yt-btn"
             onClick={() =>
-              window.open("https://www.youtube.com/@NetligentTechnologies", "_blank", "noopener,noreferrer")
+              window.open("https://www.youtube.com/@Netligent", "_blank", "noopener,noreferrer")
             }
           >
             Visit Our YouTube Channel

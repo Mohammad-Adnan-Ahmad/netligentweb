@@ -3,6 +3,7 @@ import "../../CSS/OurCourses.css";
 import { BriefcaseIcon, CodeIcon, PeopleIcon, CertIcon, ChartIcon, DataSciIllus, BrainIconIllus, CyberIllus, FullStackIllus, DevOpsIllus, AwsIllus, CCNAIllus} from "../Icons/Icons";
 import { LuChartNoAxesCombined } from "react-icons/lu";
 import { FaDatabase } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 /* ══════════════════════════════════════
@@ -157,26 +158,26 @@ export default function OurCourses() {
           {COURSES.map((c, i) => (
             <div
               key={i}
-              className={`cs-card ${c.color}`}
+              className={`css-card ${c.color}`}
               onClick={() => setActiveCard(i)}
             >
               {/* POPULAR badge */}
               <div className="cs-popular">Popular</div>
 
               {/* Illustration area */}
-              <div className={`cs-card-icon-area ${c.color}`}>
+              <div className={`css-card-icon-area ${c.color}`}>
                 <div className={`cs-illus-wrap ${c.color}`}>
-                  <c.Illus className='cs-card-illus'/>
+                  <c.Illus className='css-card-illus'/>
                 </div>
-                <div className="cs-card-circle-icon">{c.circleIcon}</div>
+                <div className="css-card-circle-icon">{c.circleIcon}</div>
               </div>
 
               {/* Body */}
-              <div className="cs-card-body">
-                <div className="cs-card-title">{c.title}</div>
-                <div className="cs-card-desc">{c.desc}</div>
+              <div className="css-card-body">
+                <div className="css-card-title">{c.title}</div>
+                <div className="css-card-desc">{c.desc}</div>
 
-                <ul className="cs-card-list">
+                <ul className="css-card-list">
                   {c.bullets.map((b, j) => (
                     <li key={j}>
                       <span className="cs-bullet-dot" />
@@ -186,7 +187,7 @@ export default function OurCourses() {
                 </ul>
 
                 {/* Footer */}
-                <div className="cs-card-footer">
+                <div className="css-card-footer">
                   <div className="cs-footer-item">
                     <span className="cs-footer-icon">⏱</span>
                     <span className={`cs-footer-duration`}>{c.duration}</span>
@@ -224,10 +225,13 @@ export default function OurCourses() {
           <div className="cs-cta-hint">
             Don't see what you're<br />looking for?
           </div>
-          <button className="cs-view-btn">
+          <Link to="our-courses">
+            <button className="cs-view-btn">
             View All Courses
             <span className="cs-view-btn-icon">›</span>
           </button>
+          </Link>
+          
         </div>
       </div>
 
