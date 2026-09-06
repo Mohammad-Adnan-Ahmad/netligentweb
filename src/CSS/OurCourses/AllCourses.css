@@ -91,6 +91,7 @@
   z-index: 2;
   margin-bottom: 28px;
   flex-wrap: wrap;
+
 }
 
 .cp-tab {
@@ -107,6 +108,7 @@
   cursor: pointer;
   transition: all 0.25s ease;
   position: relative;
+
 }
 
 .cp-tab:hover {
@@ -551,7 +553,10 @@
   .cp-section {
     padding: 48px 32px 0;
   }
-
+.cp-subtitle {
+    width: 60%;
+    line-height: 20px;
+  }
   .cp-cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -566,27 +571,69 @@
     margin-bottom: 6px;
   }
 }
-
-@media (max-width: 768px) {
-  .cp-title {
-    font-size: 32px;
+@media (max-width : 1023px){
+    .cp-subtitle {
+    width: 70%;
+    line-height: 20px;
+    font-size: 14px;
   }
-
-  .cp-cards {
-    grid-template-columns: 1fr;
-  }
-
   .cp-tabs {
     overflow-x: auto;
     flex-wrap: nowrap;
     padding-bottom: 6px;
+    gap: 6px;
+  }
+  .cp-tab {
+  padding: 12px 15px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+}
+@media (max-width: 768px) {
+  .cp-cards {
+    grid-template-columns: 1fr;
   }
 
+
+.cp-tab {
+  align-items: start;
+  gap: 5px;
+  padding: 8px 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: left;
+}
+.cp-tab-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
   .cp-detail-row {
     flex-direction: column;
   }
 
   .cp-features-strip {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width : 600px){
+   .cp-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+  }
+  .cp-subtitle {
+    width: 90% !important;
+    line-height: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width : 380px){
+  .cp-title {
+    font-size: 22px;
+    letter-spacing: 0;
   }
 }

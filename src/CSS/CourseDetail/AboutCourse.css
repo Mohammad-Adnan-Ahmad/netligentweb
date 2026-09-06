@@ -1,0 +1,406 @@
+/* ============ About This Course – tokens ============ */
+.ac {
+  --bg: #06040f;
+  --bg-soft: #0b0818;
+  --panel-bg: rgba(255, 255, 255, 0.025);
+  --panel-border: rgba(139, 92, 246, 0.22);
+  --divider: rgba(255, 255, 255, 0.08);
+  --purple: #8b5cf6;
+  --purple-deep: #6d28d9;
+  --blue: #3b82f6;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --text-hi: #ffffff;
+  --text-body: #b7b3c9;
+  --text-mute: rgba(255, 255, 255, 0.628);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+   font-family: 'Barlow', sans-serif;
+  
+}
+
+.ac {
+  position: relative;
+  color: var(--text-body);
+  padding: 85px 34px 50px;
+  overflow: hidden;
+}
+
+.ac__container {
+  margin: 0 auto;
+
+}
+
+/* ============ layout ============ */
+.ac__top {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 56px;
+  align-items: start;
+  
+}
+
+.ac__left,
+.ac__right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ============ badge ============ */
+.ac-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #c7d2fe;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  /* margin-bottom: 22px; */
+}
+.ac-badge__icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============ heading ============ */
+.ac-heading {
+  font-size: clamp(26px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.22;
+  color: white;
+  letter-spacing: 0;
+}
+.ac-heading__accent {
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ac-desc {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 15.5px;
+  text-align: left;
+  line-height: 1.75;
+  width: 100%;
+}
+
+/* ============ generic panel ============ */
+.ac-panel {
+  position: relative;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.course-by-netligent{
+    background: linear-gradient(110deg, var(--blue-light) 0%, var(--purple-light) 45%, var(--pink) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.ac-course-by-netligent p span{
+       background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+    font-weight: 800;
+}
+
+.ac-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+ 
+}
+.ac-panel__header h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-hi);
+}
+.ac-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.ac-panel__icon--purple {
+  background: rgba(139, 92, 246, 0.16);
+  color: var(--purple);
+}
+.ac-panel__icon--purple-outline {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+}
+
+/* ============ why-learn grid ============ */
+.ac-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.ac-why-item {
+  text-align: center;
+}
+.ac-why-item h4 {
+  margin: 14px 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-hi);
+}
+.ac-why-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-mute);
+}
+
+/* ============ icon circle tones (reused) ============ */
+.ac-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ac-icon-circle--blue {
+  background: radial-gradient(circle at 30% 30%, #1c3a66, #0f1f38);
+  color: #60a5fa;
+  box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.25);
+}
+.ac-icon-circle--purple {
+  background: radial-gradient(circle at 30% 30%, #3c2166, #1c1136);
+  color: #c084fc;
+  box-shadow: inset 0 0 0 1px rgba(192, 132, 252, 0.25);
+}
+.ac-icon-circle--green {
+  background: radial-gradient(circle at 30% 30%, #14382c, #0c211a);
+  color: #34d399;
+  box-shadow: inset 0 0 0 1px rgba(52, 211, 153, 0.25);
+}
+.ac-icon-circle--amber {
+  background: radial-gradient(circle at 30% 30%, #43310e, #241b09);
+  color: #fbbf24;
+  box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.25);
+}
+
+/* ============ hero image + floating cards ============ */
+.ac-hero {
+  position: relative;
+  padding: 34px 26px 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+  /* border: 1px solid white; */
+
+}
+.ac-hero img{
+  width: 400px;
+}
+
+
+
+/* ============ achieve panel ============ */
+.ac-achieve {
+  overflow: visible;
+  background-image: url('/illus.png');
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: 100% 95%;
+}
+.ac-achieve__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ac-achieve__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--divider);
+  font-size: 14.5px;
+  color: #d9d6e6;
+}
+.ac-achieve__list li:last-child {
+  border-bottom: none;
+}
+.ac-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #c084fc;
+  border: 1px solid rgba(192, 132, 252, 0.45);
+  flex-shrink: 0;
+}
+
+
+/* ============ who should join ============ */
+.ac-audience {
+  margin-top: 56px;
+}
+.ac-audience__grid {
+  display: flex;
+  gap: 0;
+}
+.ac-audience__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  gap: 14px;
+  padding: 0 18px;
+  /* border: 1px solid white; */
+  justify-content: left;
+}
+.ac-audience__item:first-child {
+  padding-left: 0;
+}
+.ac-audience__divider {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--divider);
+}
+.ac-audience__item h4 {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-hi);
+}
+.ac-audience__item p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-mute);
+}
+.ac-audience .ac-icon-circle {
+  width: 48px;
+  height: 48px;
+}
+
+/* ============ responsive ============ */
+@media (max-width: 1024px) {
+    .ac {
+    padding: 85px 58px;
+  }
+  .ac__top {
+   gap: 10px;
+  }
+  .ac-desc  {
+    font-size: 14px;
+      width: 70%;
+    line-height: 20px;
+  }
+  .ac__top {
+    grid-template-columns: 1fr;
+  }
+  .ac-icon-rail {
+    display: none;
+  }
+  .ac-audience__grid {
+    flex-wrap: wrap;
+    row-gap: 28px;
+  }
+  .ac-audience__item {
+    flex: 1 1 45%;
+    padding: 0;
+
+  }
+  .ac-audience__divider {
+    display: none;
+  }
+    .ac-audience {
+  margin-top: 22px;
+}
+}
+
+
+
+@media (max-width: 768px) {
+ 
+
+  .ac-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ac-hero {
+    padding: 26px 12px 0px;
+  }
+  .ac-audience__item {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+ 
+
+}
+@media (max-width : 620px){
+  .ac {
+    padding: 54px 18px;
+  }
+  .ac-desc  {
+   width: 100%;
+    line-height: 20px;
+  }
+  .ac-panel {
+  padding: 28px 20px;
+}
+
+.ac-icon-circle {
+  width: 50px;
+  height: 50px;
+
+}
+
+.ac-achieve {
+  background-size: 28%;
+  background-repeat: no-repeat;
+  background-position: 100% 5%;
+}
+.ac-audience .ac-icon-circle {
+  width: 40px;
+  height: 40px;
+}
+
+}
+@media (max-width: 500px) {
+  .ac-badge {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ac-heading {
+    font-size: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ac * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

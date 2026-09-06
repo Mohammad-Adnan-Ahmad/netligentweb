@@ -3,19 +3,19 @@ import { gsap } from "gsap";
 import "../../CSS/Placement.css";
 
 const students = [
-  { id: 1, name: "Ajay Meena", role: "Network Engineer", companyLogoURL: "Matrix_logo.svg", companyLogo: "matrix", company: "Matrix", photo: "Ajay_Meena.jpg" },
-  { id: 2, name: "Shristi Taneja", role: "Security Engineer", companyLogoURL: "Vibs_Logo.avif", companyLogo: "vibs", company: "VIBS", photo: "Shristi.jpg" },
-  { id: 3, name: "Ansh Bam", role: "Security Engineer", companyLogoURL: "Vibs_Logo.avif", companyLogo: "vibs", company: "VIBS", photo: "Ansh.jpg" },
-  { id: 4, name: "Shivam Jha", role: "Security Analyst", companyLogoURL: "NetSquare_logo.png", companyLogo: "netsquare", company: "NETSQUARE", photo: "Shivam.jpg" },
-  { id: 5, name: "Ajay Rai", role: "Front-End Developer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "Ajay_Rai.jpg" },
-  { id: 6, name: "Pallavi Bajpai", role: "DevOps Engineer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "Pallavi.jpg" },
-  { id: 7, name: "Harshit Rajput", role: "Penetration Tester", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "Harshit.jpg" },
-  { id: 8, name: "Avahan Soni", role: "Software Engineer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "Avahan.jpg" },
-  { id: 9, name: "Sagar Tripathi", role: "Server Administrator", companyLogoURL: "shroti_logo.png", companyLogo: "shroti telecom", company: "Shroti Telecom", photo: "Sagar.jpg" },
-  { id: 10, name: "Shreya Jain", role: "Python Developer", companyLogoURL: "shroti_logo.png", companyLogo: "shroti telecom", company: "Shroti Telecom", photo: "Shreya.jpg" },
-  { id: 11, name: "Aaditya Kumar", role: "Python Developer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "Aaditya.jpg" },
-  { id: 12, name: "Jaishankar", role: "Full-Stack Developer", companyLogoURL: "cyntech_logo.png", companyLogo: "cyntech", company: "Cyntech Solution", photo: "Jaishankar.jpeg" },
-  { id: 13, name: "Kuldeep Mourya", role: "Front-End Developer", companyLogoURL: "FE_logo.webp", companyLogo: "flourishers", company: "Flourishers Edge", photo: "Kuldeep.jpg" },
+  { id: 1, name: "Ajay Meena", role: "Network Engineer", companyLogoURL: "/Matrix_logo.svg", companyLogo: "matrix", company: "Matrix", photo: "/Ajay_Meena.jpg" },
+  { id: 2, name: "Shristi Taneja", role: "Security Engineer", companyLogoURL: "/Vibs_Logo.avif", companyLogo: "vibs", company: "VIBS", photo: "/Shristi.jpg" },
+  { id: 3, name: "Ansh Bam", role: "Security Engineer", companyLogoURL: "/Vibs_Logo.avif", companyLogo: "vibs", company: "VIBS", photo: "/Ansh.jpg" },
+  { id: 4, name: "Shivam Jha", role: "Security Analyst", companyLogoURL: "/NetSquare_logo.png", companyLogo: "netsquare", company: "NETSQUARE", photo: "/Shivam.jpg" },
+  { id: 5, name: "Ajay Rai", role: "Front-End Developer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "/Ajay_Rai.jpg" },
+  { id: 6, name: "Pallavi Bajpai", role: "DevOps Engineer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "/Pallavi.jpg" },
+  { id: 7, name: "Harshit Rajput", role: "Penetration Tester", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "/Harshit.jpg" },
+  { id: 8, name: "Avahan Soni", role: "Software Engineer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "/Avahan.jpg" },
+  { id: 9, name: "Sagar Tripathi", role: "Server Administrator", companyLogoURL: "/shroti_logo.png", companyLogo: "shroti telecom", company: "Shroti Telecom", photo: "/Sagar.jpg" },
+  { id: 10, name: "Shreya Jain", role: "Python Developer", companyLogoURL: "/shroti_logo.png", companyLogo: "shroti telecom", company: "Shroti Telecom", photo: "/Shreya.jpg" },
+  { id: 11, name: "Aaditya Kumar", role: "Python Developer", companyLogoURL: "", companyLogo: "aicentral", company: "AlCentral", photo: "/Aaditya.jpg" },
+  { id: 12, name: "Jaishankar", role: "Full-Stack Developer", companyLogoURL: "/cyntech_logo.png", companyLogo: "cyntech", company: "Cyntech Solution", photo: "/Jaishankar.jpeg" },
+  { id: 13, name: "Kuldeep Mourya", role: "Front-End Developer", companyLogoURL: "/FE_logo.webp", companyLogo: "flourishers", company: "Flourishers Edge", photo: "/Kuldeep.jpg" },
 ];
 
 /* ─── Helpers ─── */

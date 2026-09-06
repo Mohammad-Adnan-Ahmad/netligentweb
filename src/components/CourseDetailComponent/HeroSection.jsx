@@ -6,11 +6,6 @@ import { Link } from "react-router-dom";
    ICONS
 ══════════════════════════════════════ */
 const Ic = {
-  ChevRight: () => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  ),
   Shield: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -116,162 +111,29 @@ const Ic = {
   ),
 };
 
-/* ══════════════════════════════════════
-   PERSON + DASHBOARD SVG illustration
-══════════════════════════════════════ */
-const PersonSVG = () => (
-  <svg viewBox="0 0 420 550" fill="none" xmlns="http://www.w3.org/2000/svg" className="ch-person-svg">
-    <defs>
-      <radialGradient id="pg1" cx="35%" cy="30%" r="70%">
-        <stop offset="0%" stopColor="#c8a070" />
-        <stop offset="65%" stopColor="#a07848" />
-        <stop offset="100%" stopColor="#805828" />
-      </radialGradient>
-      <radialGradient id="pg2" cx="35%" cy="30%" r="70%">
-        <stop offset="0%" stopColor="#1e3060" />
-        <stop offset="100%" stopColor="#0c1a38" />
-      </radialGradient>
-      <radialGradient id="laptopScreen" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#0d2060" />
-        <stop offset="100%" stopColor="#060f2a" />
-      </radialGradient>
-      <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#181830" />
-        <stop offset="100%" stopColor="#0c0c20" />
-      </linearGradient>
-      <filter id="personGlow"><feGaussianBlur stdDeviation="10" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-      <filter id="softBlur"><feGaussianBlur stdDeviation="5" /></filter>
-    </defs>
 
-    {/* Purple glow under person */}
-    <ellipse cx="210" cy="520" rx="180" ry="30"
-      fill="rgba(139,92,246,0.22)" filter="url(#softBlur)" />
 
-    {/* Desk */}
-    <rect x="20" y="440" width="380" height="22" rx="6" fill="url(#deskGrad)"
-      stroke="rgba(80,80,180,0.25)" strokeWidth="1" />
-    {/* desk glow strip */}
-    <rect x="20" y="440" width="380" height="3" rx="2"
-      fill="rgba(139,92,246,0.3)" filter="url(#softBlur)" />
 
-    {/* ── LAPTOP ── */}
-    {/* screen */}
-    <rect x="110" y="315" width="210" height="135" rx="8"
-      fill="#060d22" stroke="rgba(59,130,246,0.4)" strokeWidth="1.5" />
-    <rect x="115" y="320" width="200" height="126" rx="5"
-      fill="url(#laptopScreen)" />
-    {/* screen content — code lines */}
-    <rect x="123" y="330" width="70" height="4" rx="2" fill="rgba(96,165,250,0.55)" />
-    <rect x="123" y="338" width="100" height="3" rx="1.5" fill="rgba(167,139,250,0.4)" />
-    <rect x="123" y="344" width="80" height="3" rx="1.5" fill="rgba(167,139,250,0.35)" />
-    <rect x="123" y="352" width="55" height="3" rx="1.5" fill="rgba(56,189,248,0.4)" />
-    <rect x="131" y="358" width="85" height="3" rx="1.5" fill="rgba(96,165,250,0.3)" />
-    <rect x="131" y="364" width="65" height="3" rx="1.5" fill="rgba(167,139,250,0.28)" />
-    {/* bar chart vis */}
-    {[0, 1, 2, 3, 4].map((i) => (
-      <rect key={i} x={168 + i * 18} y={406 - [28, 40, 22, 34, 18][i]}
-        width="12" height={[28, 40, 22, 34, 18][i]} rx="3"
-        fill={`rgba(59,130,246,${0.6 - i * 0.06})`} />
-    ))}
-    <line x1="158" y1="408" x2="268" y2="408" stroke="rgba(99,119,200,0.3)" strokeWidth="1" />
-    {/* laptop base */}
-    <rect x="100" y="450" width="230" height="14" rx="4"
-      fill="#111128" stroke="rgba(60,60,120,0.35)" strokeWidth="1" />
-    <rect x="108" y="452" width="214" height="10" rx="2" fill="#0c0c22" />
-    {/* hinge */}
-    <rect x="98" y="448" width="234" height="5" rx="2" fill="#0e0e28" />
 
-    {/* ── PERSON BODY ── */}
-    {/* clothing — dark blue shirt */}
-    <path d="M100 550 Q120 460 210 430 Q300 460 320 550 Z" fill="#0c1830" />
-    <rect x="120" y="400" width="180" height="80" rx="20" fill="#0e1c38" />
-    {/* collar */}
-    <path d="M190 398 L210 420 L230 398" stroke="rgba(80,100,160,0.3)" strokeWidth="1.5" fill="none" />
-
-    {/* arms */}
-    {/* left arm — extended toward laptop */}
-    <path d="M125 420 Q95 438 80 460" stroke="#0e1c38" strokeWidth="26" strokeLinecap="round" fill="none" />
-    <ellipse cx="76" cy="462" rx="15" ry="10" fill="#b89068" />
-    {/* right arm */}
-    <path d="M295 420 Q320 435 340 455" stroke="#0c1830" strokeWidth="24" strokeLinecap="round" fill="none" />
-    <ellipse cx="343" cy="457" rx="14" ry="10" fill="#b89068" />
-
-    {/* neck */}
-    <rect x="196" y="368" width="28" height="35" rx="14" fill="#c8a070" />
-
-    {/* HEAD */}
-    <ellipse cx="210" cy="340" rx="48" ry="52" fill="url(#pg1)" />
-
-    {/* hair — pulled back ponytail */}
-    <ellipse cx="210" cy="302" rx="52" ry="30" fill="#0e0808" />
-    {/* sides */}
-    <path d="M163 320 Q155 345 160 375 Q170 365 168 340 Z" fill="#0e0808" />
-    <path d="M257 320 Q265 345 260 375 Q250 365 252 340 Z" fill="#0e0808" />
-    {/* ponytail */}
-    <path d="M258 315 Q280 310 285 330 Q282 350 265 355" stroke="#0e0808" strokeWidth="14" strokeLinecap="round" fill="none" />
-
-    {/* GLASSES */}
-    <rect x="183" y="340" width="20" height="14" rx="5"
-      fill="rgba(10,20,50,0.4)" stroke="rgba(150,160,200,0.6)" strokeWidth="1.8" />
-    <rect x="208" y="340" width="20" height="14" rx="5"
-      fill="rgba(10,20,50,0.4)" stroke="rgba(150,160,200,0.6)" strokeWidth="1.8" />
-    <line x1="203" y1="347" x2="208" y2="347" stroke="rgba(150,160,200,0.6)" strokeWidth="1.8" />
-    <line x1="183" y1="347" x2="177" y2="345" stroke="rgba(150,160,200,0.6)" strokeWidth="1.8" />
-    <line x1="228" y1="347" x2="235" y2="345" stroke="rgba(150,160,200,0.6)" strokeWidth="1.8" />
-
-    {/* eyes */}
-    <ellipse cx="193" cy="348" rx="5.5" ry="5" fill="#2a1808" />
-    <ellipse cx="218" cy="348" rx="5.5" ry="5" fill="#2a1808" />
-    <circle cx="194.5" cy="346" r="1.8" fill="#fff" />
-    <circle cx="219.5" cy="346" r="1.8" fill="#fff" />
-
-    {/* eyebrows */}
-    <path d="M185 338 Q193 334 201 338" stroke="#3a1808" strokeWidth="2.2" fill="none" strokeLinecap="round" />
-    <path d="M210 338 Q218 334 226 338" stroke="#3a1808" strokeWidth="2.2" fill="none" strokeLinecap="round" />
-
-    {/* nose */}
-    <path d="M207 358 Q210 363 213 358" stroke="#a07848" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-
-    {/* smile */}
-    <path d="M198 370 Q210 380 222 370" stroke="#a07848" strokeWidth="2.2" fill="none" strokeLinecap="round" />
-    <path d="M200 371 Q210 379 220 371" fill="rgba(255,255,255,0.45)" />
-
-    {/* cheek blush */}
-    <ellipse cx="182" cy="366" rx="8" ry="5" fill="rgba(200,100,100,0.2)" />
-    <ellipse cx="238" cy="366" rx="8" ry="5" fill="rgba(200,100,100,0.2)" />
-
-    {/* ear stud */}
-    <circle cx="163" cy="352" r="3.5" fill="#c8a070" />
-    <circle cx="163" cy="358" r="2.5" fill="rgba(220,180,120,0.7)" />
-  </svg>
-);
-
-/* ══════════════════════════════════════
-   AVATAR PLACEHOLDER COLORS
-══════════════════════════════════════ */
-const AVATAR_COLORS = [
-  ["#2d1f6a", "#1a1040", "RS"],
-  ["#1a3060", "#0d1a38", "AV"],
-  ["#1a1a50", "#0d0d2a", "KP"],
-  ["#2a1040", "#180828", "NS"],
-  ["#0d2840", "#061820", "MK"],
-];
 
 /* ══════════════════════════════════════
    COMPONENT
 ══════════════════════════════════════ */
-export default function HeroSection() {
+export default function HeroSection({backgroundURL,course, title, headline, desc, duration, rating, syllabus_link }) {
+  const isMobile = window.innerWidth <= 1023;
+  
   return (
-    <div className="ch-page" style={{backgroundImage:"url(/DataAnalytics.png)"}} >
+    
+    <div className="ch-page" style={{backgroundImage: isMobile ? "none" : `url(${backgroundURL})`}} >
       <div className="ch-nebula-l" />
- 
+      <img src="/AI_Robot.png" className="ch-robot"/>
 
       {/* ── Top bar ── */}
       <div className="ch-topbar">
         <nav className="ch-breadcrumb">
           <Link to="#">Courses</Link>
           <span className="ch-breadcrumb-sep">›</span>
-          <span className="ch-breadcrumb-cur">Data Analytics</span>
+          <span className="ch-breadcrumb-cur">{course}</span>
         </nav>
       </div>
 
@@ -288,20 +150,18 @@ export default function HeroSection() {
 
           {/* Title */}
           <h1 className="ch-title-detail">
-            <span className="tw">Data </span>
-            <span className="tg">Analytics</span>
+            <span className="tg">{title}</span>
+            {/* <span className="tw">with Gen AI</span> */}
           </h1>
 
           {/* Tagline */}
           <p className="ch-tagline">
-            From Data to Decisions. From You to Industry Expert.
+            {headline}
           </p>
 
           {/* Body */}
           <p className="ch-body">
-            Master data analysis, visualization, and decision-making using Excel, SQL,
-            Python, Power BI and real-world projects. Build in-demand skills and
-            kickstart your career in data.
+           {desc}
           </p>
 
           {/* Features */}
@@ -322,7 +182,7 @@ export default function HeroSection() {
           {/* Info bar */}
           <div className="ch-info-bar">
             {[
-              { Icon: Ic.Clock, label: "Duration", value: "3 Months" },
+              { Icon: Ic.Clock, label: "Duration", value:`${duration}` },
               { Icon: Ic.Play, label: "Mode", value: "Online / Offline" },
               { Icon: Ic.Levels, label: "Level", value: "Beginner to Advanced" },
             ].map(({ Icon, label, value }, i) => (
@@ -341,13 +201,13 @@ export default function HeroSection() {
             <div className="ch-rating">
               <span className="ch-star-icon">★</span>
               <div>
-                <div className="ch-rating-num">4.8/5</div>
+                <div className="ch-rating-num">{rating}</div>
                 <div className="ch-rating-label">Course Rating</div>
               </div>
             </div>
             <div className="ch-trust">
               {[
-                { Icon: Ic.Shield, text: "Trusted by students" },
+                { Icon: Ic.CheckCircle, text: "Trusted by students" },
                 { Icon: Ic.CheckCircle, text: "Expert Guidance" },
                 { Icon: Ic.CheckCircle, text: "Lifetime Access" },
               ].map(({ Icon, text }, i) => (
@@ -363,10 +223,10 @@ export default function HeroSection() {
             <Link to="#enroll" className="ch-btn-enroll">
               Enroll Now
             </Link>
-            <Link to="#syllabus" className="ch-btn-syllabus"
-              onClick={e => e.preventDefault()}>
+            <button className="ch-btn-syllabus"
+             onClick={() => window.open(`/Syllabus/${syllabus_link}`, "_blank")}>
               <Ic.Download /> Download Syllabus
-            </Link>
+            </button>
           </div>
 
 

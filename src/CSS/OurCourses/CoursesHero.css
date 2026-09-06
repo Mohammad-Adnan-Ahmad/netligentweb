@@ -229,12 +229,47 @@
   .ch-future-underline { width: 260px; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px){
+   .ch-grid {
+    padding: 24px 32px; 
+    background-position: 90% 30%;
+    background-size: 70%;
+  }
+   .ch-left { padding-right: 0; margin-bottom: 0px; }
+   .ch-subtitle {
+    font-size: 14px;
+      width: 40%;
+    line-height: 20px;
+  }
+}
+
+
+@media (max-width: 620px) {
+  .ch-grid {
+    padding: 14px 22px; 
+    background-position: bottom center;
+    background-image: url('/CourseHero2.png');
+    background-size: 90%;
+  }
+  .ch-left{ padding-right: 0; margin-bottom: 380px; }
   .ch-title  { font-size: 30px; }
+  .ch-subtitle {
+    width: 80%;
+
+  }
   .ch-future { font-size: 50px; }
   .ch-future-underline { width: 190px; height: 7px; }
   .ch-features { flex-direction: column; gap: 16px; }
   .ch-stats  { flex-wrap: wrap; gap: 12px; }
   .ch-stat   { border-right: none; padding: 0 14px 0 0; }
   .ch-cta-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 500px) {
+  .ch-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+  }
+  .ch-left{ padding-right: 0; margin-bottom: 300px; }
 }

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "../../CSS/OurCourses/AllCourses.css";
-import { BriefcaseIcon, CodeIcon, PeopleIcon, CertIcon, ChartIcon, DataSciIllus, BrainIconIllus, CyberIllus, FullStackIllus, DevOpsIllus, AwsIllus, CCNAIllus} from "../Icons/Icons";
-import { LuChartNoAxesCombined } from "react-icons/lu";
+import { BriefcaseIcon, CodeIcon, PeopleIcon, CertIcon, ChartIcon, DataSciIllus, BrainIconIllus, CyberIllus, FullStackIllus, DevOpsIllus, AwsIllus, CCNAIllus, CyberSecurityIcon, PythonIcon, JavaIcon, BackendIcon} from "../Icons/Icons";
+import { LuChartNoAxesCombined, LuCode, LuFileCode } from "react-icons/lu";
+import { FaLaptopCode } from "react-icons/fa";
+import { TbCloudComputingFilled } from "react-icons/tb";
+import { FaFileCode } from "react-icons/fa6";
 import { FaDatabase } from "react-icons/fa";
 import { Link } from "react-router-dom";
 /* ══════════════════════════════════════
@@ -9,11 +12,11 @@ import { Link } from "react-router-dom";
 ══════════════════════════════════════ */
 const CATEGORIES = [
   { key: "data",   icon: "📊",  label: "Data Program" },
-  { key: "aiml",    icon: "🧠",  label: "AI / ML" },
+  // { key: "aiml",    icon: "🧠",  label: "AI / ML" },
   { key: "cyber",   icon: "🛡️",  label: "Cyber Security" },
-  { key: "web",     icon: "</>", label: "Web Development" },
+  { key: "web",     icon: "< >", label: "Web Development" },
   { key: "cloud",   icon: "☁️",  label: "Cloud Computing" },
-  { key: "others",  icon: "⊞",  label: "Others" },
+  // { key: "others",  icon: "⊞",  label: "Others" },
 ];
 
 /* ══════════════════════════════════════
@@ -26,14 +29,14 @@ const CATEGORY_DATA = {
     title: "📊 Data Program Courses",
     
     desc: "Master data-driven skills and tools to analyze, visualize and make smarter business decisions.",
-    count: "20+ Courses",
+    count: "10+ Courses",
     countLabel: "Curated for your growth",
     countIcon: "🎓",
     courses: [
       {
         color: "green",
-        slug: "Data-Analytics",
-        illus: <LuChartNoAxesCombined/>,
+        slug: "data-analytics-course-in-bhopal",
+        illus: LuChartNoAxesCombined,
         circleIcon: "AI",
         title: "Data Analytics",
         desc: "Turn raw data into powerful insights that drive smarter business decisions.",
@@ -41,88 +44,102 @@ const CATEGORY_DATA = {
         duration: "5 Months",
         level: "Beginner to Advanced",
       },
+      // {
+      //   color: "blue",
+      //   slug: "Power BI",
+      //   illus: "📈",
+      //   circleIcon: "AI",
+      //   title: "Power BI Data Visualization",
+      //   desc: "Build interactive dashboards and bring your data to life.",
+      //   bullets: ["Power Query & Data Modeling", "DAX Formulas", "Interactive Dashboards", "Real-world Business Reports"],
+      //   duration: "3 Months",
+      //   level: "Beginner to Advanced",
+      // },
+      // {
+      //   color: "green",
+      //   slug: "SQL",
+      //   illus: "🗄️",
+      //   circleIcon: "AI",
+      //   title: "SQL for Data Analysis",
+      //   desc: "Master SQL queries and database concepts for real-world analysis.",
+      //   bullets: ["Joins, Subqueries & CTEs", "Window Functions", "Database Design", "Real-time Case Studies"],
+      //   duration: "2 Months",
+      //   level: "Beginner to Advanced",
+      // },
       {
         color: "blue",
-        illus: "📈",
+        illus: DataSciIllus,
+        slug: "data-science-course-in-bhopal",
         circleIcon: "AI",
-        title: "Power BI Data Visualization",
-        desc: "Build interactive dashboards and bring your data to life.",
-        bullets: ["Power Query & Data Modeling", "DAX Formulas", "Interactive Dashboards", "Real-world Business Reports"],
-        duration: "3 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "green",
-        illus: "🗄️",
-        circleIcon: "AI",
-        title: "SQL for Data Analysis",
-        desc: "Master SQL queries and database concepts for real-world analysis.",
-        bullets: ["Joins, Subqueries & CTEs", "Window Functions", "Database Design", "Real-time Case Studies"],
-        duration: "2 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "blue",
-        illus: "🐍",
-        circleIcon: "AI",
-        title: "Data Science with AI/ML",
+        title: "Data Science with GenAI",
         desc: "Analyze data and build intelligent models that make an impact.",
         bullets: ["Python, Pandas, NumPy", "Machine Learning Algorithms", "Data Visualization", "Power BI & Dashboard Creation"],
         duration: "6 Months",
         level: "Beginner to Advanced",
       },
-    ],
-  },
-
-  aiml: {
-    title: "🧠 AI / ML Courses",
-    desc: "Build intelligent systems and AI-powered solutions with hands-on machine learning training.",
-    count: "15+ Courses",
-    countLabel: "Curated for your growth",
-    countIcon: "🎓",
-    courses: [
       {
         color: "green",
-        illus: "🧠",
+        illus: BrainIconIllus,
+        slug : 'ai-ml-course-in-bhopal',
         circleIcon: "AI",
-        title: "Artificial Intelligence & Machine Learning",
+        title: "AI & ML Fundamentals",
         desc: "Build intelligent systems that learn, adapt, and shape the future.",
         bullets: ["Python, NumPy & Scikit-learn", "Machine Learning Algorithms", "Deep Learning & Neural Networks", "NLP & Real-world AI Projects"],
         duration: "8 Months",
         level: "Beginner to Advanced",
       },
-      {
-        color: "blue",
-        illus: "🤖",
-        circleIcon: "AI",
-        title: "Machine Learning Fundamentals",
-        desc: "Learn supervised & unsupervised learning algorithms.",
-        bullets: ["Regression & Classification", "Clustering Techniques", "Model Evaluation & Tuning", "End-to-End ML Projects"],
-        duration: "4 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "green",
-        illus: "💬",
-        circleIcon: "AI",
-        title: "NLP & Generative AI",
-        desc: "Master transformers, LLMs and generative AI tools.",
-        bullets: ["Text Preprocessing & Embeddings", "Transformers & Attention", "LLMs & Prompt Engineering", "Generative AI Projects"],
-        duration: "3 Months",
-        level: "Advanced",
-      },
-      {
-        color: "blue",
-        illus: "👁️",
-        circleIcon: "AI",
-        title: "Computer Vision",
-        desc: "Image recognition, OpenCV and YOLO based projects.",
-        bullets: ["Image Processing with OpenCV", "CNNs & Object Detection", "YOLO & Real-time Detection", "Computer Vision Projects"],
-        duration: "3 Months",
-        level: "Intermediate to Advanced",
-      },
     ],
   },
+
+  // aiml: {
+  //   title: "🧠 AI / ML Courses",
+  //   desc: "Build intelligent systems and AI-powered solutions with hands-on machine learning training.",
+  //   count: "15+ Courses",
+  //   countLabel: "Curated for your growth",
+  //   countIcon: "🎓",
+  //   courses: [
+  //     {
+  //       color: "green",
+  //       illus: "🧠",
+  //       circleIcon: "AI",
+  //       title: "Artificial Intelligence & Machine Learning",
+  //       desc: "Build intelligent systems that learn, adapt, and shape the future.",
+  //       bullets: ["Python, NumPy & Scikit-learn", "Machine Learning Algorithms", "Deep Learning & Neural Networks", "NLP & Real-world AI Projects"],
+  //       duration: "8 Months",
+  //       level: "Beginner to Advanced",
+  //     },
+  //     {
+  //       color: "blue",
+  //       illus: "🤖",
+  //       circleIcon: "AI",
+  //       title: "Machine Learning Fundamentals",
+  //       desc: "Learn supervised & unsupervised learning algorithms.",
+  //       bullets: ["Regression & Classification", "Clustering Techniques", "Model Evaluation & Tuning", "End-to-End ML Projects"],
+  //       duration: "4 Months",
+  //       level: "Beginner to Advanced",
+  //     },
+  //     {
+  //       color: "green",
+  //       illus: "💬",
+  //       circleIcon: "AI",
+  //       title: "NLP & Generative AI",
+  //       desc: "Master transformers, LLMs and generative AI tools.",
+  //       bullets: ["Text Preprocessing & Embeddings", "Transformers & Attention", "LLMs & Prompt Engineering", "Generative AI Projects"],
+  //       duration: "3 Months",
+  //       level: "Advanced",
+  //     },
+  //     {
+  //       color: "blue",
+  //       illus: "👁️",
+  //       circleIcon: "AI",
+  //       title: "Computer Vision",
+  //       desc: "Image recognition, OpenCV and YOLO based projects.",
+  //       bullets: ["Image Processing with OpenCV", "CNNs & Object Detection", "YOLO & Real-time Detection", "Computer Vision Projects"],
+  //       duration: "3 Months",
+  //       level: "Intermediate to Advanced",
+  //     },
+  //   ],
+  // },
 
   cyber: {
     title: "🛡️ Cyber Security Courses",
@@ -133,42 +150,24 @@ const CATEGORY_DATA = {
     courses: [
       {
         color: "green",
-        illus: "🛡️",
+        illus: CyberSecurityIcon,
+        slug : 'cyber-security-course-in-bhopal',
         circleIcon: "AI",
-        title: "Cyber Security Essentials",
+        title: "Professional Certificate in Cyber Security",
         desc: "Learn to protect systems, networks and data from cyber threats.",
-        bullets: ["VAPT, Cloud Security, Network Security", "SOC, Digital Cyberforensics", "Mobile & Wireless Security, DevSecOps", "Offensive Security, Web App Testing"],
+        bullets: ["Networking, Network Security", "CCNA, Linux", "Windows Server", "Offensive Security with Kaali Linux"],
         duration: "8 Months",
         level: "Beginner to Advanced",
       },
       {
         color: "blue",
-        illus: "🔐",
+        illus: CyberIllus,
+        slug : 'professional-cyber-security-course-in-bhopal',
         circleIcon: "AI",
-        title: "Ethical Hacking Fundamentals",
-        desc: "Learn penetration testing with Kali Linux & Metasploit.",
-        bullets: ["Reconnaissance & Scanning", "Kali Linux & Metasploit", "Exploitation Techniques", "Reporting & Documentation"],
-        duration: "4 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "green",
-        illus: "🛰️",
-        circleIcon: "AI",
-        title: "Network Security",
-        desc: "Firewalls, IDS/IPS and secure network architecture.",
-        bullets: ["Firewall Configuration", "IDS / IPS Systems", "VPN & Secure Architecture", "Network Hardening"],
-        duration: "3 Months",
-        level: "Intermediate",
-      },
-      {
-        color: "blue",
-        illus: "🔒",
-        circleIcon: "AI",
-        title: "Application Security (VAPT)",
-        desc: "OWASP top 10 & vulnerability assessment basics.",
-        bullets: ["OWASP Top 10", "Vulnerability Assessment", "Penetration Testing Tools", "Secure Coding Practices"],
-        duration: "2 Months",
+        title: "Masters Diploma in Cyber Defense & DevSecOps",
+        desc: "Master Cyber Defense. Automate Security. Protect Modern Infrastructure.",
+        bullets: ["Networking, Windows Server, CCNA", "Linux, Kaali Linux, Cloud Security", "DevOps & DevSecOps Integration", "Digital Cyberforensics, Mobile & Wireless Security"],
+        duration: "12 Months",
         level: "Beginner to Advanced",
       },
     ],
@@ -183,42 +182,46 @@ const CATEGORY_DATA = {
     courses: [
       {
         color: "green",
-        illus: "💻",
+        illus: PythonIcon,
+        slug : 'python-full-stack-developer-course-in-bhopal',
         circleIcon: "AI",
-        title: "Full Stack Development",
-        desc: "Master frontend and backend development with real-world projects.",
-        bullets: ["HTML, CSS, JavaScript, React, GSAP", "Node.js, Express, Java, Python", "MongoDB, MySql", "Django, Spring Boot"],
+        title: "Python Full Stack Web Development",
+        desc: "From Beginner to Full Stack Developer. Build Modern Web Applications.",
+        bullets: ["HTML, CSS, JavaScript, React, GSAP", "Core Python & OOP, MySQL", "Django, FastAPI", "REST APIs & Deployment"],
         duration: "8 Months",
         level: "Beginner to Advanced",
       },
-      {
+       {
         color: "blue",
-        illus: "⚛️",
+        illus: JavaIcon,
+        slug : 'java-full-stack-developer-course-in-bhopal',
         circleIcon: "AI",
-        title: "React & Next.js Mastery",
-        desc: "Build production-grade apps with SSR & app router.",
-        bullets: ["React Hooks & State Management", "Next.js App Router & SSR", "API Integration", "Production-grade Projects"],
-        duration: "3 Months",
-        level: "Intermediate to Advanced",
-      },
-      {
-        color: "green",
-        illus: "🟩",
-        circleIcon: "AI",
-        title: "Node.js & REST APIs",
-        desc: "Build scalable backend services and REST APIs.",
-        bullets: ["Express.js Fundamentals", "REST API Design", "Authentication & Authorization", "Database Integration"],
-        duration: "2 Months",
+        title: "Java Full Stack Web Development",
+        desc: "Become an Enterprise Full Stack Developer. Code. Build. Deploy.",
+        bullets: ["HTML, CSS, JavaScript, React, GSAP","Core Java & OOP, MySQL", "Spring Boot & Hibernate", "REST APIs & Deployment"],
+        duration: "6 Months",
         level: "Beginner to Advanced",
       },
       {
-        color: "blue",
-        illus: "🎨",
+        color: "green",
+        illus: FaLaptopCode,
+        slug : 'frontend-developer-course-in-bhopal',
         circleIcon: "AI",
-        title: "UI/UX Design with Figma",
-        desc: "Design systems, prototyping and user research.",
-        bullets: ["Design Systems", "Wireframing & Prototyping", "User Research Methods", "Figma Hands-on Projects"],
-        duration: "2 Months",
+        title: "Front-End Development with AI",
+        desc: "Design Beautiful Interfaces. Create Amazing User Experiences.",
+        bullets: ["HTML5, CSS3, Tailwind", "JavaScript, GSAP, Fetch API", "React, Next.js, Framer Motion", "Responsive Web Design"],
+        duration: "5 Months",
+        level: "Beginner to Advanced",
+      },
+          {
+        color: "blue",
+        illus: BackendIcon,
+        slug : 'backend-developer-course-in-bhopal',
+        circleIcon: "AI",
+        title: "Back-End Development with AI",
+        desc: "Power the Web with Scalable Servers and APIs.",
+        bullets: ["Python / Java", "MySQL", "Django / Spring Boot", "Rest API"],
+        duration: "6 Months",
         level: "Beginner to Advanced",
       },
     ],
@@ -233,7 +236,8 @@ const CATEGORY_DATA = {
     courses: [
       {
         color: "green",
-        illus: "☁️",
+        illus: TbCloudComputingFilled,
+        slug : 'aws-training-in-bhopal',
         circleIcon: "AI",
         title: "Cloud Computing (AWS)",
         desc: "Build, deploy and manage scalable applications in the cloud.",
@@ -243,7 +247,8 @@ const CATEGORY_DATA = {
       },
       {
         color: "blue",
-        illus: "🚀",
+        illus: DevOpsIllus,
+        slug : "devops-training-in-bhopal",
         circleIcon: "AI",
         title: "AWS DevOps",
         desc: "Deploy faster, scale smarter, and automate everything in the cloud.",
@@ -251,78 +256,58 @@ const CATEGORY_DATA = {
         duration: "6 Months",
         level: "Beginner to Advanced",
       },
-      {
-        color: "green",
-        illus: "🔵",
-        circleIcon: "AI",
-        title: "Microsoft Azure Fundamentals",
-        desc: "AZ-900, AZ-104 certification-aligned training.",
-        bullets: ["Azure Core Services", "Identity & Access Management", "Azure Networking", "Certification Prep (AZ-900/104)"],
-        duration: "3 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "blue",
-        illus: "🏗️",
-        circleIcon: "AI",
-        title: "Kubernetes & Container Orchestration",
-        desc: "Pods, Helm charts and production-grade clusters.",
-        bullets: ["Pods, Deployments & Services", "Helm Charts", "Cluster Management", "Production-grade Orchestration"],
-        duration: "2 Months",
-        level: "Advanced",
-      },
     ],
   },
 
-  others: {
-    title: "⊞ Other Popular Courses",
-    desc: "Explore additional career-focused programs across testing, mobile and project management.",
-    count: "10+ Courses",
-    countLabel: "Curated for your growth",
-    countIcon: "🎓",
-    courses: [
-      {
-        color: "green",
-        illus: "☕",
-        circleIcon: "AI",
-        title: "Java Full Stack Development",
-        desc: "Spring Boot, Hibernate and microservices architecture.",
-        bullets: ["Core Java & OOP", "Spring Boot & Hibernate", "Microservices Architecture", "REST APIs & Deployment"],
-        duration: "6 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "blue",
-        illus: "🧪",
-        circleIcon: "AI",
-        title: "Software Testing (Manual + Automation)",
-        desc: "Selenium, JIRA and end-to-end QA workflows.",
-        bullets: ["Manual Testing Fundamentals", "Selenium Automation", "JIRA & Bug Tracking", "End-to-End QA Workflows"],
-        duration: "3 Months",
-        level: "Beginner to Advanced",
-      },
-      {
-        color: "green",
-        illus: "📱",
-        circleIcon: "AI",
-        title: "Mobile App Development (React Native)",
-        desc: "Build cross-platform iOS & Android apps.",
-        bullets: ["React Native Fundamentals", "Navigation & State Management", "Native Modules & APIs", "App Store Deployment"],
-        duration: "4 Months",
-        level: "Intermediate",
-      },
-      {
-        color: "blue",
-        illus: "📋",
-        circleIcon: "AI",
-        title: "Agile & Scrum Management",
-        desc: "JIRA, sprints and modern project management.",
-        bullets: ["Agile Principles & Scrum Framework", "Sprint Planning", "JIRA Hands-on", "Real-world PM Scenarios"],
-        duration: "1.5 Months",
-        level: "Beginner to Advanced",
-      },
-    ],
-  },
+  // others: {
+  //   title: "⊞ Other Popular Courses",
+  //   desc: "Explore additional career-focused programs across testing, mobile and project management.",
+  //   count: "10+ Courses",
+  //   countLabel: "Curated for your growth",
+  //   countIcon: "🎓",
+  //   courses: [
+  //     {
+  //       color: "green",
+  //       // illus: "☕",
+  //       circleIcon: "AI",
+  //       title: "Java Full Stack Development",
+  //       desc: "Spring Boot, Hibernate and microservices architecture.",
+  //       bullets: ["Core Java & OOP", "Spring Boot & Hibernate", "Microservices Architecture", "REST APIs & Deployment"],
+  //       duration: "6 Months",
+  //       level: "Beginner to Advanced",
+  //     },
+  //     {
+  //       color: "blue",
+  //       // illus: "🧪",
+  //       circleIcon: "AI",
+  //       title: "Software Testing (Manual + Automation)",
+  //       desc: "Selenium, JIRA and end-to-end QA workflows.",
+  //       bullets: ["Manual Testing Fundamentals", "Selenium Automation", "JIRA & Bug Tracking", "End-to-End QA Workflows"],
+  //       duration: "3 Months",
+  //       level: "Beginner to Advanced",
+  //     },
+  //     {
+  //       color: "green",
+  //       // illus: "📱",
+  //       circleIcon: "AI",
+  //       title: "Mobile App Development (React Native)",
+  //       desc: "Build cross-platform iOS & Android apps.",
+  //       bullets: ["React Native Fundamentals", "Navigation & State Management", "Native Modules & APIs", "App Store Deployment"],
+  //       duration: "4 Months",
+  //       level: "Intermediate",
+  //     },
+  //     {
+  //       color: "blue",
+  //       // illus: "📋",
+  //       circleIcon: "AI",
+  //       title: "Agile & Scrum Management",
+  //       desc: "JIRA, sprints and modern project management.",
+  //       bullets: ["Agile Principles & Scrum Framework", "Sprint Planning", "JIRA Hands-on", "Real-world PM Scenarios"],
+  //       duration: "1.5 Months",
+  //       level: "Beginner to Advanced",
+  //     },
+  //   ],
+  // },
 };
 
 /* ══════════════════════════════════════
@@ -352,7 +337,7 @@ export default function AllCourses() {
         <div className="cp-tag">
           <span className="cp-tag-star">✦</span>
           <span className="cp-tag-text">
-            Industry-Relevant Skills. Future-Ready Careers.
+            Future-Ready Courses.
           </span>
         </div>
 
@@ -418,7 +403,7 @@ export default function AllCourses() {
             {/* Illustration area */}
             <div className={`cp-card-icon-area ${c.color}`}>
               <div className={`cp-card-illus-wrap ${c.color}`}>
-                {c.illus}
+                <c.illus className='css-card-illus' />
               </div>
               <div className="cp-card-circle-icon">{c.circleIcon}</div>
             </div>

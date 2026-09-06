@@ -25,4 +25,71 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.netligent.com/our-courses/data-analytics-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://www.netligent.com/our-courses/data-science-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
+   <url>
+    <loc>https://www.netligent.com/our-courses/al-ml-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
+    <url>
+    <loc>https://www.netligent.com/our-courses/python-full-stack-developer-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.netligent.com/our-courses/java-full-stack-developer-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+  <url>
+    <loc>https://www.netligent.com/our-courses/frontend-developer-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+   <url>
+    <loc>https://www.netligent.com/our-courses/backend-developer-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+    <url>
+    <loc>https://www.netligent.com/our-courses/cyber-security-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+   <url>
+    <loc>https://www.netligent.com/our-courses/professional-cyber-security-course-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.netligent.com/our-courses/aws-training-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
+ <url>
+    <loc>https://www.netligent.com/our-courses/devops-training-in-bhopal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1</priority>
+  </url>
+
 </urlset>

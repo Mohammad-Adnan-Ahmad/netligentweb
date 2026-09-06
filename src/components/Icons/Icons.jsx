@@ -195,7 +195,7 @@ export const AILogo = () => (
 );
 
 export const PythonIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="90" height="90" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fillRule="evenodd" clipRule="evenodd" d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z" fill="url(#paint0_linear_87_8204)"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z" fill="url(#paint1_linear_87_8204)"/>
 <defs>
@@ -223,7 +223,7 @@ export const BrainIcon = () => (
 </svg>
 );
 export const JavaIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="90" height="90" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0497 8.44062C22.6378 3.32607 19.2566 0 19.2566 0C19.7598 5.28738 13.813 6.53583 12.2189 10.1692C11.1312 12.6485 12.9638 14.8193 16.0475 17.5554C15.7749 16.9494 15.3544 16.3606 14.9288 15.7645C13.4769 13.7313 11.9645 11.6132 16.0497 8.44062Z" fill="#E76F00"/>
 <path d="M17.1015 18.677C17.1015 18.677 19.0835 17.0779 17.5139 15.3008C12.1931 9.27186 23.3333 6.53583 23.3333 6.53583C16.5317 9.8125 17.5471 11.7574 19.2567 14.1202C21.0871 16.6538 17.1015 18.677 17.1015 18.677Z" fill="#E76F00"/>
 <path d="M22.937 23.4456C29.0423 20.3258 26.2195 17.3278 24.2492 17.7317C23.7662 17.8305 23.5509 17.9162 23.5509 17.9162C23.5509 17.9162 23.7302 17.64 24.0726 17.5204C27.9705 16.1729 30.9682 21.4949 22.8143 23.6028C22.8143 23.6029 22.9088 23.5198 22.937 23.4456Z" fill="#5382A1"/>
@@ -754,6 +754,59 @@ export const Bell = () => (
 );
 
 
+export const IconTrendUp = (p) => (
+  <svg viewBox="0 0 24 24" fill="none" {...p}>
+    <path d="M4 17 9 11l4 3 7-8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M14 6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+
+
+
+export const CyberSecurityIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="90"
+    height="90"
+    viewBox="0 0 24 24"
+    fill="#34d399"
+  >
+    <path d="M12 23a11 11 0 1 1 11-11 11 11 0 0 1-11 11m0-20a9 9 0 1 0 9 9 9 9 0 0 0-9-9"></path>
+    <path d="M15 11V9a3 3 0 0 0-6 0v2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1m-4.5-2a1.5 1.5 0 0 1 3 0v2h-3Z"></path>
+    <path fill="none" d="M0 0h24v24H0z"></path>
+  </svg>
+);
+
+
+export const BackendIcon = ({ size = 90 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill="none"
+    stroke="#60a5fa"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="4" y="4" width="16" height="6" rx="1.5" />
+    <circle cx="7" cy="7" r="0.6" fill="currentColor" />
+    <circle cx="10" cy="7" r="0.6" fill="currentColor" />
+    <path d="M13 7H17" />
+
+    <rect x="4" y="11" width="16" height="6" rx="1.5" />
+    <circle cx="7" cy="14" r="0.6" fill="currentColor" />
+    <circle cx="10" cy="14" r="0.6" fill="currentColor" />
+    <path d="M13 14H17" />
+
+    <path d="M12 17V20" />
+
+    <ellipse cx="12" cy="21" rx="4" ry="1.3" />
+    <path d="M8 21V22.5C8 23.3 9.8 24 12 24C14.2 24 16 23.3 16 22.5V21" />
+  </svg>
+);
 
 
 

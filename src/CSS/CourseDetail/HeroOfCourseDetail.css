@@ -5,19 +5,24 @@
     font-family: 'Barlow', sans-serif;
     position: relative;
     overflow: hidden;
-    width: 100%;
     padding: 20px 0px 20px 38px;
     margin: 0 auto;
     background-color: #00000D;
     width: 96%;
     border: 1.3px solid #3a5fb0;
     border-radius: 20px;
-    background-size: 50% 50%;
+    background-size: 65%;
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: bottom right;
 }
 
-
+/* AI Illustration */
+.ch-robot{
+    position: absolute;
+    width: 15%;
+    right: 20px;
+    top: 20px;
+}
 
 /* Nebula glow blobs */
 .ch-nebula-l {
@@ -40,7 +45,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: relative;
     z-index: 2;
 }
@@ -50,6 +54,7 @@
     align-items: center;
     gap: 6px;
     font-size: 0.82rem;
+
 }
 
 .ch-breadcrumb a {
@@ -91,10 +96,8 @@
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     align-items: center;
-
     position: relative;
     z-index: 2;
-
 }
 
 /* ═══════════════════════════════════════
@@ -140,7 +143,8 @@
     line-height: 1.0;
     letter-spacing: 0px;
     margin-bottom: 18px;
-      color: #ffffff;
+    color: #ffffff;
+  
 }
 
 .ch-title-detail .tg {
@@ -167,7 +171,7 @@
     color: rgba(255, 255, 255, 0.616);
     line-height: 1.72;
     margin-bottom: 22px;
-    max-width: 520px;
+    width: 82%;
 }
 
 /* ── Feature pills row ── */
@@ -398,7 +402,6 @@
     display: flex;
     align-items: center;
     gap: 6px;
-
     font-size: 0.78rem;
     color: var(--text-muted);
     padding: 0 16px;
@@ -433,15 +436,16 @@
 
 
 /* ─── Responsive ── */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     .ch-hero {
-        grid-template-columns: 1fr;
-        padding: 24px 32px;
+        grid-template-columns: 1fr 1fr;
+        padding: 0px 0px 5px;
     }
 
     .ch-topbar {
-        padding: 16px 32px 0;
+        padding: 10px 0px 0;
     }
+    .ch-body { font-size: 14px;}
 
     .ch-right {
         height: 380px;
@@ -451,17 +455,47 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media (max-width : 1023px){
+    .ch-page {
+    padding: 20px 20px 38px;
+}
+    .ch2-grid{
+   padding: 38px 36px 5px; 
+ }
+ .ch-hero {
+        grid-template-columns: 1fr 0fr;
+        padding: 0px 0px 5px;
+    }
+    .ch-body { font-size: 14px; width: 80%; }
+}
 
 @media (max-width: 680px) {
+    .ch-page {
+    padding: 20px 20px 38px;
+}
     .ch-topbar {
-        padding: 16px 20px 0;
+        padding: 5px 0px 0;
         flex-wrap: wrap;
         gap: 12px;
     }
 
-    .ch-hero {
-        padding: 20px 20px;
+    .ch-breadcrumb{
+        font-size: 10px;
     }
+    .ch-robot{
+    width: 25%;
+}
+
+    .ch-hero {
+        padding: 0px 0px 5px;
+    }
+    .ch-title-detail {
+    width: 100%;
+}
+     .ch-tagline {
+    width: 80%;
+}
+    .ch-body { width: 100%; }
 
     .ch-features-details {
         grid-template-columns: repeat(2, 1fr);
@@ -475,24 +509,58 @@
         height: 280px;
     }
 
-    .ch-title-detail {
-        font-size: 2.4rem;
-    }
-
     .ch-info-bar {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .ch-rating {
+    margin-right: 50px;
+}
     .ch-info-item:nth-child(2) {
         border-right: none;
     }
 
     .ch-info-item:nth-child(3) {
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
         padding-top: 14px;
     }
 
-    .ch-info-item:nth-child(4) {
-        border-right: none;
-    }
+    .ch-trust {
+
+    gap: 5px;
+    
+}
+    .ch-trust-item:first-child, .ch-trust-item:nth-child(2),.ch-trust-item:last-child {
+    padding-left: 0;
+}
+.ch-trust-item:first-child, .ch-trust-item:nth-child(2),.ch-trust-item:last-child{
+    border-right: none;
+}
+
+}
+
+@media (max-width: 500px) {
+  .ch-course-badge{ font-size: 9px; letter-spacing: 1.5px; padding: 6px 14px; }
+}
+
+
+@media (max-width: 380px) {
+  .ch-title-detail{
+    font-size: 22px;
+  }
+  .ch-tagline {
+    font-size: 14px;
+}
+    .ch-tagline {
+    width: 90%;
+}
+  .ch-rating {
+    margin-right: 20px;
+}
+.ch-course-badge {
+    gap: 5px;
+    padding: 6px 10px;
+    font-size: 8px;
+
+}
+
 }

@@ -17,6 +17,7 @@ import FeedbackVideos from '../../components/HomeComponents/Feedbackvideos'
 import Infrastructure from '../../components/HomeComponents/Infrastructure'
 
 function HomePage() {
+  
   return (
     <>
       <Helmet>
@@ -33,7 +34,7 @@ function HomePage() {
       <WhyIdeal/>
       <Certificate/>
       <Infrastructure/>
-      <OurCourses/>
+      <OurCourses badge='Learn. Practice. Get Hired.'/>
       <RealTraining/>
       <Reviews/>
       <FeedbackVideos/>
