@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function BED() {
   const achieveItems = [
@@ -23,7 +25,7 @@ function BED() {
         <link rel="canonical" href="https://www.netligent.com/our-courses/backend-developer-course-in-bhopal" />
       </Helmet>
       <HeroSection
-        backgroundURL = '/BE.png'
+        backgroundURL='/BE.png'
         course='Back-End Development'
         title='Back-End Development with GenAI'
         headline='Power the Web with Scalable Servers and APIs.'
@@ -36,10 +38,12 @@ function BED() {
       <CourseHighlights />
       <AboutCourse
         about_desc="Behind every powerful web application is a reliable and intelligent back-end system. This course is designed to build you into a modern back-end developer who can create APIs, manage databases, develop secure server-side applications and use AI tools to build faster, smarter and more scalable solutions."
-        course_img = "/BE_Illus.png"
+        course_img="/BE_Illus.png"
         courseName='Back-End Development'
         achieveItems={achieveItems}
       />
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

@@ -20,7 +20,7 @@ function DataAnalytics() {
       <Helmet>
         <title>Data Analytics Course in Bhopal | Netligent Technologies</title>
         <meta name="description" content="Learn Data Analytics with Python, SQL, Excel, NumPy, Pandas, Matplotlib and Power BI. Gain practical skills through real-world projects and become job-ready for a career in data analytics." />
-        
+
         <meta name="keywords" content="data analytics courses in bhopal, data analytics in bhopal, data analytics what companiescome to nit bhopal, eisystems bhopal data analytics, mba in data analytics bhopal, msc in data analytics in bhopal" />
         {/* ✅ Canonical URL */}
         <link rel="canonical" href="https://www.netligent.com/our-courses/data-analytics-course-in-bhopal" />
@@ -44,7 +44,7 @@ function DataAnalytics() {
         achieveItems={achieveItems}
       />
       <RecentPlacement />
-      <OurCourses badge='More Courses'/>
+      <OurCourses badge='More Courses' />
     </>
   )
 }

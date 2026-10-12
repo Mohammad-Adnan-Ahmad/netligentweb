@@ -120,11 +120,12 @@ const Ic = {
    COMPONENT
 ══════════════════════════════════════ */
 export default function HeroSection({backgroundURL,course, title, headline, desc, duration, rating, syllabus_link }) {
-  const isMobile = window.innerWidth <= 1023;
   
   return (
     
-    <div className="ch-page" style={{backgroundImage: isMobile ? "none" : `url(${backgroundURL})`}} >
+    <div className="ch-page" 
+   style={{
+    backgroundImage: `url(${backgroundURL})`}}>
       <div className="ch-nebula-l" />
       <img src="/AI_Robot.png" className="ch-robot"/>
 

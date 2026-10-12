@@ -97,12 +97,6 @@ const STEPS = [
   },
 ];
 
-const STATS = [
-  { num: "95%",  label: "Placement Rate"       },
-  { num: "15+",  label: "Hiring Partners"       },
-  { num: "20+",  label: "Students Placed"       },
-  { num: "26 LPA", label: "Highest Package"     },
-];
 
 /* ══════════════════════════════════════════
    CUSTOM HOOK — Intersection Observer
@@ -245,18 +239,6 @@ export default function PlacementProcess() {
           ))}
         </div>
 
-        {/* ── Stats ── */}
-        <div
-          ref={statsRef}
-          className={`pp-stats-row ${statsVisible ? "visible" : ""}`}
-        >
-          {STATS.map((s, i) => (
-            <div className="pp-stat-card" key={i}>
-              <div className="pp-stat-num">{s.num}</div>
-              <div className="pp-stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
 
         {/* ── Bottom Banner ── */}
         <div

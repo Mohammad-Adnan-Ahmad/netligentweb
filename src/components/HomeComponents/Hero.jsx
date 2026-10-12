@@ -35,7 +35,7 @@ const STRENGTHS = [
   },
   {
     emoji: "🛠️",
-    name: "Practical, Hands-On Learning",
+    name: "Hands-on Practical Training",
     desc: "Build real projects that belong in your portfolio",
     color: "#60a5fa",
     bg: "rgba(96,165,250,0.1)",
@@ -55,7 +55,7 @@ const STRENGTHS = [
   },
   {
     emoji: "💼",
-    name: "Industry Relevant Skills",
+    name: "Industry-Relevant Courses",
     desc: "Curriculum updated to match what employers actually need",
     color: "#f97316",
     bg: "rgba(249,115,22,0.1)",
@@ -438,6 +438,12 @@ export default function Hero() {
           <div className={`hl-subtitle${showSubtitle ? " show" : ""}`}>
             {"\u0027"}Where Learning Meets Real-World Skills{"\u0027"}
           </div>
+          
+           <p className="hl-seo-text">
+            Build job-ready technology skills with practical, industry-focused IT training in Bhopal.
+            Learn from experienced trainers, work on real-world projects and prepare for career
+            opportunities with our placement assistance.
+          </p>
 
           {/* Divider */}
           <div className={`hl-divider${showDivider ? " show" : ""}`} />
@@ -446,6 +452,8 @@ export default function Hero() {
           <div className={`hl-strength-label${showStrengthLabel ? " show" : ""}`}>
             Our Strengths
           </div>
+
+          
 
           {/* Strength cards */}
           <div className="hl-strengths">

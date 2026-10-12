@@ -58,18 +58,18 @@ const COURSES = [
     circleIcon: "AI",
     title: "Professional Certificate in Cyber Security",
     desc: "Learn to protect systems, networks and data from cyber threats.",
-    bullets: ["Networking, Network Security", "CCNA, Linux", "Windows Server", "Offensive Security with Kaali Linux"],
+    bullets: ["Networking, Network Security", "CCNA, Linux, VAPT", "Web Application Testing", "Offensive Security with Kali Linux"],
     duration: "8 Months",
     level: "Beginner to Advanced",
   },
   {
     color: "green",
     Illus: CyberSecurityIcon,
-    slug: 'professional-cyber-security-course-in-bhopal',
+    slug: 'cyber-security-expert-course-in-bhopal',
     circleIcon: "AI",
-    title: "Masters Diploma in Cyber Defense & DevSecOps",
+    title: "Cyber Security Expert",
     desc: "Master Cyber Defense. Automate Security. Protect Modern Infrastructure.",
-    bullets: ["Networking, Windows Server, CCNA", "Linux, Kaali Linux, Cloud Security", "DevOps & DevSecOps Integration", "Digital Cyberforensics, Mobile & Wireless Security"],
+    bullets: ["Linux, Kali Linux, Cloud Security", "SOC, Digital Cyberforensics", "DevOps & DevSecOps Integration", "Mobile & Wireless Security, VAPT"],
     duration: "12 Months",
     level: "Beginner to Advanced",
   },
@@ -135,17 +135,16 @@ export default function OurCourses({ badge }) {
         {/* Title with sparks */}
         <div className="cs-title-wrap">
           <h2>
-            <span className="cs-title">AI Powered</span><br />
-            <span className="cs-title cs-title-gradient"> Industry Ready Courses</span>
+            <span className="cs-title">Industry-Ready</span><br />
+            <span className="cs-title cs-title-gradient"> IT Courses in Bhopal</span>
           </h2>
         </div>
 
         {/* Subtitle */}
         <p className="cs-subtitle">
-          Curated by industry experts. Designed for{" "}
-          <span className="cs-sub-blue">real world.</span>{" "}
-          Built for{" "}
-          <span className="cs-sub-purple">your success.</span>
+         Learn the latest technologies through practical, industry-oriented training programs designed for
+students, freshers and working professionals. Our courses combine classroom learning, hands-on
+projects, mentor guidance and career preparation to help you build job-ready skills.
         </p>
       </div>
 

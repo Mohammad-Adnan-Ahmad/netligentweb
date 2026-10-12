@@ -3,6 +3,9 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
+import Curriculum from '../../components/CourseDetailComponent/Curriculum';
 
 function DataScience() {
   const achieveItems = [
@@ -24,7 +27,7 @@ function DataScience() {
       </Helmet>
 
       <HeroSection
-        backgroundURL = '/DataScience.png'
+        backgroundURL='/DataScience.png'
         course='Data Science'
         title='Data Science with Gen AI'
         headline='Transform Raw Data into Intelligent Business Solutions.'
@@ -37,10 +40,13 @@ function DataScience() {
       <CourseHighlights />
       <AboutCourse
         about_desc="Data is everywhere, and the ability to turn it into intelligent solutions is driving the future of technology. This course is designed to transform you into a data-driven professional who can analyze data, build machine learning models and leverage Generative AI to create smart, impactful solutions."
-        course_img = "/DS_Illus.png"
+        course_img="/DS_Illus.png"
         courseName='Data Science'
         achieveItems={achieveItems}
       />
+      <Curriculum/>
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

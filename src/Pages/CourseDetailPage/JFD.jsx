@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function JFD() {
   const achieveItems = [
@@ -24,7 +26,7 @@ function JFD() {
         <link rel="canonical" href="https://www.netligent.com/our-courses/java-full-stack-developer-course-in-bhopal" />
       </Helmet>
       <HeroSection
-        backgroundURL = '/Java_Full_Stack.png'
+        backgroundURL='/Java_Full_Stack.png'
         course='Java Full Stack Development'
         title='Java Full Stack Development with GenAI'
         headline='Become an Enterprise Full Stack Developer. Code. Build. Deploy.'
@@ -38,10 +40,12 @@ function JFD() {
       <AboutCourse
         about_desc="Java continues to power some of the world's most scalable and enterprise-grade applications. This course is designed to transform you into a full stack developer who can create modern user interfaces, develop robust Java back-end applications and build secure, scalable web solutions from front end to back end.
 "
-        course_img = "/JFD_Illus.png"
+        course_img="/JFD_Illus.png"
         courseName='Java Full Stack Web Development'
         achieveItems={achieveItems}
       />
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

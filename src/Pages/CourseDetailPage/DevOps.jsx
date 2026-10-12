@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function DevOps() {
   const achieveItems = [

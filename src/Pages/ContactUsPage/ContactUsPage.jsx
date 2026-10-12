@@ -9,8 +9,8 @@ function ContactUsPage() {
   return (
         <>
               <Helmet>
-                <title>Contact Netligent Technologies | IT Training Institute in Bhopal</title>
-                <meta name="description" content="Top IT courses with placement support." />
+                <title>Contact Netligent Technologies | IT Training Institute Bhopal</title>
+                <meta name="description" content="Contact Netligent Technologies in Bhopal for IT courses, career counselling, course enquiries and training in Data Science, Cyber Security, AI, Full Stack and DevOps." />
                 <meta name="keywords" content="Best IT Training Institute in Bhopal, contact Netligent, IT training insttute, institute phone number, training institute address, Best IT training institute" />
               {/* ✅ Canonical URL */}
                 <link rel="canonical" href="https://www.netligent.com/contact-us" />

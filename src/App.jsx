@@ -34,7 +34,7 @@ export const routes = [
       { path: "our-courses/frontend-developer-course-in-bhopal", Component: FED },
       { path: "our-courses/backend-developer-course-in-bhopal", Component: BED },
       { path: "our-courses/cyber-security-course-in-bhopal", Component: CS1 },
-      { path: "our-courses/professional-cyber-security-course-in-bhopal", Component: CS2 },
+      { path: "our-courses/cyber-security-expert-course-in-bhopal", Component: CS2 },
       { path: "our-courses/aws-training-in-bhopal", Component: CloudComputing },
       { path: "our-courses/devops-training-in-bhopal", Component: DevOps },
       { path: "contact-us", Component: ContactUsPage },

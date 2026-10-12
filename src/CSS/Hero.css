@@ -145,6 +145,17 @@
   transform: translateY(0);
 }
 
+/* ── SEO paragraph (added) ── */
+.hl-seo-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.742);
+  font-weight: 400;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
 /* Divider */
 .hl-divider {
   height: 1px;
@@ -460,6 +471,11 @@
 
   .hl-ready-wrap {
     text-align: left;
+  }
+
+   .hl-seo-text {
+    text-align: left;
+    max-width: 100%;
   }
 
   .hl-strength-item {

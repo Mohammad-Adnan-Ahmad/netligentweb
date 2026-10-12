@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function FED() {
   const achieveItems = [
@@ -24,7 +26,7 @@ function FED() {
         <link rel="canonical" href="https://www.netligent.com/our-courses/java-full-stack-developer-course-in-bhopal" />
       </Helmet>
       <HeroSection
-        backgroundURL = '/FE.png'
+        backgroundURL='/FE.png'
         course='Front-End Development'
         title='Front-End Development with GenAI'
         headline='Design Beautiful Interfaces. Create Amazing User Experiences.'
@@ -37,10 +39,13 @@ function FED() {
       <CourseHighlights />
       <AboutCourse
         about_desc="Every great digital experience begins with an engaging and responsive interface. This course is designed to turn you into a modern front-end developer who can build interactive websites, create responsive user experiences and leverage AI tools to code faster, solve problems smarter and bring creative ideas to life."
-        course_img = "/FE_Illus.png"
+        course_img="/FE_Illus.png"
         courseName='Front-End Development'
         achieveItems={achieveItems}
       />
+
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

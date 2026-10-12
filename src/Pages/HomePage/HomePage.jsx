@@ -17,29 +17,31 @@ import FeedbackVideos from '../../components/HomeComponents/Feedbackvideos'
 import Infrastructure from '../../components/HomeComponents/Infrastructure'
 
 function HomePage() {
-  
+
   return (
     <>
       <Helmet>
-        <title>Netligent Technologies | Best IT Training Institute in Bhopal</title>
-        <meta name="description" content="Top IT courses with placement support." />
-        <meta name="keywords" content="IT training, Best IT training institute in Bhopal, Best Data Science Course in Bhopal, python, java, Data Analytics, Machine Learning" />
-      {/* ✅ Canonical URL */}
+        <title>Best IT Training Institute in Bhopal | Netligent Technologies</title>
+        <meta name="Join Netligent Technologies, a leading IT training institute in Bhopal offering Data Science, Data Analytics, AI, Cyber Security, Full Stack and DevOps courses.
+
+" />
+        <meta name="keywords" content="IT Training Institute in Bhopal, IT Courses in Bhopal, IT Training & Placement Institute in Bhopal, Software Training Institute in Bhopal, Best IT Training Institute in Bhopal, Job-Oriented IT Courses in Bhopal, IT Courses with Placement in Bhopal, Programming Courses in Bhopal, Professional IT Training in Bhopal" />
+        {/* ✅ Canonical URL */}
         <link rel="canonical" href="https://www.netligent.com/" />
       </Helmet>
 
-      <Hero/>
-      <RecentPlacement/>
-      <PersonalizedAttention/>
-      <WhyIdeal/>
-      <Certificate/>
-      <Infrastructure/>
-      <OurCourses badge='Learn. Practice. Get Hired.'/>
-      <RealTraining/>
-      <Reviews/>
-      <FeedbackVideos/>
-      <CareerCounsellors/>
-      <PlacementProcess/>
+      <Hero />
+      <RecentPlacement />
+      <PersonalizedAttention />
+      <WhyIdeal />
+      <Certificate />
+      <Infrastructure />
+      <OurCourses badge='Learn. Practice. Get Hired.' />
+      <RealTraining />
+      <Reviews />
+      <FeedbackVideos />
+      <CareerCounsellors />
+      <PlacementProcess />
     </>
   )
 }

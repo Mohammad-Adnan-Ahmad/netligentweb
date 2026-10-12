@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function CS2() {
   const achieveItems = [
@@ -23,7 +25,7 @@ function CS2() {
         <link rel="canonical" href="https://www.netligent.com/our-courses/professional-cyber-security-course-in-bhopal" />
       </Helmet>
       <HeroSection
-        backgroundURL = '/CS2.png'
+        backgroundURL='/CS2.png'
         course='Cyber Security'
         title='Masters Diploma in Cyber Defense & DevSecOps'
         headline='Master Cyber Defense. Automate Security. Protect Modern Infrastructure.'
@@ -37,10 +39,12 @@ function CS2() {
       <AboutCourse
         about_desc="Modern businesses need security built into every layer of their digital infrastructure. This program is designed to develop advanced cybersecurity professionals who can defend systems, identify sophisticated threats and integrate security practices into the DevOps lifecycle using modern Cyber Defense and DevSecOps techniques.
 "
-        course_img = "/CS_Illus.png"
+        course_img="/CS_Illus.png"
         courseName='Cyber Defense & DevSecOps'
         achieveItems={achieveItems}
       />
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

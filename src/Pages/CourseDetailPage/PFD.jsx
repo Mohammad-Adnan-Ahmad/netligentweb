@@ -3,6 +3,8 @@ import HeroSection from '../../components/CourseDetailComponent/HeroSection'
 import CourseHighlights from '../../components/CourseDetailComponent/Coursehighlights'
 import AboutCourse from '../../components/CourseDetailComponent/AboutCourse'
 import { Helmet } from 'react-helmet-async';
+import OurCourses from '../../components/HomeComponents/OurCourses'
+import RecentPlacement from '../../components/HomeComponents/RecentPlacement'
 
 function PFD() {
   const achieveItems = [
@@ -24,7 +26,7 @@ full stack training in bhopal, Python Full Stack Course in Bhopal, Python Full S
         <link rel="canonical" href="https://www.netligent.com/our-courses/python-full-stack-developer-course-in-bhopal" />
       </Helmet>
       <HeroSection
-        backgroundURL = '/Python_Full_Stack.png'
+        backgroundURL='/Python_Full_Stack.png'
         course='Python Full Stack Development'
         title='Python Full Stack Development with GenAI'
         headline='From Beginner to Full Stack Developer. Build Modern Web Applications.'
@@ -37,10 +39,13 @@ full stack training in bhopal, Python Full Stack Course in Bhopal, Python Full S
       <CourseHighlights />
       <AboutCourse
         about_desc="The web powers businesses, products and digital experiences across the world, and skilled developers are at the heart of it all. This course is designed to turn you into a job-ready full stack developer who can build responsive front-end interfaces, powerful Python back-end applications and complete, database-driven web solutions."
-        course_img = "/PFD_Illus.png"
+        course_img="/PFD_Illus.png"
         courseName='Python Full Stack Web Development'
         achieveItems={achieveItems}
       />
+
+      <RecentPlacement />
+      <OurCourses badge='More Courses' />
     </>
   )
 }

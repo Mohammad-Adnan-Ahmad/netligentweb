@@ -73,8 +73,8 @@ function MarqueeRow({ items, direction = "left", speed = 34 }) {
 ══════════════════════════════════ */
 const STATS = [
   { Icon: IconPersonCheck, big: 20,  dec: 0, suffix: "+",  unit: "",    label: "Students Placed",},
-  { Icon: IconRupee,       big: 3.5, dec: 1, suffix: "",   unit: "LPA", label: "Average Package",},
-  { Icon: IconTrophy,      big: 10,  dec: 0, suffix: "",   unit: "LPA", label: "Highest Package",},
+  { Icon: IconRupee,       big: 8, dec: 0, suffix: "",   unit: "LPA", label: "Average Package",},
+  { Icon: IconTrophy,      big: 26,  dec: 0, suffix: "",   unit: "LPA", label: "Highest Package",},
   { Icon: IconHandshake,   big: 15,  dec: 0, suffix: "+",  unit: "",    label: "Hiring Partners",}
 ];
 

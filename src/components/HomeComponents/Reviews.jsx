@@ -13,7 +13,7 @@ const STATS = [
       </svg>
     ),
     colorClass: "blue",
-    value: "98%",
+    value: "90%",
     label: "Students Satisfied",
   },
   {
@@ -24,7 +24,7 @@ const STATS = [
       </svg>
     ),
     colorClass: "indigo",
-    value: "2.5K+",
+    value: "1000+",
     label: "Successful Students",
   },
   {
@@ -39,7 +39,7 @@ const STATS = [
       </svg>
     ),
     colorClass: "amber",
-    value: "95%",
+    value: "90%",
     label: "Placement Rate",
   },
   {
@@ -234,7 +234,7 @@ export default function Reviews() {
               <Stars filled={5} />
             </div>
             <span className="sr-overall-label">Overall Rating</span>
-            <span className="sr-overall-sub">Based on 2,500+ Reviews</span>
+            <span className="sr-overall-sub">Based on 1000+ Reviews</span>
           </div>
 
           {/* Stat Items */}

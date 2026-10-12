@@ -65,8 +65,10 @@ export default function ContactHero() {
           </div>
 
           {/* Title */}
-          <h1 className="ch2-title">Let's Connect &amp;<br/>
-           <span className="ch2-title-grad">Build Your Future </span></h1>
+          {/* <h1 className="ch2-title">Let's Connect &amp;<br/>
+           <span className="ch2-title-grad">Build Your Future </span></h1> */}
+             <h1 className="ch2-title">Contact Netligent Technologies<br/>
+           <span className="ch2-title-grad">in Bhopal </span></h1>
           {/* Subtitle */}
           <p className="ch2-subtitle">
             Have questions about our courses, admissions, or career support?
