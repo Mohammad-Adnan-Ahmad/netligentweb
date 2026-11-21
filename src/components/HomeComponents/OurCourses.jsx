@@ -21,7 +21,7 @@ const COURSES = [
   {
     color: "green",
     Illus: LuChartNoAxesCombined,
-    slug: "data-analytics-course-in-bhopal",
+    slug: "data-analytics-course-in-bhopal/",
     circleIcon: "AI",
     title: "Data Analytics",
     desc: "Turn raw data into powerful insights that drive smarter business decisions.",
@@ -32,7 +32,7 @@ const COURSES = [
   {
     color: "blue",
     Illus: DataSciIllus,
-    slug: "data-science-course-in-bhopal",
+    slug: "data-science-course-in-bhopal/",
     circleIcon: "AI",
     title: "Data Science with Gen AI",
     desc: "Analyze data and build intelligent models that make an impact.",
@@ -43,7 +43,7 @@ const COURSES = [
   {
     color: "green",
     Illus: BrainIconIllus,
-    slug: 'ai-ml-course-in-bhopal',
+    slug: 'ai-ml-course-in-bhopal/',
     circleIcon: "AI",
     title: "AI & ML Fundamentals",
     desc: "Build intelligent systems that learn, adapt, and shape the future.",
@@ -54,7 +54,7 @@ const COURSES = [
   {
     color: "blue",
     Illus: CyberIllus ,
-    slug: 'cyber-security-course-in-bhopal',
+    slug: 'cyber-security-course-in-bhopal/',
     circleIcon: "AI",
     title: "Professional Certificate in Cyber Security",
     desc: "Learn to protect systems, networks and data from cyber threats.",
@@ -65,7 +65,7 @@ const COURSES = [
   {
     color: "green",
     Illus: CyberSecurityIcon,
-    slug: 'cyber-security-expert-course-in-bhopal',
+    slug: 'cyber-security-expert-course-in-bhopal/',
     circleIcon: "AI",
     title: "Cyber Security Expert",
     desc: "Master Cyber Defense. Automate Security. Protect Modern Infrastructure.",
@@ -77,7 +77,7 @@ const COURSES = [
   {
     color: "blue",
     Illus: PythonIcon,
-    slug: 'python-full-stack-developer-course-in-bhopal',
+    slug: 'python-full-stack-developer-course-in-bhopal/',
     circleIcon: "AI",
     title: "Python Full Stack Web Development",
     desc: "From Beginner to Full Stack Developer. Build Modern Web Applications.",
@@ -88,7 +88,7 @@ const COURSES = [
   {
     color: "green",
     Illus: JavaIcon,
-    slug: 'java-full-stack-developer-course-in-bhopal',
+    slug: 'java-full-stack-developer-course-in-bhopal/',
     circleIcon: "AI",
     title: "Java Full Stack Web Development",
     desc: "Become an Enterprise Full Stack Developer. Code. Build. Deploy.",
@@ -100,7 +100,7 @@ const COURSES = [
   {
     color: "blue",
     Illus: DevOpsIllus,
-    slug : "devops-training-in-bhopal",
+    slug : "devops-training-in-bhopal/",
     circleIcon: "AI",
     title: "AWS DevOps",
     desc: "Deploy faster, scale smarter, and automate everything in the cloud.",
@@ -135,16 +135,16 @@ export default function OurCourses({ badge }) {
         {/* Title with sparks */}
         <div className="cs-title-wrap">
           <h2>
-            <span className="cs-title">Industry-Ready</span><br />
+            <span className="cs-title">Explore Professional</span><br />
             <span className="cs-title cs-title-gradient"> IT Courses in Bhopal</span>
           </h2>
         </div>
 
         {/* Subtitle */}
         <p className="cs-subtitle">
-         Learn the latest technologies through practical, industry-oriented training programs designed for
-students, freshers and working professionals. Our courses combine classroom learning, hands-on
-projects, mentor guidance and career preparation to help you build job-ready skills.
+        Technology is evolving rapidly, creating opportunities across software development, data analytics, artificial intelligence, cybersecurity and cloud computing.
+Netligent offers career-focused training programs to help learners explore different technology domains and develop relevant skills.
+
         </p>
       </div>
 
@@ -238,7 +238,7 @@ projects, mentor guidance and career preparation to help you build job-ready ski
           <div className="cs-cta-hint">
             Don't see what you're<br />looking for?
           </div>
-          <Link to="our-courses">
+          <Link to="/our-courses/">
             <button className="cs-view-btn">
               View All Courses
               <span className="cs-view-btn-icon">›</span>

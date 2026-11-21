@@ -16,6 +16,8 @@ import CS1 from "./Pages/CourseDetailPage/CS1";
 import CS2 from "./Pages/CourseDetailPage/CS2";
 import CloudComputing from "./Pages/CourseDetailPage/CloudComputing";
 import DevOps from "./Pages/CourseDetailPage/DevOps";
+import GalleryPage from "./Pages/GalleryPage/GalleryPage";
+import LabPage from "./Pages/LabPage/LabPage";
 
 
 export const routes = [
@@ -26,6 +28,8 @@ export const routes = [
       { index: true, Component: HomePage },
       { path: "about", Component: AboutPage },
       { path: "our-courses", Component: OurCoursesPage },
+      { path: "netli-lab", Component: LabPage },
+      { path: "gallery", Component: GalleryPage },
       { path: "our-courses/data-analytics-course-in-bhopal", Component: DataAnalytics },
       { path: "our-courses/data-science-course-in-bhopal", Component: DataScience },
       { path: "our-courses/ai-ml-course-in-bhopal", Component: AIML },

@@ -1,0 +1,44 @@
+
+# Netligent Technologies
+
+> Netligent Technologies LLP is an IT training and placement institute in Bhopal, Madhya Pradesh, India. The institute provides practical, industry-oriented training in software development, data analytics, data science, artificial intelligence,AWS, Cloud Computing and cybersecurity.
+
+## About Netligent
+
+Netligent Technologies helps students develop technical skills through practical learning, projects, career preparation, and placement assistance.
+
+- Website: https://www.netligent.com/
+- Location: Bhopal, Madhya Pradesh, India
+- Email: info@netligent.com
+
+## Main Pages
+
+- [Home](https://www.netligent.com/): Overview of Netligent Technologies and its training services.
+- [About Us](https://www.netligent.com/about/): Information about the institute and its approach to IT education.
+- [Our Courses](https://www.netligent.com/our-courses/): IT training programs offered by the institute.
+- [Gallery](https://www.netligent.com/gallery/): Photos of institute activities, events, workshops, and student learning.
+- [Our Lab](https://www.netligent.com/netli-lab/): Company projects, student projects, practical development work, and cybersecurity lab activities.
+- [Contact Us](https://www.netligent.com/contact-us/): Contact information and inquiries.
+
+## Courses
+
+- [Data Analytics Course in Bhopal](https://www.netligent.com/our-courses/data-analytics-course-in-bhopal/)
+- [Data Science Course in Bhopal](https://www.netligent.com/our-courses/data-science-course-in-bhopal/)
+- [AI and Machine Learning Course](https://www.netligent.com/our-courses/ai-ml-course-in-bhopal/)
+- [Python Full Stack Developer Course](https://www.netligent.com/our-courses/python-full-stack-developer-course-in-bhopal/)
+- [Java Full Stack Developer Course](https://www.netligent.com/our-courses/java-full-stack-developer-course-in-bhopal/)
+- [Frontend Developer Course in Bhopal](https://www.netligent.com/our-courses/frontend-developer-course-in-bhopal/)
+- [Backend Developer Course in Bhopal](https://www.netligent.com/our-courses/backend-developer-course-in-bhopal/)
+- [Cybersecurity Course in Bhopal](https://www.netligent.com/our-courses/cyber-security-course-in-bhopal/)
+- [Cybersecurity Expert Course in Bhopal](https://www.netligent.com/our-courses/cyber-security-expert-course-in-bhopal/)
+- [Cloud Computing Course in Bhopal](https://www.netligent.com/our-courses/aws-training-in-bhopal/)
+- [Devops Course in Bhopal](https://www.netligent.com/our-courses/devops-training-in-bhopal/)
+
+
+## Key Topics
+
+IT training, web development, full-stack development, Python, Java, data analytics, data science, artificial intelligence, machine learning, cybersecurity, practical projects, student training, and career preparation.
+
+## Important Information
+
+Use the individual pages linked above as the primary source for detailed information about courses, services, projects, and the institute.

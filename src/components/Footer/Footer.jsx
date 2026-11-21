@@ -132,16 +132,22 @@ const Ic = {
 ══════════════════════════════════════ */
 const QUICK_LINKS = [
   {name : "Home", url : "/"},
-  {name : "About", url : "/about"},
-  {name : "Courses", url : "/our-courses"},
-  {name : "Career", url : "/career"},
-  {name : "Gallery", url : "/gallery"},
-  {name : "Contact", url : "/contact-us"},
+  {name : "About", url : "/about/"},
+  {name : "Courses", url : "/our-courses/"},
+  {name : "Netli Lab", url : "/netli-lab/"},
+  {name : "Gallery", url : "/gallery/"},
+  {name : "Contact", url : "/contact-us/"},
+]
+const POPULAR_COURSES = [
+  {name : "Data Science", url : "data-analytics-course-in-bhopal/"},
+  {name : "Data Analytics", url : "data-science-course-in-bhopal/"},
+  {name : `AI ${"\u0026"} ML`, url : "ai-ml-course-in-bhopal/"},
+  {name : "Web Development", url : "python-full-stack-developer-course-in-bhopal/"},
+  {name : "DevOps", url : "devops-training-in-bhopal/"},
+  {name : "Cloud Computing", url : "aws-training-in-bhopal/"},
+  {name : "Cyber Security", url : "cyber-security-course-in-bhopal/"},
 ]
 
-const POPULAR_COURSES = [
-  "Data Science", "Data Analytics", `AI ${"\u0026"} ML`, "Web Development", "DevOps", "Cloud Computing", "Cyber Security",
-];
 
 const STUDENT_SUPPORT = [
   "Placement Support","Mock Interviews","Resume Building",
@@ -151,11 +157,11 @@ const STUDENT_SUPPORT = [
 const CONTACT = [
   {
     Icon: Ic.MapPin,
-    text: "152, 3rd Floor, Saif Complex, Zone\u20131, MP Magar, Bhopal, Madhya Pradesh, India",
+    text: "152, 3rd Floor, Saif Complex, Zone\u20131, MP Nagar, Bhopal, Madhya Pradesh, India",
   },
   { Icon: Ic.Phone,  text: "+91 83495 30962"                  },
   { Icon: Ic.Mail,   text: "info\u0040netligent.com"               },
-  { Icon: Ic.Clock,  text: "Mon\u2013Sat: 10:00 AM\u20139:00 PM" },
+  { Icon: Ic.Clock,  text: "Mon\u2013Sat: 10:30 AM\u20138:30 PM" },
 ];
 
 /* ══════════════════════════════════════
@@ -266,7 +272,7 @@ export default function Footer() {
       <div className="ft-cta-wrap">
         <div className="ft-cta-bar">
           <p className="ft-cta-text">Ready to build your future with Netligent?</p>
-          <Link to="/contact-us">
+          <Link to="/contact-us/">
             <button className="ft-cta-btn">
             Get in Touch <Ic.ArrowRight />
           </button>
@@ -337,10 +343,10 @@ export default function Footer() {
           </div>
           <ul className="ft-links">
             {POPULAR_COURSES.map((item) => (
-              <li key={item}>
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  <Ic.ChevronRight /> {item}
-                </a>
+              <li key={item.name}>
+                <Link to={`/our-courses/${item.url}`}>
+                  <Ic.ChevronRight /> {item.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -391,7 +397,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="ft-gmb-link"
             >
-             View on Google &amp; Leave a Review
+             Google Map
             </Link>
           </div>
         </div>
@@ -414,9 +420,9 @@ export default function Footer() {
           {["Privacy Policy", `Terms ${"\u0026"}  Conditions`].map((lnk, i) => (
             <Link
               key={lnk}
-              to="#"
+              to="/"
               className="ft-bottom-link"
-              onClick={(e) => e.preventDefault()}
+              
               style={i === 0 ? { borderRight: "1px solid rgba(99,119,200,0.18)" } : {}}
             >
               {lnk}

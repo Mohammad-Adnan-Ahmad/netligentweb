@@ -423,7 +423,7 @@ export default function Hero() {
 
           {/* "Are You Ready?" — each word pops in */}
           <div className="hl-ready-wrap">
-            {["Are", "You", "Ready?"].map((word, i) => (
+            {["IT", "Training", "Institute",].map((word, i) => (
               <span
                 key={word}
                 className={`hl-ready-word${readyWords[i] ? " pop" : ""}`}
@@ -436,13 +436,13 @@ export default function Hero() {
 
           {/* Subtitle */}
           <div className={`hl-subtitle${showSubtitle ? " show" : ""}`}>
-            {"\u0027"}Where Learning Meets Real-World Skills{"\u0027"}
+            {"\u0027"}Build Skills for Tomorrow with Netligent{"\u0027"}
           </div>
           
            <p className="hl-seo-text">
-            Build job-ready technology skills with practical, industry-focused IT training in Bhopal.
-            Learn from experienced trainers, work on real-world projects and prepare for career
-            opportunities with our placement assistance.
+            Looking for a reliable IT Training Institute in Bhopal to start your technology career or upgrade your professional skills? Netligent Technologies offers practical, industry-oriented IT training programs designed for students, freshers and working professionals.
+            Whether you are beginning your IT journey, preparing for your first job or planning a career transition, find the right learning path with Netligent.
+
           </p>
 
           {/* Divider */}
@@ -512,7 +512,7 @@ export default function Hero() {
               className="orbit-center"
               style={{ width: CENTER_CIRC, height: CENTER_CIRC }}
             >
-              <img src="AI_logo2.png" alt="AI Powered Courses" className="AI_Logo" />
+              <img src="/AI_logo2.png" alt="AI Powered Courses" className="AI_Logo" />
              
               <div className={`orbit-center-label${isMobile ? " mobile" : ""}`}>
                 All courses

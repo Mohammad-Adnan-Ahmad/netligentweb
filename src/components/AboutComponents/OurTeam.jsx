@@ -5,7 +5,7 @@ import "../../CSS/About/OurTeam.css";
 ══════════════════════════════════════ */
 const TEAM = [
   {
-      photo: "Director.png",
+      photo: "/Director.png",
     name: "Mudassir Ahmed Hashmi",
     role: "Managing Director",
     role2: "Cloud, DevOps & Cyber Security Trainer",
@@ -14,7 +14,7 @@ const TEAM = [
 
   },
   {
-    photo: "Director2.png",
+    photo: "/Director2.png",
     name: "Anish Panicker",
     role: "Program Director",
     role2: "Cyber Security Expert",
@@ -22,7 +22,7 @@ const TEAM = [
     students: "5000+",
   },
   {
-    photo: "PD_Trainer.png",
+    photo: "/PD_Trainer.png",
     name: "Yousuf Ali Haqqani",
     role: "Soft Skills Specialist",
     role2: "PD Trainer",
@@ -30,7 +30,7 @@ const TEAM = [
     students: "6000+",
   },
   {
-    photo: "Manager.png",
+    photo: "/Manager.png",
     name: "Mohammad Adnan",
     role: "Center Manager",
     role2: "Web Development & Data Science Trainer",

@@ -8,10 +8,10 @@ import { Link, NavLink } from "react-router-dom";
 // ── Top-level nav links. Only "Courses" carries a dropdown; the rest are plain links ──
 const NAV_LINKS = [
   { label: "Home",     href: "/" },
-  { label: "About",    href: "/about" },
-  { label: "Courses",  href: "/our-courses" },
-  { label: "Career",   href: "/career" },
-  { label: "Gallery",  href: "/gallery" },
+  { label: "About",    href: "/about/" },
+  { label: "Courses",  href: "/our-courses/" },
+  { label: "Netli Lab",   href: "/netli-lab/" },
+  { label: "Gallery",  href: "/gallery/" },
 ];
 
 // ── Courses mega-menu: left column = category names, right column = flyout
@@ -32,11 +32,15 @@ export default function Navbar() {
           <nav className="navbar">
 
             <div className="brand">
+            <Link to="/">
+
                <img 
             src="/brand_logo.png" 
             alt="Netligent Technologies"
             className="brand-logo"
             />
+            </Link>
+              
             </div>
            
             <div className="divider" />
@@ -67,7 +71,7 @@ export default function Navbar() {
           </nav>
 
           {/* ── Box 2: Contact Us ── */}
-           <Link to='/contact-us'>
+           <Link to='/contact-us/'>
              <div className="cta-box">
               <button className="cta-btn">Contact Us</button>
           </div>
@@ -91,7 +95,7 @@ export default function Navbar() {
               )
             )}
 
-            <Link to='/contact-us'>
+            <Link to='/contact-us/'>
               <button className="mobile-cta">Contact Us</button>
             </Link>
             

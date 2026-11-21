@@ -116,7 +116,7 @@ export default function ContactHero() {
         <div className="ch2-right">
           {/* Person photo */}
             <img
-              src="Contact_Us_Girl.png"
+              src="/Contact_Us_Girl.png"
               alt="Friendly career counselor"
               className="ch2-photo"
             />

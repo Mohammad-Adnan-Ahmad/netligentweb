@@ -127,12 +127,12 @@ export default function HeroSection({backgroundURL,course, title, headline, desc
    style={{
     backgroundImage: `url(${backgroundURL})`}}>
       <div className="ch-nebula-l" />
-      <img src="/AI_Robot.png" className="ch-robot"/>
+      <img src="/AI_Robot.png" className="ch-robot" alt="AI_Robot"/>
 
       {/* ── Top bar ── */}
       <div className="ch-topbar">
         <nav className="ch-breadcrumb">
-          <Link to="#">Courses</Link>
+          <Link to="/our-courses/">Courses</Link>
           <span className="ch-breadcrumb-sep">›</span>
           <span className="ch-breadcrumb-cur">{course}</span>
         </nav>
@@ -221,7 +221,7 @@ export default function HeroSection({backgroundURL,course, title, headline, desc
 
           {/* CTA Buttons */}
           <div className="ch-btns">
-            <Link to="#enroll" className="ch-btn-enroll">
+            <Link to="/contact-us/" className="ch-btn-enroll">
               Enroll Now
             </Link>
             <button className="ch-btn-syllabus"

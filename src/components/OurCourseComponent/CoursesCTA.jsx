@@ -160,7 +160,7 @@ const handleCallClick = () => {
 
         {/* Right Column */}
         <div className="cta-right">
-            <img src="CTACourse.png" 
+            <img src="/CTACourse.png" 
                   alt="CTA Student"
                   className="cta-right-img"
                   />

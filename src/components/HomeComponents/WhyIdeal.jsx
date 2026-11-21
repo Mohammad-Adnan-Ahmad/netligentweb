@@ -7,34 +7,34 @@ import {MentorIcon, IconTrophy, CurriculumIcon, RocketIcon, ShieldCheckIcon, Gro
 const FEATURES_ROW1 = [
    {
     Icon: GroupIcon,
-    title: "Small Batches, Big Impact",
-    body: "Focused attention, better interaction and personalized mentorship.",
+    title: "Small Batch Sizes and Personal Attention",
+    body: "Get an interactive learning experience with opportunities to ask questions, discuss concepts and receive individual guidance.",
   },
   {
     Icon: MentorIcon,
-    title: "Industry Experts as Mentors",
-    body: "Learn from professionals with 20+ years of real-world industry experience.",
+    title: "Experienced Trainers and Mentors",
+    body: "Learn with guidance from experienced trainers who help simplify complex topics, resolve doubts and strengthen your technical foundation.",
   },
   {
     Icon: CurriculumIcon,
-    title: "Industry-Aligned Curriculum",
-    body: "Our courses are designed as per current industry trends and job requirements.",
+    title: "Industry-Relevant IT Courses",
+    body: "Learn technologies and tools used across modern IT environments. Our programs cover software development, data analytics, artificial intelligence, cybersecurity and cloud computing.",
   },
   {
     Icon: RocketIcon,
-    title: "Hands-on Learning That Sticks",
-    body: "Work on real projects, case studies & assignments to build practical expertise.",
+    title: "Hands-On Practical Training",
+    body: "Apply what you learn through practical assignments, exercises and real-world projects. Develop a better understanding of technical concepts by working with industry-relevant tools and technologies.",
   },
   {
     Icon: ShieldCheckIcon,
-    title: "Placement Support That Works",
-    body: "Resume building, mock interviews & strong hiring partner network.",
+    title: "Career and Placement Assistance",
+    body: "Prepare for professional opportunities through career guidance, resume development, interview preparation and placement assistance.",
   },
   
   {
     Icon: CertBadgeIcon,
-    title: "Recognized Certification",
-    body: "Earn industry-recognized certifications that boost your profile.",
+    title: "Certification and Skill Development",
+    body: "Strengthen your professional profile through course completion and relevant certification opportunities. Ask our counsellors about the certification details for your chosen program.",
   },
    {
     Icon: IconTrophy,
@@ -51,7 +51,7 @@ const FEATURES_ROW1 = [
 
 
 const BULLETS = [
-  "Industry-relevant curriculum designed by experts",
+  "Industry-Relevant IT Courses designed by experts",
   "Practical learning with real-world projects",
   "100% focus on skills, confidence & career growth",
 ];
@@ -128,11 +128,11 @@ export default function WhyIdeal() {
         
 
             {/* Title line 1 */}
-            <h2 className="wi-title">Why We're the</h2>
+            <h2 className="wi-title">Why Choose</h2>
 
             {/* Title line 2 + sparkle */}
             <div className="wi-title-row2">
-              <h2 className="wi-title-gradient">Ideal Option?</h2>
+              <h2 className="wi-title-gradient">Netligent</h2>
               <span className="wi-sparkle">✦</span>
             </div>
 
@@ -141,18 +141,15 @@ export default function WhyIdeal() {
 
             {/* Tagline */}
             <p className="wi-tagline">
-              Smart Training.{" "}
-              <span className="wi-tagline-blue">Real Skills.</span>{" "}
-              <span className="wi-tagline-purple">Great Careers.</span>
+              A Career-Focused{" "}
+              <span className="wi-tagline-blue">IT Training Institute </span>{" "}
+              <span className="wi-tagline-purple">in Bhopal</span>
             </p>
 
             {/* Body */}
             <p className="wi-body-text">
-              At Netligent Technologies, we specialize in smart IT training,
-              tailoring our approach to enhance your skills and facilitate
-              successful placement opportunities. It is a{" "}
-              <span className="wi-body-link">Best IT Training
-              Institute for Web development, Cyber Security in Bhopal.</span>
+              Choosing the right training institute is an important step towards building a successful career in technology. At Netligent Technologies, we focus on helping learners understand concepts, develop practical skills and gain confidence through structured training.
+            
             </p>
 
             {/* Bullets */}

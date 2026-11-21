@@ -1,6 +1,7 @@
 
+import { Link } from "react-router-dom";
 import "../../CSS/PageNotFound.css";
-
+import { Head } from "vite-react-ssg";
 
 
 /* ══════════════════════════════════════
@@ -56,7 +57,18 @@ const Ic = {
 ══════════════════════════════════════ */
 export default function PageNotFound() {
   return (
-    <div className="nf-page">
+    <>
+    <Head>
+        <title>404 - Page Not Found | Netligent Technologies</title>
+
+        <meta
+          name="description"
+          content="The page you are looking for could not be found on Netligent Technologies."
+        />
+
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+         <div className="nf-page">
       {/* ════ HERO ROW ════ */}
       <div className="nf-hero">
 
@@ -92,12 +104,12 @@ export default function PageNotFound() {
 
           {/* Buttons */}
           <div className="nf-btns">
-            <a href="/" className="nf-btn-primary">
+            <Link to="/" className="nf-btn-primary">
               <Ic.Home /> Back to Home
-            </a>
-            <a href="#" className="nf-btn-secondary" onClick={e => e.preventDefault()}>
+            </Link>
+            <Link to="/our-courses/" className="nf-btn-secondary">
               <Ic.Compass /> Explore More
-            </a>
+            </Link>
           </div>
 
           {/* Help line */}
@@ -107,7 +119,7 @@ export default function PageNotFound() {
             </div>
             <p className="nf-help-text">
               Need Help?{" "}
-              <a href="#" className="contact-link" onClick={e => e.preventDefault()}>Contact</a>
+              <Link to="/contact-us/" className="contact-link">Contact</Link>
               {" "}our support team,<br />we're here for you!
             </p>
           </div>
@@ -135,5 +147,7 @@ export default function PageNotFound() {
       </div>
 
     </div>
+    </>
+   
   );
 }

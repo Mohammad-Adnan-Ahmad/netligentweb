@@ -35,7 +35,7 @@ const CATEGORY_DATA = {
     courses: [
       {
         color: "green",
-        slug: "data-analytics-course-in-bhopal",
+        slug: "data-analytics-course-in-bhopal/",
         illus: LuChartNoAxesCombined,
         circleIcon: "AI",
         title: "Data Analytics",
@@ -68,8 +68,8 @@ const CATEGORY_DATA = {
       // },
       {
         color: "blue",
-        illus: DataSciIllus,
-        slug: "data-science-course-in-bhopal",
+        illus: DataSciIllus, 
+        slug: "data-science-course-in-bhopal/",
         circleIcon: "AI",
         title: "Data Science with GenAI",
         desc: "Analyze data and build intelligent models that make an impact.",
@@ -80,7 +80,7 @@ const CATEGORY_DATA = {
       {
         color: "green",
         illus: BrainIconIllus,
-        slug : 'ai-ml-course-in-bhopal',
+        slug : 'ai-ml-course-in-bhopal/',
         circleIcon: "AI",
         title: "AI & ML Fundamentals",
         desc: "Build intelligent systems that learn, adapt, and shape the future.",
@@ -151,7 +151,7 @@ const CATEGORY_DATA = {
       {
         color: "green",
         illus: CyberSecurityIcon,
-        slug : 'cyber-security-course-in-bhopal',
+        slug : 'cyber-security-course-in-bhopal/',
         circleIcon: "AI",
         title: "Professional Certificate in Cyber Security",
         desc: "Learn to protect systems, networks and data from cyber threats.",
@@ -162,7 +162,7 @@ const CATEGORY_DATA = {
       {
         color: "blue",
         illus: CyberIllus,
-        slug : 'cyber-security-expert-course-in-bhopal',
+        slug : 'cyber-security-expert-course-in-bhopal/',
         circleIcon: "AI",
         title: "Cyber Security Expert",
         desc: "Master Cyber Defense. Automate Security. Protect Modern Infrastructure.",
@@ -183,7 +183,7 @@ const CATEGORY_DATA = {
       {
         color: "green",
         illus: PythonIcon,
-        slug : 'python-full-stack-developer-course-in-bhopal',
+        slug : 'python-full-stack-developer-course-in-bhopal/',
         circleIcon: "AI",
         title: "Python Full Stack Web Development",
         desc: "From Beginner to Full Stack Developer. Build Modern Web Applications.",
@@ -194,7 +194,7 @@ const CATEGORY_DATA = {
        {
         color: "blue",
         illus: JavaIcon,
-        slug : 'java-full-stack-developer-course-in-bhopal',
+        slug : 'java-full-stack-developer-course-in-bhopal/',
         circleIcon: "AI",
         title: "Java Full Stack Web Development",
         desc: "Become an Enterprise Full Stack Developer. Code. Build. Deploy.",
@@ -205,7 +205,7 @@ const CATEGORY_DATA = {
       {
         color: "green",
         illus: FaLaptopCode,
-        slug : 'frontend-developer-course-in-bhopal',
+        slug : 'frontend-developer-course-in-bhopal/',
         circleIcon: "AI",
         title: "Front-End Development with AI",
         desc: "Design Beautiful Interfaces. Create Amazing User Experiences.",
@@ -216,7 +216,7 @@ const CATEGORY_DATA = {
           {
         color: "blue",
         illus: BackendIcon,
-        slug : 'backend-developer-course-in-bhopal',
+        slug : 'backend-developer-course-in-bhopal/',
         circleIcon: "AI",
         title: "Back-End Development with AI",
         desc: "Power the Web with Scalable Servers and APIs.",
@@ -237,7 +237,7 @@ const CATEGORY_DATA = {
       {
         color: "green",
         illus: TbCloudComputingFilled,
-        slug : 'aws-training-in-bhopal',
+        slug : 'aws-training-in-bhopal/',
         circleIcon: "AI",
         title: "Cloud Computing (AWS)",
         desc: "Build, deploy and manage scalable applications in the cloud.",
@@ -248,7 +248,7 @@ const CATEGORY_DATA = {
       {
         color: "blue",
         illus: DevOpsIllus,
-        slug : "devops-training-in-bhopal",
+        slug : "devops-training-in-bhopal/",
         circleIcon: "AI",
         title: "AWS DevOps",
         desc: "Deploy faster, scale smarter, and automate everything in the cloud.",

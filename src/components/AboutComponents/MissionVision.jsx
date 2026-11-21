@@ -2,6 +2,7 @@ import React from "react";
 import '../../CSS/About/MissionVision.css'
 import { FaRegHandshake } from "react-icons/fa6";
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { LuHandshake } from "react-icons/lu";
 
 
 function MissionVision() {
@@ -82,14 +83,15 @@ function MissionVision() {
             the tech world.
           </p>
 
-        <img src="mountain_neon_image.png"  className="mountain_neon_image" alt="Netligent Vision" />
+        <img src="/mountain_neon_image.png"  className="mountain_neon_image" alt="Netligent Vision" />
           
         </div>
 
          {/* PROMISE CARD */}
         <div className="vmp-card vmp-card-pink">
           <div className="vmp-icon-circle vmp-icon-pink">
-          <img src="/handshake.svg" alt="Glow Line" className="handshake"/>
+         
+          <LuHandshake/>
 
           </div>
           <h3 className="vmp-card-title">
@@ -183,7 +185,7 @@ function MissionVision() {
             achieve their goals.
           </p>
 
-        <img src="rocket_neon_image.png" className="rocket_neon_image" alt="Netligent Mission" />
+        <img src="/rocket_neon_image.png" className="rocket_neon_image" alt="Netligent Mission" />
         </div>
 
        

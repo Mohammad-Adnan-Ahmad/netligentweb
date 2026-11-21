@@ -22,12 +22,12 @@ const FEATURES = [
 
 /* ── Gallery cells — swap src with your own images anytime ── */
 const CELLS = [
-  { src: 'Lab1.jpeg', label: 'Netligent Infrastructure' },
-  { src: 'Lab2.jpg', label: 'Netligent Infrastructure' },
-  { src: 'Lab1_Front.jpg', label: 'Netligent Infrastructure' },
-  { src: 'Gallery.jpg', label: 'Netligent Infrastructure' },
-  { src: 'Lab2_Front.jpg', label: 'Netligent Infrastructure' },
-  { src: 'Gallery_Front.jpg', label: 'Netligent Infrastructure' },
+  { src: '/Lab1.jpeg', label: 'Netligent Infrastructure' },
+  { src: '/Lab2.jpg', label: 'Netligent Infrastructure' },
+  { src: '/Lab1_Front.jpg', label: 'Netligent Infrastructure' },
+  { src: '/Gallery.jpg', label: 'Netligent Infrastructure' },
+  { src: '/Lab2_Front.jpg', label: 'Netligent Infrastructure' },
+  { src: '/Gallery_Front.jpg', label: 'Netligent Infrastructure' },
 ];
 
 export default function Infrastructure() {
@@ -73,7 +73,7 @@ export default function Infrastructure() {
           {/* Hero cell — lobby / reception */}
           <div className="cell cell-hero">
             <img
-              src="Recption.jpg"
+              src="/Recption.jpg"
               alt="Netligent Infrastructure"
               loading="lazy"
             />

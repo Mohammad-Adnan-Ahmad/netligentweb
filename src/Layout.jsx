@@ -6,10 +6,13 @@ import CustomCursor from "./components/Others/CustomCursor";
 import SmoothScroll from "./components/Others/SmoothScroll";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
+import Loader from "./components/Loader/Loader";
 
 export default function Layout() {
   return (
     <>
+      {/* <Loader /> */}
+
       <ScrollToTop />
       <SmoothScroll />
       <CustomCursor />

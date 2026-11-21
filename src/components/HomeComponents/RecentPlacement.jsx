@@ -18,24 +18,64 @@ const students = [
   { id: 13, name: "Kuldeep Mourya", role: "Front-End Developer", companyLogoURL: "/FE_logo.webp", companyLogo: "flourishers", company: "Flourishers Edge", photo: "/Kuldeep.jpg" },
 ];
 
+/* Descriptive alt text for student photos */
+const photoAlt = (s) =>
+  `${s.name}, placed as ${s.role} at ${s.company} after IT training at Netligent Technologies, Bhopal`;
+
+/* ─── Structured data (built from the students array) ─── */
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Netligent Technologies Student Placements, Placed in Top IT Companies",
+  description:
+    "Recent placements of Netligent Technologies students in IT roles such as Network Engineer, Security Analyst, Python Developer and Full-Stack Developer.",
+  itemListElement: students.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Person",
+      name: s.name,
+      jobTitle: s.role,
+      worksFor: { "@type": "Organization", name: s.company },
+      alumniOf: { "@type": "EducationalOrganization", name: "Netligent Technologies" },
+    },
+  })),
+};
+
 /* ─── Helpers ─── */
-const CromaLogo = ({ small }) => (
-  <svg width={small ? 48 : 60} height={small ? 16 : 20} viewBox="0 0 60 20" fill="none">
-    <rect width="60" height="20" rx="3" fill="#1a1a2e" />
-    <text x="4" y="14" fontSize="10" fontWeight="bold" fill="#FF6B35" fontFamily="Arial">CROMA</text>
-    <text x="38" y="14" fontSize="8" fill="white" fontFamily="Arial">CAMPUS</text>
+/* Brand mark for the expanded card (replace with your real logo image if you have one) */
+const NetligentLogo = ({ small }) => (
+  <svg
+    width={small ? 96 : 120}
+    height={small ? 16 : 20}
+    viewBox="0 0 120 20"
+    fill="none"
+    role="img"
+    aria-label="Netligent Technologies"
+  >
+    <rect width="120" height="20" rx="3" fill="#1a1a2e" />
+    <text x="6" y="14" fontSize="10" fontWeight="bold" fill="#60b4ff" fontFamily="Arial">NETLIGENT</text>
+    <text x="68" y="14" fontSize="8" fill="white" fontFamily="Arial">TECHNOLOGIES</text>
   </svg>
 );
 
 const CheckIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
     <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
-const CompanyLogo = ({ type, size = "sm", logoURL }) => {
+const CompanyLogo = ({ company, size = "sm", logoURL, decorative = false }) => {
   if (logoURL) {
-    return <img src={logoURL} alt={type} className={`company-logo-img company-logo-img--${size}`} />;
+    return (
+      <img
+        src={logoURL}
+        alt={decorative ? "" : `${company} logo, hiring partner of Netligent Technologies`}
+        loading="lazy"
+        decoding="async"
+        className={`company-logo-img company-logo-img--${size}`}
+      />
+    );
   }
   return null;
 };
@@ -52,68 +92,90 @@ function ExpandedCard({ student, onClose }) {
         <span className="exp-card__sidebar-text">Congratulations!</span>
       </div>
       <div className="exp-card__body">
-        <div className="exp-card__topbar"><CromaLogo /></div>
+        <div className="exp-card__topbar"><NetligentLogo /></div>
         <div className="exp-card__hero">
           <div className="exp-card__hero-left">
             <div className="exp-card__got-placed">Got Placed</div>
             <div className="exp-card__name">
               {firstName}{lastName && <><br />{lastName}</>}
             </div>
-            <div className="exp-card__placed-label">PLACED AT:</div>
+            <div className="exp-card__placed-label">AT:</div>
             <div className="exp-card__company-logo">
-              <CompanyLogo type={student.companyLogo} size="lg" logoURL={student.companyLogoURL} />
+              <CompanyLogo company={student.company} size="lg" logoURL={student.companyLogoURL} />
             </div>
             <div className="exp-card__role-bar">
-              <span className="exp-card__role-label">Job Role:</span>
               <span className="exp-card__role-text">{student.role}</span>
             </div>
           </div>
           <div className="exp-card__hero-right">
-            <img className="exp-card__photo" src={student.photo} alt={student.name} />
+            <img
+              className="exp-card__photo"
+              src={student.photo}
+              alt={photoAlt(student)}
+              decoding="async"
+            />
           </div>
         </div>
         <div className="exp-card__desc">
           <p>
-            We are incredibly proud to announce the successful placement of{" "}
-            <span className="exp-card__hl">{student.name}</span> into the role of{" "}
+            Netligent Technologies is proud to announce the successful placement of{" "}
+            <span className="exp-card__hl">{student.name}</span> as{" "}
             <span className="exp-card__hl">{student.role}</span> at{" "}
-            <span className="exp-card__hl">{student.company}</span>.
+            <span className="exp-card__hl">{student.company}</span>, after completing
+            job-oriented IT training with our placement support team in Bhopal.
           </p>
-          <p className="exp-card__wish">We wish good luck for your bright future... 🎉🎊</p>
+          <p className="exp-card__wish">Congratulations, and best wishes for a bright career ahead! 🎉🎊</p>
         </div>
-        <button className="exp-card__close" onClick={onClose} aria-label="Close">✕</button>
+        <button className="exp-card__close" onClick={onClose} aria-label={`Close placement details of ${student.name}`}>✕</button>
       </div>
     </div>
   );
 }
 
 /* ─── Small Card ─── */
-function SmallCard({ student, onClick, isActive }) {
+function SmallCard({ student, onClick, isActive, isClone }) {
+  const handleKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick(e);
+    }
+  };
+
   return (
-    <div className={`sm-card ${isActive ? "sm-card--active" : ""}`} onClick={onClick}>
+    <div
+      className={`sm-card ${isActive ? "sm-card--active" : ""}`}
+      onClick={onClick}
+      role="button"
+      tabIndex={isClone ? -1 : 0}
+      onKeyDown={handleKey}
+      aria-label={`View placement details of ${student.name}, ${student.role} at ${student.company}`}
+    >
       <div className="sm-card__header">
         <CheckIcon />
-        <span>GOT PLACED</span>
       </div>
       <div className="sm-card__body">
-        <div className="sm-card__congrats">Congratulations</div>
         <div className="sm-card__photo-wrap">
-          <img className="sm-card__photo" src={student.photo} alt={student.name} />
+          <img
+            className="sm-card__photo"
+            src={student.photo}
+            alt={isClone ? "" : photoAlt(student)}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="sm-card__name">{student.name}</div>
         {student.companyLogoURL && (
           <div className="sm-card__logos-row">
-            <CompanyLogo type={student.companyLogo} logoURL={student.companyLogoURL} />
+            <CompanyLogo company={student.company} logoURL={student.companyLogoURL} decorative={isClone} />
           </div>
         )}
         {student.role && (
           <div className="sm-card__role-badge">
-            <div className="sm-card__role-label">Job Role:</div>
             <div className="sm-card__role-text">{student.role}</div>
           </div>
         )}
       </div>
-      <div className="sm-card__hint">Click to view details</div>
+      <div className="sm-card__hint">View placement story</div>
     </div>
   );
 }
@@ -124,7 +186,7 @@ function MarqueeSlider({ onCardClick, activeId }) {
   const tweenRef = useRef(null);
   const isPausedRef = useRef(false);
 
-  /* We duplicate cards so the loop feels truly infinite */
+  /* Duplicate cards so the loop feels truly infinite */
   const loopStudents = [...students, ...students, ...students];
 
   useEffect(() => {
@@ -169,24 +231,34 @@ function MarqueeSlider({ onCardClick, activeId }) {
       className="marquee-viewport"
       onMouseEnter={pauseSlider}
       onMouseLeave={resumeSlider}
+      role="region"
+      aria-label="Netligent Technologies recently placed students"
     >
-      {/* Edge fade masks */}
       <div className="marquee-fade marquee-fade--left"  aria-hidden="true" />
       <div className="marquee-fade marquee-fade--right" aria-hidden="true" />
 
       <div className="marquee-track" ref={trackRef}>
-        {loopStudents.map((student, idx) => (
-          <div className="marquee-item" key={`${student.id}-${idx}`}>
-            <SmallCard
-              student={student}
-              isActive={activeId === student.id}
-              onClick={(e) => {
-                e.stopPropagation();
-                onCardClick(student.id);
-              }}
-            />
-          </div>
-        ))}
+        {loopStudents.map((student, idx) => {
+          /* only the first set is "real" content; the other two are visual loop copies */
+          const isClone = idx >= students.length;
+          return (
+            <div
+              className="marquee-item"
+              key={`${student.id}-${idx}`}
+              aria-hidden={isClone ? "true" : undefined}
+            >
+              <SmallCard
+                student={student}
+                isClone={isClone}
+                isActive={activeId === student.id}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onCardClick(student.id);
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -198,19 +270,30 @@ export default function StudentPlaced() {
   const expandedStudent = students.find((s) => s.id === expandedId);
 
   return (
-    <div className="sp-page" onClick={() => setExpandedId(null)}>
+    <section
+      className="sp-page"
+      onClick={() => setExpandedId(null)}
+      aria-labelledby="student-placements-heading"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Header */}
       <div className="ps-label-wrap">
-        <span className="ps-label">PLACEMENTS</span>
+        <span className="ps-label">IT PLACEMENTS </span>
       </div>
-      <h2 className="ps-heading">
-        Our Students. Top Companies.
+      <h2 className="ps-heading" id="student-placements-heading">
+        Netligent Student Placements
         <br />
-        <span className="ps-heading-grad">Bright Futures.</span>
+        <span className="ps-heading-grad">Placed in Top IT Companies</span>
       </h2>
       <p className="ps-sub">
-        We take pride in the amazing careers our students build.
-        Here are some of our recent placements.
+        Netligent Technologies, a leading IT training and placement institute in Bhopal,
+        has helped students start careers as Network Engineers, Security Analysts, Python
+        Developers, Full-Stack Developers and more. Meet our recently placed students
+        and the companies that hired them.
       </p>
       <div className="ps-divider" />
 
@@ -231,20 +314,16 @@ export default function StudentPlaced() {
       />
 
       {/* Dot indicators */}
-      <div className="sp-dots" aria-hidden="true">
+      <div className="sp-dots">
         {students.map((s) => (
           <button
             key={s.id}
             className={`sp-dot ${expandedId === s.id ? "sp-dot--active" : ""}`}
             onClick={(e) => { e.stopPropagation(); setExpandedId((prev) => prev === s.id ? null : s.id); }}
-            aria-label={`View ${s.name}`}
+            aria-label={`View placement of ${s.name}`}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
-
-
-
-

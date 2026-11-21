@@ -93,7 +93,7 @@ const cards = [
     tag: "Our Location",
     desc: "Come say hello at our office!",
     pillIcon: <IconPin />,
-    pillText: "152, 3rd Floor, Saif Complex, Zone-1, MP Magar, Bhopal, Madhya Pradesh, India",
+    pillText: "152, 3rd Floor, Saif Complex, Zone-1, MP Nagar, Bhopal, Madhya Pradesh, India",
   },
 ];
 
@@ -103,7 +103,7 @@ const trustItems = [
     color: "purple",
     icon: <IconShield />,
     label: "Trusted by",
-    value: "10,000+",
+    value: "500+",
     sub: "Happy Learners",
   },
   {

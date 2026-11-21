@@ -1,0 +1,296 @@
+/* =========================================================
+   Netli Lab – "Learn Through Practical Projects" section
+   ========================================================= */
+
+.nl-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Barlow', sans-serif;
+  /* background:
+    radial-gradient(1100px 700px at 78% 55%, rgba(38, 76, 255, 0.55), transparent 65%),
+    radial-gradient(700px 500px at 5% 100%, rgba(80, 40, 200, 0.35), transparent 70%),
+    linear-gradient(135deg, #02061f 0%, #050d3d 45%, #0a1b78 100%); */
+  padding: 48px 5vw 56px;
+  box-sizing: border-box;
+  color: white;
+ 
+}
+
+/* ---------- Layout ---------- */
+.nl-container {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: stacenterrt;
+
+}
+.nl-right-img{
+  width: 48%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* =========================================================
+   LEFT COLUMN
+   ========================================================= */
+.nl-left {
+  position: relative;
+  z-index: 3;
+ 
+}
+
+
+
+/* Title */
+.nl-title {
+  font-size: clamp(26px, 3.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.22;
+  margin: 0 0 18px;
+  color: white;
+  letter-spacing: 0;
+
+}
+.nl-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+
+.nl-at {
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.nl-pill-inner{
+  background: linear-gradient(90deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+}
+
+/* Lead + description */
+.nl-lead {
+  margin: 0 0 18px;
+  font-size: clamp(18px, 1.55vw, 26px);
+  font-weight: 600;
+  line-height: 1.28;
+  color: #fff;
+  max-width: 40%;
+}
+.nl-desc {
+ color: #94a3b8;
+  font-size: 15.5px;
+  text-align: justify;
+  line-height: 1.75;
+  width: 45%;
+}
+
+
+/* Approach box */
+.nl-approach {
+  position: relative;
+  max-width: 60%;
+  margin-top: 44px;
+  margin-bottom: 30px;
+}
+.nl-approach-tag {
+  position: absolute;
+  top: -22px;
+  left: 20PX;
+  z-index: 2;
+  padding: 7px 24px 8px;
+  border-radius: 999px;
+  font-size: clamp(14px, 1.2vw, 20px);
+  font-weight: 700;
+  background: #0a1450;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#0a1450, #0a1450) padding-box,
+    linear-gradient(90deg, #a24bff, #3aa0ff 60%, #22d8ff) border-box;
+  box-shadow: 0 0 16px rgba(130, 90, 255, 0.4);
+  white-space: nowrap;
+}
+.nl-approach-list {
+  list-style: none;
+  margin: 0;
+  padding: 34px 6px 14px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 22px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(8, 20, 90, 0.9), rgba(6, 14, 70, 0.9)) padding-box,
+    linear-gradient(90deg, #7c4dff, #2f9bff 55%, #6a5bff) border-box;
+  box-shadow: 0 0 22px rgba(70, 110, 255, 0.45), inset 0 0 24px rgba(60, 100, 255, 0.18);
+}
+.nl-approach-item {
+  position: relative;
+  text-align: center;
+  padding: 0 6px;
+}
+.nl-approach-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(110, 150, 255, 0.7), transparent);
+}
+.nl-approach-icon {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4d9bff;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 8px rgba(60, 140, 255, 0.8));
+}
+.nl-ico {
+  width: 50px;
+  height: 50px;
+}
+.nl-approach-item p {
+  margin: 0;
+  font-size: clamp(11.5px, 0.95vw, 15px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+.nl-approach-item p span {
+  display: block;
+}
+
+/* CTA */
+.nl-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.nl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(16px, 1.35vw, 22px);
+  background: linear-gradient(90deg, #12d6ff 0%, #3a7bff 50%, #a24bff 100%);
+  box-shadow: 0 0 30px rgba(60, 140, 255, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.nl-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 44px rgba(90, 150, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.nl-rocket {
+  width: 36px;
+  height: 36px;
+}
+.nl-btn-arrow {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* =========================================================
+   RIGHT COLUMN  (visual stage)
+   ========================================================= */
+
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1200px) {
+  .nl-desc {
+    width: 40%;
+    line-height: 20px;
+   
+  }
+}   
+@media (max-width: 1023px) {
+  .nl-left {
+    padding-right: 0;
+  }
+   .nl-desc {
+    font-size: 14px;
+       width: 40%;
+    line-height: 20px;
+  }
+  .nl-approach{
+    max-width: 100%;
+
+  }
+  .nl-right-img{
+    top: 0px;
+  }
+ 
+  
+}
+
+@media (max-width: 639px) {
+  .nl-section {
+    padding: 32px 18px 44px;
+  }
+  .nl-lead {
+  max-width: 60%;
+}
+    .nl-desc {
+    width: 100% !important;
+    line-height: 20px;
+  }
+ 
+  .nl-approach-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 12px;
+    /* padding-top: 40px; */
+  }
+  .nl-approach-item:nth-child(2)::after {
+    display: none;
+  }
+  .nl-approach-tag {
+    white-space: normal;
+    border-radius: 22px;
+    font-size: 13px;
+    left: 8px;
+    right: 8px;
+    text-align: center;
+     padding: 7px 14px 7px;
+  }
+ 
+
+  .nl-btn {
+    padding: 14px 24px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+   .nl-right-img{
+    top: -35px;
+    width: 40%;
+  }
+}
+@media (max-width: 424px){
+   .nl-lead {
+  max-width: 100%;
+}
+}
+@media (max-width: 380px) {
+  .nl-title {
+    font-size: 22px;
+  }
+ 
+}
