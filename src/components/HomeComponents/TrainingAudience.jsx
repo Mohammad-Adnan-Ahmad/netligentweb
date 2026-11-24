@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "../../CSS/TrainingAudience.css";
+import { Link } from "react-router-dom";
 
 /* ── Outlined icons (same style as PersonalizedAttention) ── */
 const svgProps = {
@@ -266,8 +267,8 @@ export default function TrainingAudience() {
 
               <div className={`ta-cta${ctaOn ? " is-on" : ""}`}>
                 {/* swap for <Link to="/courses"> if you use react-router */}
-                <a
-                  href="/courses"
+                <Link
+                  to="our-courses/"
                   className="ta-cta-btn"
                   tabIndex={ctaOn ? 0 : -1}
                 >
@@ -285,7 +286,7 @@ export default function TrainingAudience() {
                     <circle cx="12" cy="12" r="9" />
                     <polygon points="15.5,8.5 13.5,13.5 8.5,15.5 10.5,10.5" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
