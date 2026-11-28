@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../../CSS/NetliLabSection.css";
 import { Link } from "react-router-dom";
 
 /* ---------- Small reusable icons ---------- */
-
-
 const IconCode = () => (
   <svg viewBox="0 0 64 64" className="nl-ico" aria-hidden="true">
     <rect x="10" y="10" width="44" height="30" rx="3" fill="none" stroke="currentColor" strokeWidth="3" />
@@ -14,7 +12,7 @@ const IconCode = () => (
 );
 
 const IconGear = () => (
-  <svg viewBox="0 0 64 64" className="nl-ico" aria-hidden="true">
+  <svg viewBox="0 0 64 64" className="nl-ico nl-ico--gear" aria-hidden="true">
     <path
       d="M27 5h10l2 8 5 2 7-4 7 7-4 7 2 5 8 2v10l-8 2-2 5 4 7-7 7-7-4-5 2-2 8H27l-2-8-5-2-7 4-7-7 4-7-2-5-8-2V27l8-2 2-5-4-7 7-7 7 4 5-2z"
       transform="translate(0 0) scale(.92) translate(2.5 2.5)"
@@ -48,8 +46,6 @@ const IconRocket = () => (
   </svg>
 );
 
-
-
 /* ---------- Data ---------- */
 const approach = [
   { icon: <IconCode />, label: ["Apply Programming", "Concepts to", "Practical Problems"] },
@@ -58,62 +54,116 @@ const approach = [
   { icon: <IconTrophy />, label: ["Develop", "Project Portfolios"] },
 ];
 
-
-
 /* ---------- Component ---------- */
 export default function NetliLabSection() {
-  return (
-    <section className="nl-section">
-      {/* background decorations */}
-      {/* <div className="nl-bg-glow nl-bg-glow--right" /> */}
-      {/* <div className="nl-bg-glow nl-bg-glow--left" /> */}
-      {/* <span className="nl-cube nl-cube--1" />
-      <span className="nl-cube nl-cube--2" />
-      <span className="nl-cube nl-cube--3" />
-      <span className="nl-cube nl-cube--4" />
-      <span className="nl-cube nl-cube--5" /> */}
- 
-      <div className="nl-container">
-<img src="NetliLab.png" alt="NetliLab" className="nl-right-img"/>
-        {/* ================= LEFT ================= */}
-       
-        <div className="nl-left">
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
 
+  /* Play the entrance sequence once, when ~25% of the section is visible */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  /* Soft mouse parallax for the right image (desktop / fine pointers only) */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+
+    let raf = 0;
+    const onMove = (e) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty("--px", x.toFixed(3));
+        el.style.setProperty("--py", y.toFixed(3));
+      });
+    };
+    const onLeave = () => {
+      el.style.setProperty("--px", 0);
+      el.style.setProperty("--py", 0);
+    };
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("mousemove", onMove);
+      el.removeEventListener("mouseleave", onLeave);
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} className={`nl-section ${inView ? "is-in" : ""}`}>
+      <div className="nl-container">
+        <div className="nl-right-wrap">
+          <img src="NetliLab.png" alt="NetliLab" className="nl-right-img" />
+        </div>
+
+        {/* ================= LEFT ================= */}
+        <div className="nl-left">
           <h2 className="nl-title">
-            <span className="nl-title-line">Learn Through </span>
             <span className="nl-title-line">
-              <span className="nl-grad-cyan">Practical</span>{" "}
-              <span className="nl-grad-purple">Projects</span>
+              <span className="nl-reveal" style={{ "--d": "0.05s" }}>Learn Through </span>
+            </span>
+            <span className="nl-title-line">
+              <span className="nl-reveal" style={{ "--d": "0.18s" }}>
+                <span className="nl-grad-cyan">Practical</span>{" "}
+                <span className="nl-grad-purple">Projects</span>
+              </span>
             </span>
             <span className="nl-title-line nl-title-at">
-              <span className="nl-at">at </span>
-              <span className="nl-pill">
-                <span className="nl-pill-inner">
-                  NETLIGENT 
+              <span className="nl-reveal" style={{ "--d": "0.31s" }}>
+                <span className="nl-at">at </span>
+                <span className="nl-pill">
+                  <span className="nl-pill-inner">NETLIGENT</span>
                 </span>
               </span>
             </span>
           </h2>
 
-          <p className="nl-lead">
+          <p className="nl-lead nl-fade" style={{ "--d": "0.55s" }}>
             Technical knowledge becomes more meaningful when you apply it to{" "}
             <span className="nl-cyan">practical challenges.</span>
           </p>
 
-          <p className="nl-desc">
+          <p className="nl-desc nl-fade" style={{ "--d": "0.7s" }}>
             At Netligent, project-based learning helps students understand how technologies work in
             real development and IT environments. Through practical
             assignments and project activities, learners can strengthen their problem-solving
             abilities and build confidence.
           </p>
 
-          <div className="nl-approach">
+          <div className="nl-approach nl-fade" style={{ "--d": "0.85s" }}>
             <div className="nl-approach-tag">
               Our Project-<span className="nl-cyan">Oriented</span> Approach Encourages Learners To:
             </div>
             <ul className="nl-approach-list">
               {approach.map((item, i) => (
-                <li className="nl-approach-item" key={i}>
+                <li
+                  className="nl-approach-item"
+                  key={i}
+                  style={{ "--i": i, "--d": `${1.05 + i * 0.12}s` }}
+                >
                   <div className="nl-approach-icon">{item.icon}</div>
                   <p>
                     {item.label.map((l, j) => (
@@ -125,7 +175,7 @@ export default function NetliLabSection() {
             </ul>
           </div>
 
-          <div className="nl-cta-row">
+          <div className="nl-cta-row nl-fade" style={{ "--d": "1.6s" }}>
             <Link to="/netli-lab/" className="nl-btn">
               <IconRocket />
               <span>Explore Student Projects</span>
@@ -133,10 +183,8 @@ export default function NetliLabSection() {
                 <path d="M9 5l7 7-7 7" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-           
           </div>
         </div>
-
       </div>
     </section>
   );

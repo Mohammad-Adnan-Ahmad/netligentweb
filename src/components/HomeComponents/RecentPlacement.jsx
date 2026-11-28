@@ -43,7 +43,6 @@ const structuredData = {
 };
 
 /* ─── Helpers ─── */
-/* Brand mark for the expanded card (replace with your real logo image if you have one) */
 const NetligentLogo = ({ small }) => (
   <svg
     width={small ? 96 : 120}
@@ -60,7 +59,7 @@ const NetligentLogo = ({ small }) => (
 );
 
 const CheckIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+  <svg className="sm-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
     <path d="M20 6L9 17l-5-5" />
   </svg>
 );
@@ -80,6 +79,32 @@ const CompanyLogo = ({ company, size = "sm", logoURL, decorative = false }) => {
   return null;
 };
 
+/* Play-once-when-visible hook */
+function useInView(threshold = 0.2) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
+
 /* ─── Expanded Card ─── */
 function ExpandedCard({ student, onClose }) {
   const nameParts = student.name.split(" ");
@@ -92,18 +117,18 @@ function ExpandedCard({ student, onClose }) {
         <span className="exp-card__sidebar-text">Congratulations!</span>
       </div>
       <div className="exp-card__body">
-        <div className="exp-card__topbar"><NetligentLogo /></div>
+        <div className="exp-card__topbar exp-in" style={{ "--d": "0.15s" }}><NetligentLogo /></div>
         <div className="exp-card__hero">
           <div className="exp-card__hero-left">
-            <div className="exp-card__got-placed">Got Placed</div>
-            <div className="exp-card__name">
+            <div className="exp-card__got-placed exp-in" style={{ "--d": "0.2s" }}>Got Placed</div>
+            <div className="exp-card__name exp-in" style={{ "--d": "0.28s" }}>
               {firstName}{lastName && <><br />{lastName}</>}
             </div>
-            <div className="exp-card__placed-label">AT:</div>
-            <div className="exp-card__company-logo">
+            <div className="exp-card__placed-label exp-in" style={{ "--d": "0.34s" }}>AT:</div>
+            <div className="exp-card__company-logo exp-in" style={{ "--d": "0.4s" }}>
               <CompanyLogo company={student.company} size="lg" logoURL={student.companyLogoURL} />
             </div>
-            <div className="exp-card__role-bar">
+            <div className="exp-card__role-bar exp-in" style={{ "--d": "0.48s" }}>
               <span className="exp-card__role-text">{student.role}</span>
             </div>
           </div>
@@ -116,7 +141,7 @@ function ExpandedCard({ student, onClose }) {
             />
           </div>
         </div>
-        <div className="exp-card__desc">
+        <div className="exp-card__desc exp-in" style={{ "--d": "0.6s" }}>
           <p>
             Netligent Technologies is proud to announce the successful placement of{" "}
             <span className="exp-card__hl">{student.name}</span> as{" "}
@@ -141,10 +166,29 @@ function SmallCard({ student, onClick, isActive, isClone }) {
     }
   };
 
+  /* 3D tilt + moving glare that follows the pointer */
+  const handleMove = (e) => {
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    el.style.setProperty("--ry", `${((x - 0.5) * 14).toFixed(2)}deg`);
+    el.style.setProperty("--rx", `${((0.5 - y) * 12).toFixed(2)}deg`);
+    el.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
+    el.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
+  };
+  const handleLeave = (e) => {
+    const el = e.currentTarget;
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
+  };
+
   return (
     <div
       className={`sm-card ${isActive ? "sm-card--active" : ""}`}
       onClick={onClick}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
       role="button"
       tabIndex={isClone ? -1 : 0}
       onKeyDown={handleKey}
@@ -181,10 +225,9 @@ function SmallCard({ student, onClick, isActive, isClone }) {
 }
 
 /* ─── Marquee Slider ─── */
-function MarqueeSlider({ onCardClick, activeId }) {
+function MarqueeSlider({ onCardClick, activeId, inView }) {
   const trackRef = useRef(null);
   const tweenRef = useRef(null);
-  const isPausedRef = useRef(false);
 
   /* Duplicate cards so the loop feels truly infinite */
   const loopStudents = [...students, ...students, ...students];
@@ -196,7 +239,6 @@ function MarqueeSlider({ onCardClick, activeId }) {
     const cardW  = 216; /* card width + gap */
     const totalW = cardW * students.length;
 
-    /* Start from the middle set so both directions work */
     gsap.set(track, { x: -totalW });
 
     tweenRef.current = gsap.to(track, {
@@ -212,19 +254,23 @@ function MarqueeSlider({ onCardClick, activeId }) {
     return () => tweenRef.current?.kill();
   }, []);
 
-  const pauseSlider = () => {
-    if (!isPausedRef.current) {
-      tweenRef.current?.pause();
-      isPausedRef.current = true;
-    }
-  };
+  /* On first reveal the track starts fast and settles into its calm pace */
+  useEffect(() => {
+    if (!inView || !tweenRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    gsap.fromTo(
+      tweenRef.current,
+      { timeScale: 9 },
+      { timeScale: 1, duration: 2.4, ease: "power3.out", overwrite: true }
+    );
+  }, [inView]);
 
-  const resumeSlider = () => {
-    if (isPausedRef.current) {
-      tweenRef.current?.resume();
-      isPausedRef.current = false;
-    }
-  };
+  /* Smooth brake / smooth restart instead of a hard pause */
+  const pauseSlider = () =>
+    gsap.to(tweenRef.current, { timeScale: 0, duration: 0.7, ease: "power2.out", overwrite: true });
+
+  const resumeSlider = () =>
+    gsap.to(tweenRef.current, { timeScale: 1, duration: 1.1, ease: "power2.inOut", overwrite: true });
 
   return (
     <div
@@ -239,7 +285,6 @@ function MarqueeSlider({ onCardClick, activeId }) {
 
       <div className="marquee-track" ref={trackRef}>
         {loopStudents.map((student, idx) => {
-          /* only the first set is "real" content; the other two are visual loop copies */
           const isClone = idx >= students.length;
           return (
             <div
@@ -266,12 +311,33 @@ function MarqueeSlider({ onCardClick, activeId }) {
 
 /* ─── Page Root ─── */
 export default function StudentPlaced() {
+  const [sectionRef, inView] = useInView(0.2);
   const [expandedId, setExpandedId] = useState(null);
-  const expandedStudent = students.find((s) => s.id === expandedId);
+
+  /* `shown` lags behind `expandedId` so the card can animate out before unmounting */
+  const [shown, setShown] = useState(null);
+  useEffect(() => {
+    if (expandedId !== null) {
+      setShown(expandedId);
+      return;
+    }
+    const t = setTimeout(() => setShown(null), 700);
+    return () => clearTimeout(t);
+  }, [expandedId]);
+
+  const shownStudent = students.find((s) => s.id === shown);
+
+  /* Esc closes the detail card */
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && setExpandedId(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <section
-      className="sp-page"
+      ref={sectionRef}
+      className={`sp-page ${inView ? "is-in" : ""}`}
       onClick={() => setExpandedId(null)}
       aria-labelledby="student-placements-heading"
     >
@@ -281,15 +347,18 @@ export default function StudentPlaced() {
       />
 
       {/* Header */}
-      <div className="ps-label-wrap">
+      <div className="ps-label-wrap ps-fade" style={{ "--d": "0s" }}>
         <span className="ps-label">IT PLACEMENTS </span>
       </div>
       <h2 className="ps-heading" id="student-placements-heading">
-        Netligent Student Placements
-        <br />
-        <span className="ps-heading-grad">Placed in Top IT Companies</span>
+        <span className="ps-line">
+          <span className="ps-reveal" style={{ "--d": "0.12s" }}>Netligent Student Placements</span>
+        </span>
+        <span className="ps-line">
+          <span className="ps-reveal ps-heading-grad" style={{ "--d": "0.26s" }}>Placed in Top IT Companies</span>
+        </span>
       </h2>
-      <p className="ps-sub">
+      <p className="ps-sub ps-fade" style={{ "--d": "0.45s" }}>
         Netligent Technologies, a leading IT training and placement institute in Bhopal,
         has helped students start careers as Network Engineers, Security Analysts, Python
         Developers, Full-Stack Developers and more. Meet our recently placed students
@@ -297,28 +366,37 @@ export default function StudentPlaced() {
       </p>
       <div className="ps-divider" />
 
-      {/* Expanded detail card */}
-      {expandedStudent && (
-        <div className="sp-expanded-wrap" onClick={(e) => e.stopPropagation()}>
-          <ExpandedCard
-            student={expandedStudent}
-            onClose={() => setExpandedId(null)}
-          />
+      {/* Expanded detail card: the shell grows open and closed smoothly */}
+      <div
+        className={`sp-expanded-shell ${expandedId !== null ? "is-open" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+        aria-hidden={expandedId === null}
+      >
+        <div className="sp-expanded-inner">
+          {shownStudent && (
+            <ExpandedCard
+              key={shownStudent.id}
+              student={shownStudent}
+              onClose={() => setExpandedId(null)}
+            />
+          )}
         </div>
-      )}
+      </div>
 
       {/* Infinite marquee */}
       <MarqueeSlider
+        inView={inView}
         onCardClick={(id) => setExpandedId((prev) => (prev === id ? null : id))}
         activeId={expandedId}
       />
 
       {/* Dot indicators */}
       <div className="sp-dots">
-        {students.map((s) => (
+        {students.map((s, i) => (
           <button
             key={s.id}
             className={`sp-dot ${expandedId === s.id ? "sp-dot--active" : ""}`}
+            style={{ "--i": i }}
             onClick={(e) => { e.stopPropagation(); setExpandedId((prev) => prev === s.id ? null : s.id); }}
             aria-label={`View placement of ${s.name}`}
           />
